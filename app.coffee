@@ -57,8 +57,8 @@ module.exports =
     # Roots Contentful
     # - See https://github.com/carrot/roots-contentful/
     roots_contentful
-      access_token: '4d4d0b62eddf02f5b48caa23ef7c04e42fa6f5ddb8e07d8ef71b52339ff9cfab'
-      space_id: 'u1rlvvbs33ri'
+      access_token: '6c404dda6824966de73ce325c809fe882a7b72d9bca7788fc11909ad06600936'
+      space_id: '1h0bn91992u7'
       
       content_types:
         
@@ -72,7 +72,6 @@ module.exports =
     use: [
       rupture()
     ]
-    # sourcemap: true
 
   # PostCSS
   postcss:
