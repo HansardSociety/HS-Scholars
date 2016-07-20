@@ -1,7 +1,31 @@
-header.header
-  .banner
-    img.banner__img.banner__img--header
+header.Hero
+  
+  //-- Image-
+  picture.Hero-img
+    
+    //-- Landscape --
+    source( media="(orientation: landscape)",
+            sizes="100vw",
+            srcset= entry.hero.fields.file.url + "?w=1600 1600w, " +
+                    entry.hero.fields.file.url + "?w=2400 2400w, " +
+                    entry.hero.fields.file.url + "?w=3200 3200w, " +
+                    entry.hero.fields.file.url + "?w=4000 4000w",
+            alt="Alt text" )
+    
+    //-- Portrait --
+    source( media="(orientation: portrait)",
+            sizes="100vw",
+            srcset= entry.hero.fields.file.url + "?fit=crop&w=450&h=800&f=center 1200w, " +
+                    entry.hero.fields.file.url + "?fit=crop&w=450&h=800&f=center 1600w, " +
+                    entry.hero.fields.file.url + "?fit=crop&w=450&h=800&f=center 2000w",
+            alt="Alt text" )
+    
+    //-- Fallback --
+    img( srcset= entry.hero.fields.file.url,
+         alt="Alt text" )
+  
+  //-- Strapline --
+  .Hero-strap
 
-  h1.header__title.header__title--page.icon-text( class="icon-text--#{"loc_title_icon"}" )= "loc_title"
-  p.header__byline= "loc_title_byline"
-  span.header__scroll.icon-block.icon-block--arrow-down
+    h1.Hero-strapTitle= entry.title
+    p.Hero-strapByline= entry.byline

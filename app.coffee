@@ -49,7 +49,6 @@ module.exports =
         'assets/js/velocity.ui.js',
         'assets/js/flickity.js',
         'assets/js/picturefill.js',
-        'assets/js/fitvids.js',
         'assets/js/custom.js'
       ]
       out: './js/main.js'
@@ -61,7 +60,17 @@ module.exports =
       space_id: '1h0bn91992u7'
       
       content_types:
-        
+
+        # Core
+        global:
+          id: 'global'
+
+        # Pages
+        page:
+          id: 'page'
+          template: 'views/_layouts/page.jade'
+          path: (e) -> "#{S(e.slug).slugify()}"
+
   ]
 
 # CSS
