@@ -4,9 +4,13 @@
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "coffee-script": "^1.0.0",
+    "contentful": "^3.3.5",
+    "css-mqpacker": "^4.0.1",
     "css-pipeline": "0.3.x",
     "flickity": "^1.2.1",
     "font-awesome": "^4.6.1",
+    "fs": "0.0.2",
+    "ionicons": "^3.0.0",
     "jade": "^1.0.0",
     "jquery": "^2.2.3",
     "js-pipeline": "0.2.x",
@@ -14,15 +18,12 @@
     "marked": "0.3.x",
     "moment": "^2.13.0",
     "picturefill": "^3.0.2",
+    "postcss": "^5.0.19",
     "postcss-normalize": "^0.2.0",
     "roots-contentful": "0.0.9",
     "rupture": "0.6.x",
+    "string": "^3.3.1",
     "stylus": "0.52.x",
-    "velocity-animate": "^1.2.3",
-    "contentful": "^3.3.5",
-    "css-mqpacker": "^4.0.1",
-    "fs": "0.0.2",
-    "postcss": "^5.0.19",
-    "string": "^3.3.1"
+    "velocity-animate": "^1.2.3"
   }
 }

@@ -12,7 +12,7 @@ header.Hero
                     entry.heroLandscape.fields.file.url + "?w=1920 1920w, " +
                     entry.heroLandscape.fields.file.url + "?w=2560 2560w, " +
                     entry.heroLandscape.fields.file.url + "?w=3840 3840w",
-            alt="Alt text" )
+            alt= entry.heroLandscape.fields.file.description )
     
     //-- Portrait --
     source( media="(orientation: portrait)",
@@ -22,14 +22,20 @@ header.Hero
                     entry.heroPortrait.fields.file.url + "?w=720 720w, " +
                     entry.heroPortrait.fields.file.url + "?w=1080 1080w, " +
                     entry.heroPortrait.fields.file.url + "?w=1440 1440w",
-            alt="Alt text" )
+            alt= entry.heroLandscape.fields.file.description )
     
     //-- Fallback --
     img( srcset= entry.heroLandscape.fields.file.url,
          alt= entry.heroLandscape.fields.file.description )
   
-  //-- Strapline --
+  //-- Strap --
   .Hero-strap
 
+    //-- Strap text --
     h1.Hero-strapTitle= entry.title
     p.Hero-strapByline= entry.byline
+
+    //-- Strap CTA --
+    a.Btn.Btn--secondary
+      i.Btn-icon.Icon
+      span.Btn-text Apply now!
