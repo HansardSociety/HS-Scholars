@@ -1,6 +1,7 @@
 /* Shared
 ========================================================================== */
 
+
 /* Main
 ========================================================================== */
 
@@ -33,21 +34,25 @@
     height 50vh
     max-width 22rem
     max-height 22rem
-
-    padding 1rem
     
     background-color copyOpaque
     border-radius 50%
         
-    &Title
-    &Byline
-      text-align center
-      color canvas
+    &Content
+      @extend .u-centerXY
       
-    &Title
-      font-size font-lg
+      width 100%
+      padding 1rem
+      
+      &Title
+      &Byline
+        text-align center
+        color canvas
+        
+      &Title
+        font-size font-lg
 
-      +above( md )
-        font-size font-xl
+        +above( md )
+          font-size font-xl
      
     
