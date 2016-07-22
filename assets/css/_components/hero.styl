@@ -29,29 +29,40 @@
   &-strap
     @extend .u-centerXY
     
-    width 50vh
-    height 50vh
-    max-width 22rem
-    max-height 22rem
+    width 50vh 
+    max-width 26rem
+    padding 2rem 1rem
+    
+    border-radius 2px
+    
+    +above( md )
+      padding 3rem 2rem
     
     background-color copyOpaque
-    border-radius 50%
         
     &Content
-      @extend .u-centerXY
-      
-      width 100%
-      padding 1rem
+      @extend .u-flexRowWrap
+      justify-content center
       
       &Title
       &Byline
         text-align center
         color canvas
         
+      &Byline
+      &CTA
+        margin-top 1rem
+        
       &Title
         font-size font-lg
 
         +above( md )
           font-size font-xl
+          
+      &Byline
+        font-size font-sm
      
+        +above( md )
+          font-size font-md
+          
     
