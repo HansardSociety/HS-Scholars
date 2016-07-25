@@ -23,8 +23,8 @@
 
       min-height 100%
       
-      opacity .8
-  
+      opacity .6
+        
   /* Strap */ 
   &-strap
     @extend .u-centerXY
@@ -64,5 +64,19 @@
      
         +above( md )
           font-size font-md
+          
+  &-arrow
+    @extend .u-centerX
+    
+    bottom 1rem
+    
+    color accent
+    font-size font-xl
+      
+    &::before
+      @extend .ion-chevron-down:before
+
+
+    
           
     

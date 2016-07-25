@@ -4,11 +4,20 @@
   ==================================================
 
 extends site
-    
+
 //--
   - Yielded block:
   - From site.jade
   ==================================================
 
 block site_body
-  .Container
+  
+  each $panel in entry.panels
+    
+    if $panel.sys.contentType.sys.id === "panelQuote"
+      +quote( $panel.fields.quote,
+              $panel.fields.alumnus.fields.name,
+              $panel.fields.alumnus.fields.university,
+              $panel.fields.alumnus.fields.semester,
+              $panel.fields.alumnus.fields.photo.fields.file.url,
+              $panel.fields.alumnus.fields.photo.fields.description )

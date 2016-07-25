@@ -1,0 +1,143 @@
+/* Shared
+========================================================================== */
+
+.Nav
+.Nav-offCanvas
+  position fixed
+  top 0
+
+
+/* Main
+========================================================================== */
+
+// html.is-noScroll
+//   overflow hidden
+//   margin-right 5rem
+
+.Nav
+  left 0
+
+  width 100%
+  height 4rem
+  
+  z-index 100
+  
+  transition ease all .2s
+  
+  /* Is scrolled */
+  
+  &.is-scrolled
+    background-color brand
+    
+    .Nav-logoImg
+      +above( md )
+        position relative
+        height 2.5rem
+        top 0
+
+  /* Logo */
+    
+  &-logo
+    @extend .u-centerY
+    
+    left 1rem
+    
+    height 2.5rem
+    
+    &Img
+      height 100%
+      
+      transition ease all .2s
+      
+      +above( md )
+        position absolute
+        height 6rem
+        top 1rem
+
+  /* Hamburger */
+    
+  &-hb
+    @extend .u-centerY
+
+    right 1rem
+    
+    width 26px
+    height 20px
+
+    cursor pointer
+    
+    z-index 102
+    
+    &Text
+      @extend .u-centerY
+      
+      right 2.25rem
+      text-transform uppercase
+      color canvas
+
+    > span
+      bottom 50%
+
+    > span
+    > span::before
+    > span::after
+      position absolute
+      content ""
+
+      display block
+
+      height 2px
+      width 100%
+      
+      background-color canvas
+      border-radius 1px
+      
+      transition all .1s ease-in-out
+    
+    > span::before
+      top -.5rem
+    > span::after
+      bottom -.5rem
+      
+    &.is-active
+
+      > span
+        background-color transparent
+          
+        &::before
+        &::after
+          top 0
+
+        &::before
+          transform rotate( 45deg )
+        &::after
+          transform rotate( -45deg )
+          
+  /* Off canvas */
+
+  &-offCanvas
+    right 0
+    bottom 0
+
+    width 20rem
+
+    padding-top 4rem
+
+    transform translateX( 100% )
+    transition .3s ease all
+
+    color canvas
+    background-color copy
+    box-shadow 0 1px 4px 0 rgba( 0,0,0,.37 )
+
+    z-index 101
+    overflow-y scroll
+
+    &.is-active
+      transform translateX(0)
+    
+    a
+      color inherit
+    
+    &-inner
+      min-height 125%

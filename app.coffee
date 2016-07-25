@@ -31,7 +31,13 @@ module.exports =
               'assets/data/**.json',
               '.gitignore',
               'ship.*conf',
-              'gh_modules'  ]
+              'gitrepos',
+              'gitrepos/**',
+              '.gitrepos',
+              '.todo',
+              '*.sublime-project',
+              'readme.*',
+              'license.*'  ]
 
   extensions: [
 
@@ -85,7 +91,7 @@ module.exports =
   # PostCSS
   postcss:
     use: [
-      normalize(),
+      # normalize(),
       autoprefixer({ browsers: ['last 2 versions'] }),
       mqpacker()
     ]
