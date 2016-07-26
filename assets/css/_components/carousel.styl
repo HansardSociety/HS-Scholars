@@ -1,0 +1,38 @@
+.Carousel
+  @extend .u-Panel
+  
+  background-color contrast
+  
+  padding-left 0
+  padding-right 0
+  
+  &-item
+    width 100%
+    max-width 26rem
+    
+    padding .5rem
+    +above( md )
+      padding 1rem
+        
+      
+
+/* Flickity styles
+========================================================================== */
+
+.flickity-prev-next-button
+  width 2rem
+  height 2rem
+  background accent
+  border-radius 2px
+  box-shadow shadow-accent
+  
+  &:hover
+    background darken( accent,10% )
+  
+  +below( sm )
+    width 1.5rem
+    height 1.5rem
+    top 10.4rem
+  
+.flickity-prev-next-button .arrow
+  fill canvas

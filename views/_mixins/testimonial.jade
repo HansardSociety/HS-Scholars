@@ -1,18 +1,15 @@
-mixin testimonial( $loop )
-  
-  //-- Pass in loop from entry --
-  each $testimonial in $loop
-    section.Testimonial
-      blockquote.Testimonial-quote
-        .Testimonial-quoteText
-          != markdown( $testimonial.fields.longQuote )
-        footer.Testimonial-quoteFooter
-          .Testimonial-quoteFooterPhoto
-            .Testimonial-quoteFooterPhotoCaption
-              h3= $testimonial.fields.name
-              p= $testimonial.fields.university + ", " + $testimonial.fields.semester
-            img( src= $testimonial.fields.photo.fields.file.url,
-                                              alt= $testimonial.fields.photo.fields.description )
-          .Testimonial-quoteFooterBiog
-            h4.Testimonial-quoteFooterBiogTitle= contentful.contentVars[0].testimonialsBiogTitle
-            p.Testimonial-quoteFooterBiogText= $testimonial.fields.biog
+mixin testimonial( $quote, $name, $university, $semester, $img, $imgAlt, $biog )
+  section.Testimonial
+    blockquote.Testimonial-quote
+      .Testimonial-quoteText
+        != markdown( $quote )
+      footer.Testimonial-quoteFooter
+        .Testimonial-quoteFooterPhoto
+          .Testimonial-quoteFooterPhotoCaption
+            h3= $name
+            p= $university + ", " + $semester
+          img( src= $img,
+               alt= $imgAlt )
+        .Testimonial-quoteFooterBiog
+          h4.Testimonial-quoteFooterBiogTitle= contentful.contentVars[0].testimonialsBiogTitle
+          p.Testimonial-quoteFooterBiogText= $biog

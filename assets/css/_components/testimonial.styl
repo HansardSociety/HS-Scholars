@@ -1,4 +1,20 @@
+/* Shared
+========================================================================== */
+
+.Testimonial-quoteText
+.Testimonial-quoteFooterBiog
+  padding .5rem
+  +above( md )
+    padding 1rem
+
+/* Main
+========================================================================== */
+
 .Testimonial
+  width 100%
+  max-width 26rem
+
+  background-color canvas
   border-radius 2px
   box-shadow shadow-copy
   
@@ -11,10 +27,16 @@
     
     &Text
       order 2
-      
-      padding .5rem
-            
       font-family font-display
+      
+      &::before
+        @extend .ion-quote:before
+        
+        float left
+        padding-right .75rem        
+        
+        font-size 3rem
+        color accent
     
     &Footer
       @extend .u-FlexRowWrap
@@ -47,4 +69,5 @@
       &Biog
         background-color muted
         padding .5rem
+
         font-size .75rem

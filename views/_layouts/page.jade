@@ -34,5 +34,21 @@ block site_body
     
     //-- Testimonials panel --
     if $panel.sys.contentType.sys.id === "panelTestimonials"
-      +testimonial( $panel.fields.alumni )
+      .Carousel
+
+        //-- Header --
+        +panelHeader( $panel.fields.titleIcon,
+                      $panel.fields.title,
+                      $panel.fields.byline )
+
+        //-- Testimonials --
+        each $testimonial in $panel.fields.alumni
+          .Carousel-item
+            +testimonial( $testimonial.fields.longQuote,
+                          $testimonial.fields.name,
+                          $testimonial.fields.university,
+                          $testimonial.fields.semester,
+                          $testimonial.fields.photo.fields.file.url,
+                          $testimonial.fields.photo.fields.description,
+                          $testimonial.fields.biog )
 

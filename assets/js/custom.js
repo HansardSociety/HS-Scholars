@@ -20,6 +20,18 @@ function toggleOffCanvas() {
   }
 }
 
+/* Flickity
+========================================================================== */
+
+$( '.Carousel' ).flickity({
+  cellAlign: 'center',
+  cellSelector: '.Carousel-item',
+  wrapAround: true,
+  contain: true,
+  pageDots: false,
+  initialIndex: 1
+});
+
 
 
 }); // End Doc Ready
