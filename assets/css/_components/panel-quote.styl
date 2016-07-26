@@ -1,49 +1,56 @@
 .PanelQuote
-  text-align center
+  @extend .u-Panel
   
-  &-text
-    margin-top 8rem
-
-    color default
+  &-content
+    @extend .u-Panel-narrow
     
-    font-family font-display
-    font-size font-xl
-    +above( md )
-      font-size 3rem
-
-    font-weight 700
+    text-align center
     
-    &::before
-      @extend .ion-quote:before
-      
-      color accent
-      padding-right 1rem
+    &Text
+      margin-top 6rem
 
-  &-footer
-    +below( md )
-      font-size font-xs
-    
-    &::before
-      @extend .u-centerX
+      color default
       
-      content ""
-      position relative
-      top 0
+      font-family font-display
+      font-size font-xl
+      +above( md )
+        font-size font-xxl
+
+      font-weight 700
       
-      padding-top .5rem
-      margin-top .5rem
+      &::before
+        @extend .ion-quote:before
+        
+        color accent
+        padding-right 1rem
+
+    &Footer
+      +below( md )
+        font-size font-xs
       
-      display block
-      width 6rem
-      
-      border-top 1px solid muted
-      
-    > img
-      @extend .u-centerX
-      
-      position absolute
-      top 3rem
-      
-      width 6rem
-      border-radius 50%
-      
+      &::before
+        @extend .u-CenterX
+        
+        content ""
+        position relative
+        top 0
+        
+        padding-top .5rem
+        margin-top .5rem
+        
+        display block
+        width 6rem
+        
+        border-top 1px solid muted
+        
+      > img
+        @extend .u-CenterX
+        
+        position absolute
+        top 3rem
+        +above( md )
+          top 4rem
+        
+        width 6rem
+        border-radius 50%
+        

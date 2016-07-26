@@ -1,0 +1,50 @@
+.Testimonial
+  border-radius 2px
+  box-shadow shadow-copy
+  
+  &-quote
+    @extend .u-FlexRowWrap
+    
+    &Text
+    &Footer
+      flex 0 100%
+    
+    &Text
+      order 2
+      
+      padding .5rem
+            
+      font-family font-display
+    
+    &Footer
+      @extend .u-FlexRowWrap
+      
+      order 1
+      
+      &Photo
+      &Biog
+        flex 0 100%
+        
+      &Photo
+        position relative
+        
+        &Caption
+          position absolute
+          bottom 0
+          
+          width 100%
+          padding .5rem
+          
+          font-size .75rem
+
+          background-color copyOpaque 
+          color canvas
+        
+        > img
+          width 100%
+          display block
+          
+      &Biog
+        background-color muted
+        padding .5rem
+        font-size .75rem

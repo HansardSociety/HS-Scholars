@@ -70,6 +70,8 @@ module.exports =
         # Core
         global:
           id: 'global'
+        contentVars:
+          id: 'contentVars'
 
         # Pages
         page:

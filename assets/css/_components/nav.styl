@@ -19,7 +19,7 @@
 
   width 100%
   height 4rem
-  
+
   z-index 100
   
   transition ease all .2s
@@ -28,6 +28,8 @@
   
   &.is-scrolled
     background-color brand
+    
+    box-shadow shadow-brand
     
     .Nav-logoImg
       +above( md )
@@ -38,7 +40,7 @@
   /* Logo */
     
   &-logo
-    @extend .u-centerY
+    @extend .u-CenterY
     
     left 1rem
     
@@ -57,7 +59,7 @@
   /* Hamburger */
     
   &-hb
-    @extend .u-centerY
+    @extend .u-CenterY
 
     right 1rem
     
@@ -69,7 +71,7 @@
     z-index 102
     
     &Text
-      @extend .u-centerY
+      @extend .u-CenterY
       
       right 2.25rem
       text-transform uppercase

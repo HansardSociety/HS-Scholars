@@ -1,30 +1,39 @@
 .PanelIcons
-  @extend .u-flexRowWrap
+  @extend .u-Panel
+  @extend .u-Panel--brand
   
-  &-box
-    flex 1
-    padding 1rem
+  &-content
+    @extend .u-Panel-wide
+    @extend .u-FlexRowWrap
     
-    &Img
-      position relative
+    justify-content center
+    
+    &Box
+      flex 1
       
-      margin 0 auto
-
-      width 7.5rem
-      height 7.5rem
-      
+      max-width 18.5rem
       padding 1rem
       
-      background-color canvasOpaque
-      border-radius 50%
-      
-      > Img
-        @extend .u-centerXY
+      &Img
+        @extend .u-MarginAuto
         
-        height 4rem
-        
-    &Content
-      @extend .u-marginTop
+        position relative
 
-      text-align center
+        width 7.5rem
+        height 7.5rem
+        
+        padding 1rem
+        
+        background-color canvasOpaque
+        border-radius 50%
+        
+        > Img
+          @extend .u-CenterXY
+          
+          height 4rem
+          
+      &Text
+        @extend .u-marginTop
+
+        text-align center
   

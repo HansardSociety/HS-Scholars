@@ -14,27 +14,25 @@ block site_body
   
   each $panel in entry.panels
     
-    .Panel( class= $panel.sys.contentType.sys.id === "panelIcons" ?
-                   "Panel--brand" :
-                   nul )
-      .Panel-content
+    //-- Quote panel --
+    if $panel.sys.contentType.sys.id === "panelQuote"
+      +panelQuote( $panel.fields.quote,
+                   $panel.fields.alumnus.fields.name,
+                   $panel.fields.alumnus.fields.university,
+                   $panel.fields.alumnus.fields.semester,
+                   $panel.fields.alumnus.fields.photo.fields.file.url,
+                   $panel.fields.alumnus.fields.photo.fields.description )
 
-        //-- Title and byline (all panels except icons panel) --
-        if $panel.sys.contentType.sys.id !== "panelQuote"
-          h2.Panel-contentTitle
-            span.InlineIcon( class= "InlineIcon--" + $panel.fields.titleIcon )
-            span= $panel.fields.title
-          p.Panel-contentByline= $panel.fields.byline
-        
-        //-- Quote panel --
-        if $panel.sys.contentType.sys.id === "panelQuote"
-          +panelQuote( $panel.fields.quote,
-                       $panel.fields.alumnus.fields.name,
-                       $panel.fields.alumnus.fields.university,
-                       $panel.fields.alumnus.fields.semester,
-                       $panel.fields.alumnus.fields.photo.fields.file.url,
-                       $panel.fields.alumnus.fields.photo.fields.description )
+    //-- Icons panel --
+    if $panel.sys.contentType.sys.id === "panelIcons"
+      
+      //-- Content --
+      +panelIcons( $panel.fields.icons,
+                   $panel.fields.titleIcon,
+                   $panel.fields.title,
+                   $panel.fields.byline )
+    
+    //-- Testimonials panel --
+    if $panel.sys.contentType.sys.id === "panelTestimonials"
+      +testimonial( $panel.fields.alumni )
 
-        //-- Icons panel --
-        if $panel.sys.contentType.sys.id === "panelIcons"
-          +panelIcons( $panel.fields.icons )

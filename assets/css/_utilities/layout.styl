@@ -1,14 +1,21 @@
-/* Shared
+/* Box model
 ========================================================================== */
+
+.u-marginTop
+  margin-top 1em
+.u-marginTopX2
+  margin-top 2em
+.u-MarginAuto
+  margin 0 auto
 
 /* Flexbox
 ========================================================================== */
 
-.u-flexRowWrap
+.u-FlexRowWrap
 .u-flexRowNowrap
 .u-flexColumn
   display flex
-.u-flexRowWrap
+.u-FlexRowWrap
   flex-flow row wrap
 .u-flexRowNowrap
   flex-flow row nowrap
@@ -19,29 +26,42 @@
 ========================================================================== */
 
 .u-container
+.u-Panel  
   position relative
-  padding 3rem 1rem
   
-/* Box model
-========================================================================== */
+  padding 3rem 1rem
+  +above( md )
+    padding 4rem 1rem
+    
+  background-color canvas
+  
+  &--brand
+    background-color brand
+    color canvas
 
-.u-marginTop
-  margin-top 1em
+  &-wide
+  &-narrow
+    @extend .u-MarginAuto
 
+  &-wide
+    max-width 80rem
+  &-narrow
+    max-width 40rem
+  
 /* Positioning
 ========================================================================== */
 
-.u-centerY
-.u-centerX
-.u-centerXY
+.u-CenterY
+.u-CenterX
+.u-CenterXY
   position absolute  
-.u-centerY
+.u-CenterY
   top 50%
   transform translateY( -50% )
-.u-centerX
+.u-CenterX
   left 50%
   transform translateX( -50% )
-.u-centerXY
+.u-CenterXY
   top 50%
   left 50%
   transform translate( -50%,-50% )

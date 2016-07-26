@@ -1,0 +1,6 @@
+mixin panelHeader( $icon, $title, $byline )
+  header.PanelHeader
+    h2.PanelHeader-title
+      span.InlineIcon( class= "InlineIcon--" + $icon )
+      span= $title
+    p.PanelHeader-byline= $byline
