@@ -1,0 +1,9 @@
+mixin panelQuote( $text, $name, $university, $semester, $img, $imgAlt )
+  blockquote.PanelQuote
+    p.PanelQuote-text= $text
+    footer.PanelQuote-footer
+      p= $name
+      p= $university
+      p= $semester
+      img( src= $img, alt= $imgAlt )
+

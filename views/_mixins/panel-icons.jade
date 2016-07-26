@@ -1,0 +1,11 @@
+mixin panelIcons( $loop )
+  .PanelIcons
+    
+    //-- Pass entry loop into mixin --
+    each $icon in $loop
+      .PanelIcons-box
+        .PanelIcons-boxImg
+          img( src= $icon.fields.image.fields.file.url, alt= $icon.fields.image.fields.description )
+        .PanelIcons-boxContent
+          h3.PanelIcons-boxContentTitle= $icon.fields.title
+          p.PanelIcons-boxContentByline= $icon.fields.description
