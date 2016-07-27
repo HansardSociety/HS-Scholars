@@ -29,7 +29,7 @@ $( '.Carousel' ).flickity({
   wrapAround: true,
   contain: true,
   pageDots: false,
-  initialIndex: 1
+  draggable: false
 });
 
 
