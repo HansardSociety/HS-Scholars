@@ -1,15 +1,18 @@
-mixin panelIcons( $loop, $headerIcon, $headerTitle, $headerByline )
+mixin panelIcons( $headerFields, $icons )
   .PanelIcons
     
-    //-- Header --
-    +panelHeader( $headerIcon,
-                  $headerTitle,
-                  $headerByline )
+    //--
+      - Block for panel header mixin.
+      - Nested mixin entry fields must derive from the parent mixin,
+      - hence the $headerFields variable, which is simply used to
+      - set variables for nested fields. 
+      --
+    block panelHeader
 
     .PanelIcons-content
       
       //-- Pass entry loop into mixin --
-      each $icon in $loop
+      each $icon in $icons
         .PanelIcons-contentBox
           .PanelIcons-contentBoxImg
             img( src= $icon.fields.image.fields.file.url,

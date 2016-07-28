@@ -1,0 +1,36 @@
+.PanelCarousel
+  @extend .u-Panel
+  
+  padding-left 0
+  padding-right 0
+  
+  background-color contrast
+  
+  &-carousel
+    @extend .u-Panel-wide
+    
+    position relative
+
+    &Item
+      width 100%
+      max-width 26rem
+      
+      padding 1rem
+      
+      height 100%
+
+      +above( md )
+        padding 1rem
+
+    /* Slick */
+    &ArrowPrev
+    &ArrowNext
+      position absolute
+      top 0
+      
+  .slick-track
+    display flex 
+
+    .slick-slide
+      display flex
+      height auto

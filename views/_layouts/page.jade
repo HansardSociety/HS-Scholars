@@ -26,29 +26,46 @@ block site_body
     //-- Icons panel --
     if $panel.sys.contentType.sys.id === "panelIcons"
       
-      //-- Content --
-      +panelIcons( $panel.fields.icons,
-                   $panel.fields.titleIcon,
-                   $panel.fields.title,
-                   $panel.fields.byline )
+      +panelIcons( $panel.fields,
+                   $panel.fields.icons )
+
+        //--
+          - Header:
+          - See the panel carousel mixin for an explanation of
+          - the $headerFields variable.
+          --
+        block panelHeader
+          +panelHeader( $headerFields.titleIcon,
+                        $headerFields.title,
+                        $headerFields.byline )
+
+
     
-    //-- Testimonials panel --
+    //-- Testimonials carousel --
     if $panel.sys.contentType.sys.id === "panelTestimonials"
-      .Carousel
+      +panelCarousel( $panel.fields,
+                      $panel.fields.alumni )
+        
+        //--
+          - Header:
+          - See the panel carousel mixin for an explanation of
+          - the $headerFields variable.
+          --
+        block panelHeader
+          +panelHeader( $headerFields.titleIcon,
+                        $headerFields.title,
+                        $headerFields.byline )
 
-        //-- Header --
-        +panelHeader( $panel.fields.titleIcon,
-                      $panel.fields.title,
-                      $panel.fields.byline )
-
-        //-- Testimonials --
-        each $testimonial in $panel.fields.alumni
-          .Carousel-item
-            +testimonial( $testimonial.fields.longQuote,
-                          $testimonial.fields.name,
-                          $testimonial.fields.university,
-                          $testimonial.fields.semester,
-                          $testimonial.fields.photo.fields.file.url,
-                          $testimonial.fields.photo.fields.description,
-                          $testimonial.fields.biog )
+        //--
+          - Carousel item:
+          - $item variable passed in from panelCarousel mixin.
+          --
+        block panelCarouselItem
+          +testimonial( $item.fields.longQuote,
+                        $item.fields.name,
+                        $item.fields.university,
+                        $item.fields.semester,
+                        $item.fields.photo.fields.file.url,
+                        $item.fields.photo.fields.description,
+                        $item.fields.biog )
 

@@ -22,21 +22,21 @@ normalize         = require 'postcss-normalize'
 module.exports =
   open_browser: false
 
-  ignores: [  'README.md',
-              'LICENSE.md',
-              '_*/**',
-              '**/_*',
-              '**/_*/**',
-              'assets/data',
-              'assets/data/**.json',
-              '.gitignore',
-              'ship.*conf',
-              'gitrepos',
-              'gitrepos/**',
-              '.gitrepos',
-              '.todo',
-              '*.sublime-project',
-              'readme.*',
+  ignores: [  'README.md'
+              'LICENSE.md'
+              '_*/**'
+              '**/_*'
+              '**/_*/**'
+              'assets/data'
+              'assets/data/**.json'
+              '.gitignore'
+              'ship.*conf'
+              'gitrepos'
+              'gitrepos/**'
+              '.gitrepos'
+              '.todo'
+              '*.sublime-project'
+              'readme.*'
               'license.*'  ]
 
   extensions: [
@@ -44,17 +44,17 @@ module.exports =
     css_pipeline
       files: [
         './assets/css/main.*'
-        './assets/css/_vendors/flickity.css'
+        './assets/css/_vendors/slick.css'
       ]
       postcss: true
 
     js_pipeline
       files: [
-        'assets/js/jquery.js',
-        'assets/js/velocity.js',
-        'assets/js/velocity.ui.js',
-        'assets/js/flickity.js',
-        'assets/js/picturefill.js',
+        'assets/js/jquery.js'
+        'assets/js/velocity.js'
+        'assets/js/velocity.ui.js'
+        'assets/js/slick.js'
+        'assets/js/picturefill.js'
         'assets/js/custom.js'
       ]
       out: './js/main.js'
@@ -122,10 +122,10 @@ module.exports =
   locals:
 
     # Generates function to render markdown from Contentful
-    # - See https://github.com/carrot/roots-contentful/issues/13
+    # https://github.com/carrot/roots-contentful/issues/13
     markdown: marked.setOptions({
         gfm: true,
         smartLists: true
       });
-
+    
     moment: moment
