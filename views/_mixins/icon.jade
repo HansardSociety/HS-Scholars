@@ -1,0 +1,8 @@
+mixin icon( $img, $imgAlt, $title, $byline )
+  .Icon
+    .Icon-img
+      img( src= $img,
+           alt= $imgAlt )
+    .Icon-text
+      h3.Icon-textTitle= $title
+      p.Icon-textByline= $byline

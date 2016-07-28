@@ -26,18 +26,19 @@ block site_body
     //-- Icons panel --
     if $panel.sys.contentType.sys.id === "panelIcons"
       
-      +panelIcons( $panel.fields,
-                   $panel.fields.icons )
+      +panel( "wide" )
+        +panelIcons( $panel.fields,
+                     $panel.fields.icons )
 
-        //--
-          - Header:
-          - See the panel carousel mixin for an explanation of
-          - the $headerFields variable.
-          --
-        block panelHeader
-          +panelHeader( $headerFields.titleIcon,
-                        $headerFields.title,
-                        $headerFields.byline )
+          //--
+            - Header:
+            - See the panel carousel mixin for an explanation of
+            - the $headerFields variable.
+            --
+          block panelHeader
+            +panelHeader( $headerFields.titleIcon,
+                          $headerFields.title,
+                          $headerFields.byline )
 
     //-- Testimonials carousel --
     if $panel.sys.contentType.sys.id === "panelTestimonials"
