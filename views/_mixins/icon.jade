@@ -1,8 +1,8 @@
-mixin icon( $img, $imgAlt, $title, $byline )
+mixin icon( $fields )
   .Icon
     .Icon-img
-      img( src= $img,
-           alt= $imgAlt )
+      img( src= $fields.image.fields.file.url
+           alt= $fields.image.fields.description )
     .Icon-text
-      h3.Icon-textTitle= $title
-      p.Icon-textByline= $byline
+      h3.Icon-textTitle= $fields.title
+      p.Icon-textByline= $fields.byline

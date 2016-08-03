@@ -1,6 +1,30 @@
-mixin panel( $bgColour, $width, $array )
+//--
+  - Panel mixin:
+  - vars = background colour, width and fields.
+  - The fields variable is used purely to pass
+  - JSON data into the mixin, since mixins are declared
+  - in config.jade, ie. before Contentful's entry fields are declared.
+  --
+mixin panel( $bgColour, $width, $fields, $contentType )
+  
   .Panel( class= $bgColour !== false ? "Panel--" + $bgColour : nul )
-    .Panel-content( class= "Panel-content--" + $width )
-        
-        each $item in $array
-          block panelContent
+
+    //--
+      - Include header only if the panel contains
+      - a title, title icon and byline.
+      --
+    if $fields.title && $fields.titleIcon && $fields.byline !== false
+      header.Panel-header
+        h2.Panel-headerTitle
+          span.InlineIcon( class= "InlineIcon--" + $fields.titleIcon )
+          span= $fields.title
+        p.Panel-headerByline= $fields.byline
+    
+    //-- Content --
+    if $contentType === "content"
+      .Panel-content( class= "Panel-content--" + $width )
+        block
+
+    if $contentType === "carousel"
+      .Panel-carousel
+        block

@@ -1,5 +1,5 @@
 .Panel
-  @extend .u-Panel
+  @extend .u-Container    
   
   background-color canvas
   
@@ -7,14 +7,35 @@
     background-color brand
     color canvas
   
+  /* Header */
+  &-header
+    margin-bottom 2rem
+    
+    &Title
+    &Byline
+      text-align center
+
+    &Title
+      font-size font-lg
+      
+      +above( md )
+        font-size font-xl
+
   /* Content */
   &-content
+    @extend .u-Container-content
     @extend .u-FlexRowWrap
+    
+    justify-content center
     
     /* Wide */
     &--wide
-      @extend .u-Panel-wide
+      @extend .u-Container-content--wide
     
     /* Narrow */
     &--narrow
-      @extend .u-Panel-narrow
+      @extend .u-Container-content--narrow
+      
+  /* Carousel */
+  &-carousel
+      

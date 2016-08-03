@@ -10,43 +10,49 @@ extends site
   - From site.jade
   ==================================================
 
-block site_body
+block siteBody
   
   each $panel in entry.panels
     
-    //-- Quote panel --
+    //--
+      - Quote panel
+      ==================================================
+    
     if $panel.sys.contentType.sys.id === "panelQuote"
-      //- +panelQuote( $panel.fields.quote,
-      //-              $panel.fields.alumnus.fields.name,
-      //-              $panel.fields.alumnus.fields.university,
-      //-              $panel.fields.alumnus.fields.semester,
-      //-              $panel.fields.alumnus.fields.photo.fields.file.url,
-      //-              $panel.fields.alumnus.fields.photo.fields.description )
 
-    //-- Icons panel --
-    if $panel.sys.contentType.sys.id === "panelIcons"
       
-      +panel( "brand", "wide", $panel.fields.icons )
+      //--
+        - 1. Background colour
+        - 2. Wide or narrow width
+        - 3. fields (IMPORTANT: see panel mixin for explanation)
+        --
+      +panel( false,
+              "narrow",
+              $panel.fields,
+              "content" )
 
         block panelContent
-          
-          +icon( $item.fields.image.fields.file.url,
-                 $item.fields.image.fields.description,
-                 $item.fields.title,
-                 $item.fields.byline )
+          +lgQuote( $panel.fields )
 
+    //--
+      - Icons panel
+      ==================================================
+
+    if $panel.sys.contentType.sys.id === "panelIcons"
       
-          //--
-            - Header:
-            - See the panel carousel mixin for an explanation of
-            - the $headerFields variable.
-            --
-          //- block panelHeader
-          //-   +panelHeader( $headerFields.titleIcon,
-          //-                 $headerFields.title,
-          //-                 $headerFields.byline )
+      +panel( "brand",
+              "wide",
+              $panel.fields,
+              "content" )
 
-    //-- Testimonials carousel --
+        block panelContent
+          each $icon in $panel.fields.icons
+            +icon( $icon.fields )
+
+    //--
+      - Testimonials carousel
+      ==================================================
+    
     if $panel.sys.contentType.sys.id === "panelTestimonials"
       +panelCarousel( $panel.fields,
                       $panel.fields.alumni )

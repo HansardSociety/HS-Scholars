@@ -26,6 +26,7 @@
 ========================================================================== */
 
 .u-container
+.u-Container
 .u-Panel  
   position relative
   
@@ -39,14 +40,13 @@
     background-color brand
     color canvas
 
-  &-wide
-  &-narrow
+  &-content
     @extend .u-MarginAuto
 
-  &-wide
-    max-width 80rem
-  &-narrow
-    max-width 40rem
+    &--wide
+      max-width 80rem
+    &--narrow
+      max-width 40rem
   
 /* Positioning
 ========================================================================== */

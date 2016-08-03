@@ -1,0 +1,9 @@
+mixin lgQuote( $fields )
+  blockquote.Quote
+    p.Quote-text= $fields.quote
+    footer.Quote-footer
+      p= $fields.alumnus.fields.name
+      p= $fields.alumnus.fields.university
+      p= $fields.alumnus.fields.semester
+      img( src= $fields.alumnus.fields.photo.fields.file.url + "?fit=crop&w=400&h=400&f=center",
+           alt= $fields.alumnus.fields.photo.fields.description )
