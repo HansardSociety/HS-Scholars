@@ -16,29 +16,35 @@ block site_body
     
     //-- Quote panel --
     if $panel.sys.contentType.sys.id === "panelQuote"
-      +panelQuote( $panel.fields.quote,
-                   $panel.fields.alumnus.fields.name,
-                   $panel.fields.alumnus.fields.university,
-                   $panel.fields.alumnus.fields.semester,
-                   $panel.fields.alumnus.fields.photo.fields.file.url,
-                   $panel.fields.alumnus.fields.photo.fields.description )
+      //- +panelQuote( $panel.fields.quote,
+      //-              $panel.fields.alumnus.fields.name,
+      //-              $panel.fields.alumnus.fields.university,
+      //-              $panel.fields.alumnus.fields.semester,
+      //-              $panel.fields.alumnus.fields.photo.fields.file.url,
+      //-              $panel.fields.alumnus.fields.photo.fields.description )
 
     //-- Icons panel --
     if $panel.sys.contentType.sys.id === "panelIcons"
       
-      +panel( "wide" )
-        +panelIcons( $panel.fields,
-                     $panel.fields.icons )
+      +panel( "brand", "wide", $panel.fields.icons )
 
+        block panelContent
+          
+          +icon( $item.fields.image.fields.file.url,
+                 $item.fields.image.fields.description,
+                 $item.fields.title,
+                 $item.fields.byline )
+
+      
           //--
             - Header:
             - See the panel carousel mixin for an explanation of
             - the $headerFields variable.
             --
-          block panelHeader
-            +panelHeader( $headerFields.titleIcon,
-                          $headerFields.title,
-                          $headerFields.byline )
+          //- block panelHeader
+          //-   +panelHeader( $headerFields.titleIcon,
+          //-                 $headerFields.title,
+          //-                 $headerFields.byline )
 
     //-- Testimonials carousel --
     if $panel.sys.contentType.sys.id === "panelTestimonials"

@@ -1,10 +1,20 @@
 .Panel
   @extend .u-Panel
+  
+  background-color canvas
+  
+  &--brand
+    background-color brand
+    color canvas
+  
+  /* Content */
   &-content
-
+    @extend .u-FlexRowWrap
+    
+    /* Wide */
     &--wide
       @extend .u-Panel-wide
+    
+    /* Narrow */
     &--narrow
       @extend .u-Panel-narrow
-      
-    

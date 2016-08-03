@@ -1,3 +1,6 @@
-mixin panel( $width )
-  .Panel
+mixin panel( $bgColour, $width, $array )
+  .Panel( class= $bgColour !== false ? "Panel--" + $bgColour : nul )
     .Panel-content( class= "Panel-content--" + $width )
+        
+        each $item in $array
+          block panelContent
