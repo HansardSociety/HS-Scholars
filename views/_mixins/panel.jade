@@ -5,15 +5,15 @@
   - JSON data into the mixin, since mixins are declared
   - in config.jade, ie. before Contentful's entry fields are declared.
   --
-mixin panel( $bgColour, $width, $fields, $contentType )
+mixin panel( $bgColour, $width, $fields, $contentType, $carouselArray )
   
-  .Panel( class= $bgColour !== false ? "Panel--" + $bgColour : nul )
+  .Panel( class= $bgColour != null ? "Panel--" + $bgColour : null )
 
     //--
       - Include header only if the panel contains
       - a title, title icon and byline.
       --
-    if $fields.title && $fields.titleIcon && $fields.byline !== false
+    if $fields.title && $fields.titleIcon && $fields.byline != null
       header.Panel-header
         h2.Panel-headerTitle
           span.InlineIcon( class= "InlineIcon--" + $fields.titleIcon )
@@ -24,7 +24,10 @@ mixin panel( $bgColour, $width, $fields, $contentType )
     if $contentType === "content"
       .Panel-content( class= "Panel-content--" + $width )
         block
-
-    if $contentType === "carousel"
+    
+    //-- Carousel --
+    if ( $contentType === "carousel" ) && ( $carouselArray != null )
       .Panel-carousel
-        block
+        each $item in $carouselArray
+          .Panel-carouselItem
+            block carouselItems

@@ -20,21 +20,12 @@ function toggleOffCanvas() {
   }
 }
 
-/* Flickity
+/* Slick carousel
 ========================================================================== */
 
-// $( '.Carousel' ).flickity({
-//   cellAlign: 'center',
-//   cellSelector: '.Carousel-item',
-//   wrapAround: true,
-//   contain: true,
-//   pageDots: false,
-//   draggable: false
-// });
-
-$('.PanelCarousel-carousel').slick({
+$('.Panel-carousel').slick({
   infinite: true,
-  slidesToShow: 1,
+  slidesToShow: 3,
   slidesToScroll: 1,
   mobileFirst: true,
   prevArrow: '<button type="button" class="PanelCarousel-carouselArrowPrev"></button>',

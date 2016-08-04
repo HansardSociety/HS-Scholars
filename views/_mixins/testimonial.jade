@@ -1,15 +1,15 @@
-mixin testimonial( $quote, $name, $university, $semester, $img, $imgAlt, $biog )
+mixin testimonial( $fields )
   section.Testimonial
     blockquote.Testimonial-quote
       .Testimonial-quoteText
-        != markdown( $quote )
+        != markdown( $fields.longQuote )
       footer.Testimonial-quoteFooter
         .Testimonial-quoteFooterPhoto
           .Testimonial-quoteFooterPhotoCaption
-            h3= $name
-            p= $university + ", " + $semester
-          img( src= $img,
-               alt= $imgAlt )
+            h3= $fields.name
+            p= $fields.university + ", " + $fields.semester
+          img( src= $fields.photo.fields.file.url,
+               alt= $fields.photo.fields.description )
         .Testimonial-quoteFooterBiog
           h4.Testimonial-quoteFooterBiogTitle= contentful.contentVars[0].testimonialsBiogTitle
-          p.Testimonial-quoteFooterBiogText= $biog
+          p.Testimonial-quoteFooterBiogText= $fields.biog

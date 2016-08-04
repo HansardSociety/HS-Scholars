@@ -22,17 +22,18 @@ block siteBody
 
       
       //--
-        - 1. Background colour
+        - 1. Background colour (brand, canvas, contrast or default ie. null)
         - 2. Wide or narrow width
-        - 3. fields (IMPORTANT: see panel mixin for explanation)
+        - 3. Contentful fields (IMPORTANT: see panel mixin for explanation)
+        - 4. Carousel object array (Contentful fields or null)
         --
-      +panel( false,
+      +panel( null,
               "narrow",
               $panel.fields,
-              "content" )
+              "content",
+              null )
 
-        block panelContent
-          +lgQuote( $panel.fields )
+        +lgQuote( $panel.fields )
 
     //--
       - Icons panel
@@ -43,40 +44,24 @@ block siteBody
       +panel( "brand",
               "wide",
               $panel.fields,
-              "content" )
+              "content",
+              null )
 
-        block panelContent
-          each $icon in $panel.fields.icons
-            +icon( $icon.fields )
+        each $icon in $panel.fields.icons
+          +icon( $icon.fields )
 
+    
     //--
       - Testimonials carousel
       ==================================================
-    
+
     if $panel.sys.contentType.sys.id === "panelTestimonials"
-      +panelCarousel( $panel.fields,
-                      $panel.fields.alumni )
-        
-        //--
-          - Header:
-          - See the panel carousel mixin for an explanation of
-          - the $headerFields variable.
-          --
-        block panelHeader
-          +panelHeader( $headerFields.titleIcon,
-                        $headerFields.title,
-                        $headerFields.byline )
 
-        //--
-          - Carousel item:
-          - $item variable passed in from panelCarousel mixin.
-          --
-        block panelCarouselItem
-          +testimonial( $item.fields.longQuote,
-                        $item.fields.name,
-                        $item.fields.university,
-                        $item.fields.semester,
-                        $item.fields.photo.fields.file.url,
-                        $item.fields.photo.fields.description,
-                        $item.fields.biog )
+      +panel( "contrast",
+              "wide",
+              $panel.fields,
+              "carousel",
+              $panel.fields.alumni )
 
+        block carouselItems
+          +testimonial( $item.fields )
