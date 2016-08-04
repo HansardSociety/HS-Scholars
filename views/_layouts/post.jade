@@ -1,0 +1,19 @@
+//--
+  - Global site layout
+  - Applied to all pages and posts.
+  ==================================================
+
+extends site
+
+//--
+  - Yielded block:
+  - From site.jade
+  ==================================================
+
+block siteBody
+  
+  .Post
+
+    //-- Content --
+    .Post-content
+      != markdown( entry.content )

@@ -78,7 +78,10 @@ module.exports =
           id: 'page'
           template: 'views/_layouts/page.jade'
           path: (e) -> "#{S(e.slug).slugify()}"
-
+        post:
+          id: 'post'
+          template: 'views/_layouts/post.jade'
+          path: (e) -> "blog/#{S(e.slug).slugify()}"
   ]
 
 # CSS

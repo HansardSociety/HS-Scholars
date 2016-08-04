@@ -37,10 +37,11 @@ header.Hero
       p.Hero-strapContentByline= entry.byline
 
       //-- Strap CTA --
-      .Hero-strapContentCTA
-        a.Btn.Btn--lg
-          i.Btn-icon.Btn-icon--apply
-          span.Btn-text Apply now
+      if entry._url === "/index.html"
+        .Hero-strapContentCTA
+          a.Btn.Btn--lg
+            i.Btn-icon.Btn-icon--apply
+            span.Btn-text Apply now
   
   //-- Arrow --
   .Hero-arrow
