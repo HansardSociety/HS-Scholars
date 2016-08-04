@@ -25,14 +25,25 @@ function toggleOffCanvas() {
 
 $('.Panel-carousel').slick({
   infinite: true,
-  slidesToShow: 3,
+  slidesToShow: 1,
   slidesToScroll: 1,
   mobileFirst: true,
-  prevArrow: '<button type="button" class="PanelCarousel-carouselArrowPrev"></button>',
-  nextArrow: '<button type="button" class="PanelCarousel-carouselArrowNext"></button>',
+  prevArrow: '<button type="button" class="Panel-carouselArrowPrev"></button>',
+  nextArrow: '<button type="button" class="Panel-carouselArrowNext"></button>',
   responsive: [
     {
-      breakpoint: 10,
+      breakpoint: 799,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 1199,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
     }
   ]
 });
