@@ -32,9 +32,16 @@ header.Hero
   .Hero-strap
 
     .Hero-strapContent
+      
       //-- Strap text --
       h1.Hero-strapContentTitle= entry.title
       p.Hero-strapContentByline= entry.byline
+
+      //-- Strap meta --
+      if entry._url.indexOf( "/blog/" ) > -1
+        .Hero-strapContentMeta
+          span.Hero-strapContentMetaAuthor= entry.author.fields.name
+          span.Hero-strapContentMetaDate=  moment( entry.date ).format( 'Do MMM YYYY' )
 
       //-- Strap CTA --
       if entry._url === "/index.html"

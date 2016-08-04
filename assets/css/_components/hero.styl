@@ -42,13 +42,12 @@
         
     &Content
       @extend .u-FlexRowWrap
+
       justify-content center
-      
-      &Title
-      &Byline
-        text-align center
-        color canvas
-        
+
+      text-align center
+      color canvas
+
       &Byline
       &CTA
         margin-top 1rem
@@ -64,6 +63,21 @@
      
         +above( md )
           font-size font-md
+          
+      &Meta
+        margin-top 1.5rem
+                
+        &Author
+          &::after
+            content " | "
+            padding 0 .5rem
+
+        &Author
+        &Date
+          font-size font-xs
+          text-transform uppercase
+          opacity .5
+          letter-spacing 0.125em
           
   &-arrow
     @extend .u-CenterX
