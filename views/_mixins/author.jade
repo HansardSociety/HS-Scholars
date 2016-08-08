@@ -1,0 +1,20 @@
+mixin profile( $fields )
+  .Author
+    
+    //-- Biog --
+    .Author-biog.is-closed
+      h2
+        span.Author-biogName= $fields.name
+        span.Author-biogRole= $fields.positionOrganisation
+      p.Author-biogAbout= $fields.blogBiog
+
+      .Author-biogExpand Open biog
+
+    //-- Meta --
+    .Author-meta
+      img.Author-metaImg( src= $fields.photo.fields.file.url,
+                          alt= $fields.photo.fields.description )
+      .Author-metaActions
+        
+        //-- Contact icons --
+        +contact( $fields )

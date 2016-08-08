@@ -20,6 +20,25 @@ function toggleOffCanvas() {
   }
 }
 
+/* Author expand
+========================================================================== */
+
+$( ".Author-biogExpand" ).click( function() {
+  
+  toggleState( ".Author-biog", "is-closed" );
+  $(this).hide();
+});
+
+function toggleState( container, state ) {
+  if ( $(container).hasClass( state ) ) {
+    // Close
+    $( $(container) ).removeClass( state );
+  } else {
+    // Open
+    $( $(container) ).addClass( state );
+  }
+}
+
 /* Slick carousel
 ========================================================================== */
 

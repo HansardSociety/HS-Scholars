@@ -13,6 +13,9 @@ extends site
 block siteBody
   
   .Post
+    
+    //-- Author --
+    +profile( entry.author.fields )
 
     //-- Content --
     .Post-content

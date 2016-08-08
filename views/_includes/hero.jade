@@ -37,7 +37,10 @@ header.Hero
       h1.Hero-strapContentTitle= entry.title
       p.Hero-strapContentByline= entry.byline
 
-      //-- Strap meta --
+      //--
+        - Strap meta:
+        - If a blog post, include time/ date and author.
+        --
       if entry._url.indexOf( "/blog/" ) > -1
         .Hero-strapContentMeta
           span.Hero-strapContentMetaAuthor= entry.author.fields.name

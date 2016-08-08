@@ -1,0 +1,24 @@
+.Contact
+  @extend .u-FlexRowNowrap  
+  
+  &-icon
+    position relative
+    width 2rem
+    height 2rem
+    background-color accent
+    color canvas
+    font-size font-md
+    border-radius 2px
+    
+    &::before
+      @extend .u-CenterXY
+    
+    + .Contact-icon
+      margin-left .25em
+    
+    &--twitter::before
+      @extend .ion-social-twitter:before
+    &--linkedIn::before
+      @extend .ion-social-linkedin:before
+    &--email::before
+      @extend .ion-at:before

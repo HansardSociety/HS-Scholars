@@ -1,25 +1,31 @@
 /* Box model
 ========================================================================== */
 
+/* Margins */
+.u-MarginTop
 .u-marginTop
   margin-top 1em
 .u-marginTopX2
   margin-top 2em
 .u-MarginAuto
   margin 0 auto
+  
+/* Borders */
+.u-BorderRadius2px
+  border-radius 2px
 
 /* Flexbox
 ========================================================================== */
 
 .u-FlexRowWrap
-.u-flexRowNowrap
-.u-flexColumn
+.u-FlexRowNowrap
+.u-FlexColumn
   display flex
 .u-FlexRowWrap
   flex-flow row wrap
-.u-flexRowNowrap
+.u-FlexRowNowrap
   flex-flow row nowrap
-.u-flexColumn
+.u-FlexColumn
   flex-flow column
 
 /* Containers
@@ -51,6 +57,7 @@
 /* Positioning
 ========================================================================== */
 
+/* Centre hack */
 .u-CenterY
 .u-CenterX
 .u-CenterXY
@@ -65,3 +72,17 @@
   top 50%
   left 50%
   transform translate( -50%,-50% )
+
+/* Absolute */  
+.u-PosAbsBL
+.u-PosAbsTL
+  position absolute
+  left 0
+.u-PosAbsBL
+  bottom 0
+.u-PosAbsTL
+  top 0
+  
+/* Relative */
+.u-PosRel
+  position relative

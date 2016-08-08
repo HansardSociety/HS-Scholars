@@ -126,9 +126,11 @@ module.exports =
 
     # Generates function to render markdown from Contentful
     # https://github.com/carrot/roots-contentful/issues/13
-    markdown: marked.setOptions({
+    markdown:
+      marked.setOptions({
         gfm: true,
-        smartLists: true
+        smartLists: true,
+        smartypants: false
       });
     
     moment: moment

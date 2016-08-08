@@ -51,7 +51,9 @@
   &-carousel
     @extend .u-Container-content--wide
     
-    margin-top 4rem
+    margin 4rem -1rem 0
+    +above( md )
+      margin 4rem 0 0
     
     &Item
       padding .5rem

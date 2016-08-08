@@ -1,0 +1,11 @@
+mixin contact( $fields )
+  .Contact
+    
+    if $fields.email
+      a.Contact-icon.Contact-icon--email( href= $fields.email )
+    
+    if $fields.twitter
+      a.Contact-icon.Contact-icon--twitter( href= $fields.twitter )
+    
+    if $fields.linkedIn
+      a.Contact-icon.Contact-icon--linkedIn( href= $fields.linkedIn )
