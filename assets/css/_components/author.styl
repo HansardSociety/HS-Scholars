@@ -1,25 +1,21 @@
-/* Shared
-========================================================================== */
-
-.Author-biog.is-closed
-.Author-biog.is-closed::before
-  height 12rem
-
-/* Main
-========================================================================== */
-
 .Author
   @extend .u-FlexRowWrap
   @extend .u-BorderRadius2px
   
   position relative
   
+  max-width 40rem
+
   margin 0 -.5rem
   padding 1rem .5rem
   
   background-color muted
   box-shadow shadow-copy
-  
+
+  +above( md )
+    margin 0 auto
+    padding 2rem 
+      
   /* Meta */
   &-meta
     @extend .u-FlexColumn
@@ -43,19 +39,25 @@
     order 2
     
     &.is-closed
-      overflow hidden
-
-      &::before
-        @extend .u-PosAbsBL
-
-        content ""
-        
-        display block
-        
-        width 100%
+    &.is-closed::before
+      +below( md )
         height 12rem
-        
-        background-image linear-gradient( to top, canvas, rgba( canvas,0  ) )
+    
+    &.is-closed
+      +below( md )
+        overflow hidden
+
+        &::before
+          @extend .u-PosAbsBL
+
+          content ""
+          
+          display block
+          
+          width 100%
+          height 12rem
+          
+          background-image linear-gradient( to top, muted 14%, transparent )
         
     &Name
     &Role
@@ -75,12 +77,17 @@
       @extend .u-BorderRadius2px
       
       bottom .5rem
-
-      width 95%
+      width calc( 100% - 1rem )
 
       padding .5rem
-      border 2px solid accent
+      border 2px solid brand
       
-      color accent
+      color brand
       font-weight 700
       text-align center
+      
+      cursor pointer
+      
+      +above( md )
+        display none
+                

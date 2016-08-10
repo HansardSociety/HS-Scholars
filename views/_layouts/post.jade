@@ -13,10 +13,20 @@ extends site
 block siteBody
   
   .Post
-    
-    //-- Author --
-    +profile( entry.author.fields )
 
     //-- Content --
     .Post-content
-      != markdown( entry.content )
+      
+      //-- Body --
+      .Post-contentBody
+        != markdown( entry.content )
+
+      //-- Aside --
+      .Post-contentAside
+    
+        //-- Author --
+        +author( entry.author.fields )
+
+      //-- Footer --
+      .Post-contentFooter
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
