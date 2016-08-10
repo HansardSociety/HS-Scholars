@@ -2,6 +2,12 @@
 	"folders":
 	[
 		{
+			"path": "assets"
+		},
+		{
+			"path": "views"
+		},
+		{
 			"path": "."
 		}
 	]

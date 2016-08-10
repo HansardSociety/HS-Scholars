@@ -4,17 +4,15 @@
   
   position relative
   
-  max-width 40rem
-
   margin 0 -.5rem
   padding 1rem .5rem
   
   background-color muted
-  box-shadow shadow-copy
+  // box-shadow shadow-copy
 
   +above( md )
     margin 0 auto
-    padding 2rem 
+    padding 1rem
       
   /* Meta */
   &-meta
@@ -38,13 +36,13 @@
     
     order 2
     
-    &.is-closed
-    &.is-closed::before
-      +below( md )
-        height 12rem
+    // font-style italic
     
     &.is-closed
-      +below( md )
+    &.is-closed::before
+      height 10rem
+    
+    &.is-closed
         overflow hidden
 
         &::before
@@ -55,7 +53,7 @@
           display block
           
           width 100%
-          height 12rem
+          height 10rem
           
           background-image linear-gradient( to top, muted 14%, transparent )
         
@@ -71,13 +69,15 @@
       
     &About
       @extend .u-MarginTop
-  
+      
+      font-size font-xs
+
     &Expand
       @extend .u-CenterX
       @extend .u-BorderRadius2px
       
-      bottom .5rem
-      width calc( 100% - 1rem )
+      bottom 1rem
+      width calc( 100% - 2rem )
 
       padding .5rem
       border 2px solid brand
@@ -88,6 +88,6 @@
       
       cursor pointer
       
-      +above( md )
-        display none
+      // +above( lg )
+      //   display none
                 

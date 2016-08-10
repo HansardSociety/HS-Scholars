@@ -23,7 +23,7 @@
 
       min-height 100%
       
-      opacity .6
+      opacity .3
         
   /* Strap */ 
   &-strap
@@ -31,15 +31,18 @@
     
     width calc( 100% - 2rem )
     max-width 28rem
-    padding 2rem 1rem
+    // padding 2rem 1rem
     
     border-radius 2px
+
+    // background-color copyOpaque
     
     +above( md )
       padding 3rem 2rem
     
-    background-color copyOpaque
-        
+    +below( md, orientation: landscape )
+      max-width 100%
+            
     &Content
       @extend .u-FlexRowWrap
 
@@ -60,9 +63,10 @@
           
       &Byline
         font-size font-sm
+        font-weight 700
      
-        +above( md )
-          font-size font-md
+        // +above( md )
+        //   font-size font-md
           
       &Meta
         margin-top 1.5rem

@@ -7,25 +7,33 @@
 
     display flex
     flex-flow row wrap
-
-    /* Footer */
-    &Footer
-      order 3
+    justify-content space-around
     
+    &Body
+    &Aside
+      margin-bottom 1rem
+
     /* Aside */
     &Aside
-      order 1
+      max-width 18rem
 
+      +above( md )
+        order 1
+        
+    /* Footer */
+    &Footer
+      max-width 18rem
+
+      +above( md )
+        order 3
+    
     /* Content */
     &Body
-      order 2
-
-      max-width 40rem      
-      margin-bottom 2rem
+      max-width 38rem
+      padding 0 2rem
       
-      padding 2rem 0
-
-      border-bottom 4px solid muted
+      +above( md )
+        order 2    
       
       /* Typography */
       > p
