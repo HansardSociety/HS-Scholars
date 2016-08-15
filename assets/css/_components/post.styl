@@ -11,29 +11,47 @@
     
     &Body
     &Aside
-      margin-bottom 1rem
+    &Footer
+      flex 0 0 100%
+  
+    &Body
+    &Aside
+      margin-bottom 2rem
+      
+    &Aside
+    &Footer
+      +above( xl )
+        flex 1
+
 
     /* Aside */
     &Aside
-      max-width 18rem
+      max-width 38rem
 
-      +above( md )
+      +above( xl )
         order 1
         
     /* Footer */
     &Footer
-      max-width 18rem
+      max-width 38rem
 
-      +above( md )
+      +above( xl )
         order 3
+        
+      &Title
+        @extend .u-MarginBottomFlow
+        
+        color brand
     
     /* Content */
     &Body
       max-width 38rem
-      padding 0 2rem
       
-      +above( md )
+      +above( xl )
         order 2    
+        flex 5
+
+        padding 0 2rem
       
       /* Typography */
       > p
@@ -44,7 +62,8 @@
       > h5
       > h6
       > blockquote
-        margin-bottom 1.125em
+        &:not( :last-child )
+          margin-bottom 1.125em
         
       > h1
       > h2

@@ -1,0 +1,12 @@
+mixin summary( $fields )
+  a( href= $fields._url ).Summary
+    article.Summary-content
+      section.Summary-contentBody
+        h1= $fields.title
+        != markdown( $fields.summary )
+      aside.Summary-contentAside
+        figure.Summary-contentAsideImg
+          img( src= $fields.heroLandscape.fields.file.url + "?w=600" )
+        .Summary-contentAsideMeta
+          span= $fields.author.fields.name
+          span= moment( $fields.dateTime ).format( 'Do MMM' )

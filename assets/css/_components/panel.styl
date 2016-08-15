@@ -52,13 +52,9 @@
     @extend .u-Container-content--wide
     
     margin 4rem -1rem 0
-    +above( md )
-      margin 4rem 0 0
     
     &Item
-      padding .5rem
-      +above( md )
-        padding 1rem
+      padding 1rem
       
       height 100%
 
@@ -77,11 +73,11 @@
     &ArrowPrev
       &::before
         @extend .ion-arrow-right-c:before
-        margin-right -1.5rem
+        margin-right -2rem
     &ArrowNext
       &::before
         @extend .ion-arrow-left-c:before
-        margin-left -1.5rem
+        margin-left -2rem
       
   .slick-track
     display flex 

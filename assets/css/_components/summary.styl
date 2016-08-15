@@ -1,0 +1,65 @@
+.Summary
+  margin-bottom 2rem
+
+  &:hover
+    img
+      transform scale( 1.1 )
+
+  &-content
+    @extend .u-FlexRowWrap
+    
+    align-items flex-start
+
+    &Aside
+      @extend .u-PosRel
+
+      order 1
+      
+      +above( md )
+        flex 1
+      
+      &Img
+        @extend .u-BorderRadius2px
+        @extend .u-OverflowHidden
+        
+        background-color copy
+        
+        > img
+          width 100%
+          
+          opacity .4
+          
+          transition ease all .2s
+          
+      &Meta
+        @extend .u-PosAbsBR
+        
+        padding .5rem
+        
+        color canvas
+        font-size font-xs
+        text-transform uppercase
+        text-align right
+        letter-spacing 0.125em
+
+        opacity .5
+        
+        > span
+          display block
+
+      
+    &Body
+      @extend .u-MarginTop
+      
+      order 2
+
+      +above( md )
+        flex 2.5
+        
+        margin 0 1rem 0
+      
+      > h1
+        font-size font-sm
+
+      > p
+        color copy

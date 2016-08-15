@@ -44,7 +44,7 @@ header.Hero
       if entry._url.indexOf( "/blog/" ) > -1
         .Hero-strapContentMeta
           span.Hero-strapContentMetaAuthor= entry.author.fields.name
-          span.Hero-strapContentMetaDate=  moment( entry.date ).format( 'Do MMM YYYY' )
+          span.Hero-strapContentMetaDate=  moment( entry.dateTime ).format( 'Do MMM YYYY' )
 
       //-- Strap CTA --
       if entry._url === "/index.html"

@@ -1,0 +1,59 @@
+/* Shared
+========================================================================== */
+
+.Snippet-contentHeaderTitle
+.Snippet-contentHeaderMeta > span
+.Snippet-contentByline
+  padding 1rem
+
+
+/* Main
+========================================================================== */
+
+.Snippet
+  @extend .u-BorderRadius2px
+  @extend .u-OverflowHidden
+
+  display block
+    
+  &:hover
+    img
+      transform scale( 1.1 )
+
+  &-content
+    &Header
+      position relative
+      color canvas
+      
+      &Title
+        position absolute
+        bottom 0
+        
+        z-index 1
+
+      &Meta
+        @extend .u-OverflowHidden
+        
+        &Img
+          background-color copy
+          
+          > img
+            width 100%
+            
+            opacity .4
+            transition ease all .2s
+            
+        > span
+          position absolute
+          top 0
+          right 0
+          
+          font-size font-xs
+          text-transform uppercase
+          opacity .5
+    
+    &Byline
+      font-size font-xs
+      color copy
+      background-color muted
+        

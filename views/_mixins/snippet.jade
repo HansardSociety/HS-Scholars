@@ -1,0 +1,11 @@
+mixin snippet( $fields )
+  a( href= $fields._url ).Snippet
+    article.Snippet-content
+      header.Snippet-contentHeader
+        h1.Snippet-contentHeaderTitle= $fields.title
+        .Snippet-contentHeaderMeta
+          figure.Snippet-contentHeaderMetaImg
+            img( src= $fields.heroLandscape.fields.file.url + "?w=600" )
+          span= moment( $fields.dateTime ).format( 'Do MMM' )
+      section.Snippet-contentByline
+        p= $fields.byline

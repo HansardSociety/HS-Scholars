@@ -4,16 +4,12 @@
   
   position relative
   
-  margin 0 -.5rem
-  padding 1rem .5rem
+  padding 1rem
   
   background-color muted
-  // box-shadow shadow-copy
+  
+  overflow hidden
 
-  +above( md )
-    margin 0 auto
-    padding 1rem
-      
   /* Meta */
   &-meta
     @extend .u-FlexColumn
@@ -35,8 +31,6 @@
     @extend .u-MarginTop
     
     order 2
-    
-    // font-style italic
     
     &.is-closed
     &.is-closed::before
