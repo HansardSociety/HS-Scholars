@@ -1,5 +1,14 @@
 .Panel
-  @extend .u-Container    
+  @extend .u-Container
+  @extend .u-FlexRowWrap
+  
+  /**
+   * Flex ensures carousel centred as auto
+   * margin not applied due to left/right -1rem
+   * which accounts for additional 1rem padding between
+   * carousel items. See below.
+   */
+  justify-content space-around 
   
   background-color canvas
   
@@ -16,6 +25,8 @@
   /* Header */
   &-header
     margin-bottom 2rem
+    
+    min-width 100%
     
     &Title
     &Byline

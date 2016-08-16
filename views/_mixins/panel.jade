@@ -24,6 +24,12 @@ mixin panel( $bgColour, $width, $fields, $contentType, $carouselArray )
     if $contentType === "content"
       .Panel-content( class= "Panel-content--" + $width )
         block
+
+        if $fields.cta && $fields.ctaURL
+
+          //-- Link to blog --
+          a.More( href= "/" + $fields.ctaURL,
+                  title= _str.capitalize( $fields.ctaURL ).replace( "-", " " ) )= $fields.cta
     
     //-- Carousel --
     if ( $contentType === "carousel" ) && ( $carouselArray != null )
@@ -31,3 +37,11 @@ mixin panel( $bgColour, $width, $fields, $contentType, $carouselArray )
         each $item in $carouselArray
           .Panel-carouselItem
             block carouselItems
+
+        if $fields.cta && $fields.ctaURL
+
+          //-- Link to blog --
+          a.More( href= "/" + $fields.ctaURL,
+                  title= _str.capitalize( $fields.ctaURL ).replace( "-", " " ) )= $fields.cta
+
+

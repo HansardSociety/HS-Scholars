@@ -29,8 +29,12 @@
           
           opacity .4
           
-          transition ease all .2s
+          transition ease all .4s
           
+          /* Fixes 1px transition jump in chrome */
+          -webkit-backface-visibility hidden
+          -webkit-transform translateZ(0) scale(1.0, 1.0)
+                  
       &Meta
         @extend .u-PosAbsBR
         
@@ -60,6 +64,7 @@
       
       > h1
         font-size font-sm
+        margin-bottom .125em
 
       > p
         color copy

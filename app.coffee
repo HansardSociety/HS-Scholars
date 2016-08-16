@@ -9,6 +9,9 @@ marked            = require 'marked'
 moment            = require 'moment'
 roots_contentful  = require 'roots-contentful'
 rupture           = require 'rupture'
+
+_str              = require 'underscore.string'
+
 S                 = require 'string'
 
 # PostCSS
@@ -134,3 +137,5 @@ module.exports =
       });
     
     moment: moment
+
+    _str: _str

@@ -67,7 +67,7 @@ block siteBody
           +testimonial( $item.fields )
 
     //--
-      - Testimonials carousel
+      - Blog panel
       ==================================================
 
     if $panel.sys.contentType.sys.id === "panelPosts"
@@ -81,6 +81,3 @@ block siteBody
         //-- Blog snippets --
         each $summary in contentful.post.slice( 0,2 )
           +summary( $summary )
-
-        //-- Link to blog --
-        a( href="/blog", title="Westminster Calling Blog" ) More from the blog >>

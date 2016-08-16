@@ -1,0 +1,23 @@
+mixin block( $fields )
+  section.Block
+
+    //-- Header --
+    header.Block-header
+
+      //-- Intro --
+      section.Block-headerIntro
+        h1= $fields.title
+        p= $fields.intro
+
+      //-- Aside --
+      aside.Block-headerAside
+
+    //-- Content --
+    .Block-content
+
+      //-- Body --
+      section.Block-contentBody
+
+      //-- Aside --
+      aside.Block-contentAside
+
