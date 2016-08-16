@@ -4,20 +4,28 @@ mixin block( $fields )
     //-- Header --
     header.Block-header
 
-      //-- Intro --
-      section.Block-headerIntro
-        h1= $fields.title
-        p= $fields.intro
-
-      //-- Aside --
+      //-- Header text --
+      section.Block-headerText
+        h2= $fields.title
+        p= $fields.introText
+      
+      //--
+        - Header aside:
+        - Yield block for assets/ content specified
+        - in Contentful - eg. quote, icon etc.
+        --
       aside.Block-headerAside
+        block blockHeaderAside
+    
+    //--
+      - Expandable content:
+      - Opened by button in header text above.
+      --
+    .Block-expand
 
-    //-- Content --
-    .Block-content
+      //-- Content --
+      section.Block-expandContent
+        block blockContent
 
-      //-- Body --
-      section.Block-contentBody
-
-      //-- Aside --
-      aside.Block-contentAside
-
+      //-- Footer --
+      footer.Block-expandFooter

@@ -15,6 +15,20 @@ block siteBody
   each $panel in entry.panels
     
     //--
+      - Blocks
+      ==================================================
+    
+    if $panel.sys.contentType.sys.id === "block"
+
+      +block( $panel.fields )
+        
+        block blockHeaderAside
+          //-- =HERE --
+
+        block blockContent
+          h1 Content
+
+    //--
       - Quote panel
       ==================================================
     
