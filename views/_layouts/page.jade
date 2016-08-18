@@ -22,11 +22,11 @@ block siteBody
 
       +block( $panel.fields )
         
-        block blockHeaderAside
-          //-- =HERE --
+        //- block blockHeaderAside
+        //-   //-- =HERE --
 
-        block blockContent
-          h1 Content
+        //- block blockContent
+        //-   h1 Content
 
     //--
       - Quote panel
@@ -47,7 +47,7 @@ block siteBody
               "content",
               null )
 
-        +lgQuote( $panel.fields )
+        +lgQuote( $panel.fields.alumnus.fields )
 
     //--
       - Icons panel

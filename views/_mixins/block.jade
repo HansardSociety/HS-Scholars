@@ -4,18 +4,23 @@ mixin block( $fields )
     //-- Header --
     header.Block-header
 
-      //-- Header text --
-      section.Block-headerText
-        h2= $fields.title
-        p= $fields.introText
-      
-      //--
-        - Header aside:
-        - Yield block for assets/ content specified
-        - in Contentful - eg. quote, icon etc.
-        --
-      aside.Block-headerAside
-        block blockHeaderAside
+      .Block-headerContent
+        //-- Header text --
+        section.Block-headerContentMain
+          h2= $fields.title
+          p= $fields.introText
+        
+        //--
+          - Header aside:
+          - Yield block for assets/ content specified
+          - in Contentful - eg. quote, icon etc.
+          --
+        aside.Block-headerContentAside
+          
+          //-- Quote --
+          if $fields.introAside.sys.contentType.sys.id === "alumni"
+            
+            +smQuote( $fields.introAside.fields )
     
     //--
       - Expandable content:

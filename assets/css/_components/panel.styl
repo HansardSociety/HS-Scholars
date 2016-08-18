@@ -1,6 +1,6 @@
 .Panel
-  @extend .u-Container
-  @extend .u-FlexRowWrap
+  @extend .l-Container
+  @extend .l-FlexRowWrap
   
   /**
    * Flex ensures carousel centred as auto
@@ -42,37 +42,38 @@
   /* Shared */
   &-content
   &-carousel
-    @extend .u-Container-content
+    @extend .l-Container-content
 
   /* Content */
   &-content
-    @extend .u-FlexRowWrap
+    @extend .l-FlexRowWrap
     
     justify-content center
     
     /* Wide */
     &--wide
-      @extend .u-Container-content--wide
+      @extend .l-Container-content--wide
     
     /* Narrow */
     &--narrow
-      @extend .u-Container-content--narrow
+      @extend .l-Container-content--narrow
       
   /* Carousel */
   &-carousel
-    @extend .u-Container-content--wide
+    @extend .l-Container-content--wide
     
     margin 4rem -1rem 0
     
     &Item
       padding 1rem
       
+      
       height 100%
 
     /* Slick */
     &ArrowPrev
     &ArrowNext
-      @extend .u-CenterX
+      @extend .l-CenterX
 
       top -2rem
       cursor pointer

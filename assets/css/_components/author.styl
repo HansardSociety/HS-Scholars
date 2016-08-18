@@ -1,6 +1,6 @@
 .Author
-  @extend .u-FlexRowWrap
-  @extend .u-BorderRadius2px
+  @extend .l-FlexRowWrap
+  @extend .l-BorderRadius2px
   
   position relative
   
@@ -12,7 +12,7 @@
 
   /* Meta */
   &-meta
-    @extend .u-FlexColumn
+    @extend .l-FlexColumn
     
     align-items center
     order 1
@@ -24,11 +24,11 @@
       border-radius 50%
     
     &Actions
-      @extend .u-MarginTop
+      @extend .l-MarginTop
     
   /* Biog */
   &-biog
-    @extend .u-MarginTop
+    @extend .l-MarginTop
     
     order 2
     
@@ -40,7 +40,7 @@
         overflow hidden
 
         &::before
-          @extend .u-PosAbsBL
+          @extend .l-PosAbsBL
 
           content ""
           
@@ -62,13 +62,13 @@
       font-size font-xs
       
     &About
-      @extend .u-MarginTop
+      @extend .l-MarginTop
       
       font-size font-xs
 
     &Expand
-      @extend .u-CenterX
-      @extend .u-BorderRadius2px
+      @extend .l-CenterX
+      @extend .l-BorderRadius2px
       
       bottom 1rem
       width calc( 100% - 2rem )
