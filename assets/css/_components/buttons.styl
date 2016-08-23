@@ -9,6 +9,15 @@
   text-decoration none
   text-transform uppercase
   
+  font-family font-body
+  
+  height inherit
+  
+  /* Button reset */
+  border none
+  padding 0
+  margin 0
+  
   &-icon
   &-text
     color canvas
@@ -16,17 +25,48 @@
 
   &-icon
     flex 1
-    font-size 1.5rem
     line-height 1
+
+    border-right 1px solid rgba( canvas,.33 )
 
   &-text
     flex 5
-    font-weight 900
-    
-    border-left 1px solid rgba( canvas, .33 )
+    font-weight 700
 
+  /* Small */
+  &--sm
+    min-width 8rem
+    
+    > .Btn-icon
+      font-size 1rem
+    > .Btn-text
+      font-size .75rem
+
+    > .Btn-icon
+    > .Btn-text
+      padding .25rem .5rem
+      
+  /* Medium */
+  &--md
+    min-width 10rem
+    
+    > .Btn-icon
+      font-size 1rem
+    > .Btn-text
+      font-size .75rem
+
+    > .Btn-icon
+    > .Btn-text
+      padding .5rem 1rem
+        
+  /* Large */
   &--lg
-    width 12rem
+    min-width 12rem
+    
+    > .Btn-icon
+      font-size 1.5rem
+    > .Btn-text
+      font-size 1rem
 
     > .Btn-icon
     > .Btn-text
@@ -40,8 +80,8 @@
     > .Btn-text
       color accent
 
-    > .Btn-text
-      border-left 1px solid accent
+    > .Btn-icon
+      border-right 1px solid accent
       
 
 /* Button icons
@@ -51,3 +91,6 @@
 
   &--apply::before
     @extend .ion-compose:before
+    
+  &--showMore::before
+    @extend .ion-plus-round:before

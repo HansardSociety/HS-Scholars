@@ -1,10 +1,10 @@
 mixin smQuote( $fields )
   blockquote.SmQuote
-    p.SmQuote-text= $fields.shortQuote
+    p= $fields.shortQuote
     footer.SmQuote-footer
       p.SmQuote-footerAbout
-        span= $fields.name
-        span= $fields.university
+        span= $fields.name + ", "
+        span= $fields.university + ", "
         span= $fields.semester
       img( src= $fields.photo.fields.file.url + "?fit=crop&w=400&h=400&f=center",
            alt= $fields.photo.fields.description )

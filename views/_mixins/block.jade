@@ -5,11 +5,12 @@ mixin block( $fields )
     header.Block-header
 
       .Block-headerContent
+        
         //-- Header text --
         section.Block-headerContentMain
           h2= $fields.title
           p= $fields.introText
-        
+
         //--
           - Header aside:
           - Yield block for assets/ content specified
@@ -21,12 +22,19 @@ mixin block( $fields )
           if $fields.introAside.sys.contentType.sys.id === "alumni"
             
             +smQuote( $fields.introAside.fields )
-    
+
+        .Block-headerContentCTA
+
+          //-- Button --
+          button.Btn.Btn--md.Btn--secondary
+            i.Btn-icon.Btn-icon--showMore
+            span.Btn-text Read&nbsp;more
+
     //--
       - Expandable content:
       - Opened by button in header text above.
       --
-    .Block-expand
+    .Block-expand.is-hidden
 
       //-- Content --
       section.Block-expandContent

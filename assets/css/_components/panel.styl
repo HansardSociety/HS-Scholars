@@ -1,14 +1,18 @@
 .Panel
   @extend .l-Container
-  @extend .l-FlexRowWrap
   
   /**
    * Flex ensures carousel centred as auto
    * margin not applied due to left/right -1rem
    * which accounts for additional 1rem padding between
    * carousel items. See below.
+   * Centering applied in .Panel-carousel, below.
    */
-  justify-content space-around 
+  @extend .l-FlexRowWrap
+  
+  justify-content center
+  
+  
   
   background-color canvas
   
@@ -43,6 +47,8 @@
   &-content
   &-carousel
     @extend .l-Container-content
+    
+
 
   /* Content */
   &-content
@@ -64,10 +70,20 @@
     
     margin 4rem -1rem 0
     
+    /**
+     * When using Slick Carousel within a Flex container,
+     * we need to specify a carousel width, in order
+     * for Slick to calculate the dimensions for the carousel item (below),
+     * which the flex container doesn't provide otherwise.
+     * See: https://github.com/kenwheeler/slick/issues/2378.
+     * Min width is used here to allow for addition negative margins,
+     * which aren't accounted for when defining width 100%.
+     */
+    min-width 100%
+    
     &Item
       padding 1rem
-      
-      
+
       height 100%
 
     /* Slick */

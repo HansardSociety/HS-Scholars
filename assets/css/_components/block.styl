@@ -1,6 +1,7 @@
 .Block
   @extend .l-PosRel
   
+  /* Header */
   &-header
     @extend .l-Container
     
@@ -9,8 +10,38 @@
       @extend .l-Container-content--wide
       @extend .l-FlexRowWrap
       
+      justify-content flex-start
+
       &Main
+        max-width 40rem
         
-        > h1
+        +above( lg )
+          flex 2
+          margin-right 2rem
+    
+        > h2
           @extend .t-Title
+        
+        > p
+          @extend .t-Byline
+          @extend .l-MarginTop
+          
+          font-weight 700
+          
+      &Aside
+        margin 1rem auto 0
+        max-width 26rem
+        
+        +above( lg )
+          flex 1
+
+      &CTA
+        @extend .l-MarginTop
+        
+  /* Expand */
+  &-expand
+    
+    &.is-hidden
+      position absolute
+      clip rect( 1px,1px,1px,1px )
       

@@ -1,0 +1,35 @@
+.SmQuote
+  @extend .l-FlexRowWrap
+  @extend .l-PosRel
+  @extend .l-BorderRadius2px
+  
+  padding 1rem 1rem 1rem 5rem
+  
+  background-color muted
+
+  > p
+    font-family font-display
+    
+    &::before
+      @extend .ion-quote:before
+      
+      color accent
+      padding-right .5em
+  
+  
+  &-footer
+    > img
+      @extend .l-BorderRadius50pc
+      
+      position absolute
+      top 1rem
+      left 1rem
+      width 3rem
+      
+    &About
+      font-size font-xs
+      
+      > span:first-child
+        display block
+        margin-top .5em
+        font-weight 700

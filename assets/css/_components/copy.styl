@@ -1,0 +1,48 @@
+.Copy
+  > p
+  > h1
+  > h2
+  > h3
+  > h4
+  > h5
+  > h6
+  > blockquote
+    &:not( :last-child )
+      margin-bottom 1.125em
+    
+  > h1
+  > h2
+  > h3
+  > h4
+  > h5
+  > h6
+  > blockquote
+    margin-top 1.125em
+    
+  > p:first-child
+    font-size font-sm
+    +above( md )
+      font-size font-md
+
+  > h2
+    font-size font-md
+  > h3
+    font-size font-sm
+  > h4
+    font-size font-base
+    
+  > blockquote
+    font-size font-lg
+    font-family font-display
+    text-align center
+    font-weight 700
+    color default
+    
+    &::before
+      @extend .ion-quote:before
+      
+      color accent
+      padding-right 1rem
+
+    +above( md )
+      font-size font-xl
