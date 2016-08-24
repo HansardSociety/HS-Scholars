@@ -12,27 +12,21 @@ extends site
 
 block siteBody
   
-  each $panel in entry.panels
+  each $section in entry.sections
     
     //--
       - Blocks
       ==================================================
     
-    if $panel.sys.contentType.sys.id === "block"
+    if $section.sys.contentType.sys.id === "block"
 
-      +block( $panel.fields )
+      +block( $section.fields )
         
-        //- block blockHeaderAside
-        //-   //-- =HERE --
-
-        //- block blockContent
-        //-   h1 Content
-
     //--
       - Quote panel
       ==================================================
     
-    if $panel.sys.contentType.sys.id === "panelQuote"
+    if $section.sys.contentType.sys.id === "panelQuote"
 
       
       //--
@@ -43,25 +37,25 @@ block siteBody
         --
       +panel( null,
               "narrow",
-              $panel.fields,
+              $section.fields,
               "content",
               null )
 
-        +lgQuote( $panel.fields.alumnus.fields )
+        +lgQuote( $section.fields.alumnus.fields )
 
     //--
       - Icons panel
       ==================================================
 
-    if $panel.sys.contentType.sys.id === "panelIcons"
+    if $section.sys.contentType.sys.id === "panelIcons"
       
       +panel( "brand",
               "wide",
-              $panel.fields,
+              $section.fields,
               "content",
               null )
 
-        each $icon in $panel.fields.icons
+        each $icon in $section.fields.icons
           +icon( $icon.fields )
 
     
@@ -69,13 +63,13 @@ block siteBody
       - Testimonials carousel
       ==================================================
 
-    if $panel.sys.contentType.sys.id === "panelTestimonials"
+    if $section.sys.contentType.sys.id === "panelTestimonials"
 
       +panel( "contrast",
               "wide",
-              $panel.fields,
+              $section.fields,
               "carousel",
-              $panel.fields.alumni )
+              $section.fields.alumni )
 
         block carouselItems
           +testimonial( $item.fields )
@@ -84,11 +78,11 @@ block siteBody
       - Blog panel
       ==================================================
 
-    if $panel.sys.contentType.sys.id === "panelPosts"
+    if $section.sys.contentType.sys.id === "panelPosts"
 
       +panel( "canvas",
               "narrow",
-              $panel.fields,
+              $section.fields,
               "content",
               null )
 

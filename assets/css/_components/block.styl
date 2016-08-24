@@ -1,26 +1,42 @@
 .Block
   @extend .l-PosRel
   
-  /* Header */
+  /**
+   * Prevents additional scroll-bar
+   * when .Block-expand.is-hidden is transitioning.
+   */
+  overflow hidden
+    
+  /* Shared */
   &-header
+  // &-expand
     @extend .l-Container
     
     &Content
       @extend .l-Container-content
       @extend .l-Container-content--wide
+    
+  /* Header */
+  &-header
+    
+    &Content
       @extend .l-FlexRowWrap
       
       justify-content flex-start
+      
 
-      &Main
-        max-width 40rem
+      > h2
+        @extend .t-Title
+        
+        width 100%
+
+      &Summary
+        order 3
         
         +above( lg )
-          flex 2
+          order 2
+          flex 1.5
           margin-right 2rem
-    
-        > h2
-          @extend .t-Title
         
         > p
           @extend .t-Byline
@@ -28,20 +44,55 @@
           
           font-weight 700
           
+        &CTAs
+          @extend .l-MarginTop
+          
+          &Toggle
+            display inline-block
+                    
       &Aside
-        margin 1rem auto 0
-        max-width 26rem
+        @extend .l-MarginTop
+        
+        order 2
         
         +above( lg )
+          order 3
           flex 1
-
-      &CTA
-        @extend .l-MarginTop
         
   /* Expand */
   &-expand
+    background-color contrast
+
+    opacity 1
+    transition transform .2s ease, opacity .2s ease
+    
+    /**
+     * Pulls expand up towards 'show more' button.
+     * Relates to header's padding and size of triangle. 
+     */
+    margin-top -1.5rem
+    +above( md )
+      margin-top -2.5rem
+    
+    &Content
+      @extend .l-PosRel
+      
+      &::before
+        @extend .s-Triangle
+        
+        content ""
+        position absolute
+        left 1.5rem
+        top -1rem
+        
+        +above( md )
+          left 2.5rem
     
     &.is-hidden
-      position absolute
-      clip rect( 1px,1px,1px,1px )
+      @extend .l-Offscreen
       
+      position relative
+      
+      opacity 0
+      
+      transform translateY( 10rem )

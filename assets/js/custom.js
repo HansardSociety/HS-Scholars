@@ -1,22 +1,15 @@
 $(document).ready( function(){
 
-
-/* Hamburger animation
+/* Functions
 ========================================================================== */
 
-$(".Nav-hb" ).click( function() {
-  toggleOffCanvas();
-  $( this ).toggleClass( "is-active" );
-  $( "html" ).toggleClass( "is-noScroll" );
-});
-
-function toggleOffCanvas() {
-  if ( $( ".Nav-offCanvas" ).hasClass( "is-active" ) ) {
+function toggleState( container, state ) {
+  if ( $( container ).hasClass( state ) ) {
     // Close
-    $( ".Nav-offCanvas" ).removeClass( "is-active" );
+    $( $( container ) ).removeClass( state );
   } else {
     // Open
-    $( ".Nav-offCanvas" ).addClass( "is-active" ).scrollTop( this );
+    $( $( container ) ).addClass( state );
   }
 }
 
@@ -26,18 +19,36 @@ function toggleOffCanvas() {
 $( ".Author-biogExpand" ).click( function() {
   
   toggleState( ".Author-biog", "is-closed" );
-  $(this).hide();
+  $( this ).hide();
 });
 
-function toggleState( container, state ) {
-  if ( $(container).hasClass( state ) ) {
-    // Close
-    $( $(container) ).removeClass( state );
-  } else {
-    // Open
-    $( $(container) ).addClass( state );
-  }
-}
+/* Block expand
+========================================================================== */
+
+$(".Block-headerContentSummaryCTAsToggle" ).click( function() {
+  toggleState( $( this ).parents( ".Block-header" ).next(), "is-hidden" );
+});
+
+/* Hamburger animation
+========================================================================== */
+
+$(".Nav-hb" ).click( function() {
+  toggleState( ".Nav-offCanvas", "is-active" );
+
+  /* HB animation */
+  $( this ).toggleClass( "is-active" );
+  
+  /* Add class to disable scroll */
+  $( "html" ).toggleClass( "is-noScroll" );
+});
+
+/* Button actions
+========================================================================== */
+
+/* Show more */
+$(".Btn" ).click( function() {
+  toggleState( $( this ), "is-on" );
+});
 
 /* Slick carousel
 ========================================================================== */
@@ -67,9 +78,8 @@ $('.Panel-carousel').slick({
   ]
 });
 
-
-
-}); // End Doc Ready
+/* End doc ready */
+});
 
 /* Navbar animation
 ========================================================================== */

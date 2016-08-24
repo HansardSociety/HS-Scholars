@@ -5,12 +5,26 @@ mixin block( $fields )
     header.Block-header
 
       .Block-headerContent
+
+        h2= $fields.title
         
         //-- Header text --
-        section.Block-headerContentMain
-          h2= $fields.title
+        .Block-headerContentSummary
           p= $fields.introText
 
+          .Block-headerContentSummaryCTAs
+
+            //--
+              - Block expand toggle:
+              - Reveals .Block-expand below.
+              - Removes .is-hidden.
+              --
+            .Block-headerContentSummaryCTAsToggle
+              +button( "secondary",
+                       "md",
+                       "showMore",
+                       "Show more" )
+        
         //--
           - Header aside:
           - Yield block for assets/ content specified
@@ -23,13 +37,6 @@ mixin block( $fields )
             
             +smQuote( $fields.introAside.fields )
 
-        .Block-headerContentCTA
-
-          //-- Button --
-          button.Btn.Btn--md.Btn--secondary
-            i.Btn-icon.Btn-icon--showMore
-            span.Btn-text Read&nbsp;more
-
     //--
       - Expandable content:
       - Opened by button in header text above.
@@ -38,7 +45,17 @@ mixin block( $fields )
 
       //-- Content --
       section.Block-expandContent
-        block blockContent
+        
+        each $panel in $fields.panels
+      
+          if $panel.sys.contentType.sys.id === "panelContent"
+            +panel( null,
+                    "wide",
+                    $panel.fields,
+                    "content",
+                    null )
+              p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere quis culpa eos? Ad architecto numquam quis quam autem, corporis recusandae praesentium ut voluptatem nihil doloribus vel deleniti magni sunt minima, neque quaerat soluta aspernatur sit fugit itaque, odio dolorum. Pariatur sed sint accusamus quisquam, rem sequi voluptatibus, asperiores placeat mollitia.
+
 
       //-- Footer --
       footer.Block-expandFooter

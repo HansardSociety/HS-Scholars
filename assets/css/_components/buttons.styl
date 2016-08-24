@@ -4,8 +4,7 @@
   align-items center
   
   border-radius .2em
-  background-image linear-gradient( to top, accent, lighten( accent, 3% ) )
-    
+  
   text-decoration none
   text-transform uppercase
   
@@ -13,36 +12,44 @@
   
   height inherit
   
+  cursor pointer
+  
   /* Button reset */
   border none
   padding 0
   margin 0
-  
-  &-icon
-  &-text
-    color canvas
-    text-align center
 
-  &-icon
-    flex 1
-    line-height 1
+  &--primary
+    background-image linear-gradient( to top, accent, lighten( accent,3% ) )
+    
+    > .Btn-action
+    > .Btn-text
+      color canvas
 
-    border-right 1px solid rgba( canvas,.33 )
+    > .Btn-action
+      border-right 1px solid rgba( canvas,.33 )
+      
+  &--secondary
+    background-image none
+    border 2px solid accent
+    
+    > .Btn-action
+    > .Btn-text
+      color accent
 
-  &-text
-    flex 5
-    font-weight 700
-
+    > .Btn-action
+      border-right 1px solid accent
+      
   /* Small */
   &--sm
     min-width 8rem
     
-    > .Btn-icon
+    > .Btn-action
       font-size 1rem
     > .Btn-text
       font-size .75rem
 
-    > .Btn-icon
+    > .Btn-action
     > .Btn-text
       padding .25rem .5rem
       
@@ -50,12 +57,12 @@
   &--md
     min-width 10rem
     
-    > .Btn-icon
+    > .Btn-action
       font-size 1rem
     > .Btn-text
       font-size .75rem
 
-    > .Btn-icon
+    > .Btn-action
     > .Btn-text
       padding .5rem 1rem
         
@@ -63,34 +70,73 @@
   &--lg
     min-width 12rem
     
-    > .Btn-icon
+    > .Btn-action
       font-size 1.5rem
     > .Btn-text
       font-size 1rem
 
-    > .Btn-icon
+    > .Btn-action
     > .Btn-text
       padding 1rem
+  
+  &-action
+  &-text
+    color canvas
+    text-align center
 
-  &--secondary
-    background-image none
-    border 2px solid accent
+  &-action
+    flex 1
+    line-height 1
     
-    > .Btn-icon
-    > .Btn-text
-      color accent
+    /* Background transition */
+    transition opacity .4s ease
+    
+    /* Icon transition */
+    &::before
+      transition all .2s linear
 
-    > .Btn-icon
-      border-right 1px solid accent
+
+  &-text
+    flex 5
+    font-weight 700
+    
+    /* Ensures button on one line */
+    white-space nowrap
+
+
       
 
-/* Button icons
+/* Button actions and states
 ========================================================================== */
 
-.Btn-icon
-
-  &--apply::before
-    @extend .ion-compose:before
+.Btn
+  
+  /* Actions */
+  &-action
     
-  &--showMore::before
-    @extend .ion-plus-round:before
+    /* Apply */  
+    &--apply::before
+      @extend .ion-compose:before
+    
+    /* Show more */
+    &--showMore::before
+      @extend .ion-plus-round:before
+
+  &--secondary.is-on
+    > .Btn-action
+      background-color rgba( accent,.2 )
+
+  /* State animations */
+  &.is-on
+    > .Btn-action
+      
+      /**
+       * Define the 'is-on' states for 
+       * each button action here.
+       */
+         
+      /* Show more */        
+      &--showMore
+        &::before
+          transform rotate( 225deg )
+

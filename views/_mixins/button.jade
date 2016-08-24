@@ -1,0 +1,5 @@
+mixin button( $type, $size, $action, $text )
+  button.Btn( class= "Btn--" + $type + " " +
+                     "Btn--" + $size )
+    i.Btn-action( class= "Btn-action--" + $action )
+    span.Btn-text= $text
