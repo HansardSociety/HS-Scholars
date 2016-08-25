@@ -1,5 +1,5 @@
-mixin icon( $fields )
-  .Icon
+mixin icon( $fields, $type )
+  .Icon( class= $type != null ? "Icon--" + $type : null )
     .Icon-img
       img( src= $fields.image.fields.file.url
            alt= $fields.image.fields.description )

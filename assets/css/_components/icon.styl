@@ -1,8 +1,12 @@
 .Icon
-  flex 1 0 16rem
+  @extend .l-MarginAuto
   
   max-width 18.5rem
   padding 1rem
+  
+  &--secondary
+    > .Icon-text
+      font-size font-xs
   
   &-img
     @extend .l-MarginAuto
@@ -14,15 +18,17 @@
     
     padding 1rem
     
-    background-color canvasOpaque
+    background-color rgba( muted,.5 )
     border-radius 50%
     
     > Img
       @extend .l-CenterXY
       
-      height 4rem
+      width 100%
+      padding 1.5rem
       
   &-text
-    @extend .l-marginTop
-
+    @extend .l-MarginTop
+    
+    font-size 1rem
     text-align center

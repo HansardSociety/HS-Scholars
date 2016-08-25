@@ -1,3 +1,8 @@
+/**
+ * .Copy is simply used to apply type syles
+ * within containers.
+ */
+
 .Copy
   > p
   > h1
@@ -10,20 +15,16 @@
     &:not( :last-child )
       margin-bottom 1.125em
     
-  > h1
-  > h2
-  > h3
-  > h4
-  > h5
-  > h6
-  > blockquote
-    margin-top 1.125em
-    
   > p:first-child
     font-size font-sm
     +above( md )
       font-size font-md
-
+  
+  > h1
+  > h2
+  > h3
+    color brand
+    
   > h2
     font-size font-md
   > h3

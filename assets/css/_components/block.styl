@@ -7,40 +7,31 @@
    */
   overflow hidden
     
-  /* Shared */
+  /* Header */
   &-header
-  // &-expand
     @extend .l-Container
     
     &Content
       @extend .l-Container-content
-      @extend .l-Container-content--wide
-    
-  /* Header */
-  &-header
-    
-    &Content
-      @extend .l-FlexRowWrap
+      @extend .l-Container-content--moderate
+      @extend .l-Row
       
-      justify-content flex-start
-      
-
       > h2
         @extend .t-Title
         
         width 100%
 
       &Summary
+        @extend .l-Row-main
+        
         order 3
         
         +above( lg )
           order 2
-          flex 1.5
-          margin-right 2rem
         
         > p
-          @extend .t-Byline
           @extend .l-MarginTop
+          @extend .t-Byline
           
           font-weight 700
           
@@ -51,17 +42,21 @@
             display inline-block
                     
       &Aside
-        @extend .l-MarginTop
+        @extend .l-Row-aside
+        @extend .l-BorderRadius2px
+        
+        background-color muted
         
         order 2
         
         +above( lg )
           order 3
-          flex 1
         
   /* Expand */
   &-expand
-    background-color contrast
+    // background-color contrast
+    box-shadow: 0px 0px 6px default;
+    background-color canvas
 
     opacity 1
     transition transform .2s ease, opacity .2s ease
@@ -70,23 +65,45 @@
      * Pulls expand up towards 'show more' button.
      * Relates to header's padding and size of triangle. 
      */
-    margin-top -1.5rem
+    margin-top -1rem
     +above( md )
-      margin-top -2.5rem
+      margin-top -2rem
     
     &Content
       @extend .l-PosRel
       
       &::before
-        @extend .s-Triangle
+        @extend .l-BorderRadius2px
         
+        background-color canvas
         content ""
         position absolute
         left 1.5rem
-        top -1rem
+        top -.9rem
+        
+        /* Square */
+        width 2rem 
+        height 2rem
+        transform rotate( 135deg )
+        box-shadow: -2px 2px 2px 0 rgba( default, .4 );        
+        z-index 2
         
         +above( md )
           left 2.5rem
+
+        +above( xl )
+          
+          /**
+           * Calculation ensures triangle is always
+           * below 'Show more' mutton on larger screens.
+           * "(100% - 65rem) / 2": deduct moderate content
+           * width from viewport width (taken as a percentage,
+           * as vw doesn't seem to play well) and divide by 2 to
+           * account for content margins.
+           * "+ .5rem": brings triangle under 'x' in
+           * 'Show more' button.
+           */
+          left calc( ( ( 100% - 65rem ) / 2 ) + .5rem )
     
     &.is-hidden
       @extend .l-Offscreen

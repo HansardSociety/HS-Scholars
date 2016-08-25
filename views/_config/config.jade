@@ -16,13 +16,6 @@
 - var $screenMd = 50
 - var $screenSm = 30
 
-
-//--
-  - Contentful:
-  - EG. Entry IDs etc
-  ==================================================
-
-
 //--
   - Mixins
   ==================================================
@@ -32,10 +25,17 @@ include ../_mixins/button
 include ../_mixins/contact
 include ../_mixins/icon
 include ../_mixins/lg-quote
-include ../_mixins/panel
 include ../_mixins/sm-quote
 include ../_mixins/snippet
 include ../_mixins/summary
 include ../_mixins/testimonial
 
+//--
+  - 'Container' mixins must be defined in
+  - this order: blocks can contain panels,
+  - which can contain rows. These can all in
+  - turn contain the above mixins.
+  --
+include ../_mixins/row
+include ../_mixins/panel
 include ../_mixins/block

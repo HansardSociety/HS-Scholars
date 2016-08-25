@@ -1,0 +1,15 @@
+mixin row( $fields )
+  .Row
+    
+    //-- Main --
+    section.Row-main.Copy
+      
+      != markdown( $fields.body )
+
+    //-- Aside --
+    aside.Row-aside
+      each $aside in $fields.asides
+        
+        //-- If icon --
+        if $aside.sys.contentType.sys.id === "icons"
+          +icon( $aside.fields, "secondary" )

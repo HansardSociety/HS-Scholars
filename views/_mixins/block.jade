@@ -46,16 +46,18 @@ mixin block( $fields )
       //-- Content --
       section.Block-expandContent
         
-        each $panel in $fields.panels
-      
-          if $panel.sys.contentType.sys.id === "panelContent"
-            +panel( null,
-                    "wide",
-                    $panel.fields,
-                    "content",
-                    null )
-              p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere quis culpa eos? Ad architecto numquam quis quam autem, corporis recusandae praesentium ut voluptatem nihil doloribus vel deleniti magni sunt minima, neque quaerat soluta aspernatur sit fugit itaque, odio dolorum. Pariatur sed sint accusamus quisquam, rem sequi voluptatibus, asperiores placeat mollitia.
+        +panel( null,
+                "moderate",
+                $fields,
+                "content",
+                null )
 
+          //-- Panel content --
+          each $panel in $fields.panels
+            if $panel.sys.contentType.sys.id === "panelContent"              
+              
+              //-- Content --
+              +row( $panel.fields )
 
       //-- Footer --
       footer.Block-expandFooter

@@ -3,10 +3,8 @@
 
 /* Margins */
 .l-MarginTop
-.l-marginTop
   margin-top 1em
 .l-MarginTopX2
-.l-marginTopX2
   margin-top 2em
 .l-MarginAuto
   margin 0 auto
@@ -40,27 +38,44 @@
 /* Containers
 ========================================================================== */
 
-.l-container
 .l-Container
-.l-Panel  
   position relative
   
   padding 3rem 1rem
   +above( md )
     padding 4rem 2rem
-    
-  &--brand
-    background-color brand
-    color canvas
 
   &-content
     @extend .l-MarginAuto
 
-    &--wide
-      max-width 75rem
     &--narrow
       max-width 45rem
+    &--moderate
+      max-width 65rem
+    &--wide
+      max-width 75rem
+
+/* Row
+========================================================================== */
+
+.l-Row
+  @extend .l-FlexRowWrap
   
+  align-items flex-start
+  
+  &-main
+    +above( lg )
+      flex 3
+      margin-right 2rem
+  
+  &-aside
+    @extend .l-BorderRadius2px
+    @extend .l-MarginTop
+        
+    +above( lg )
+      flex 2
+      margin-top 0
+        
 /* Positioning
 ========================================================================== */
 
