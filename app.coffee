@@ -9,7 +9,7 @@ marked            = require 'marked'
 moment            = require 'moment'
 roots_contentful  = require 'roots-contentful'
 rupture           = require 'rupture'
-
+_                 = require 'underscore'
 _str              = require 'underscore.string'
 
 S                 = require 'string'
@@ -137,5 +137,5 @@ module.exports =
       });
     
     moment: moment
-
+    _: _
     _str: _str

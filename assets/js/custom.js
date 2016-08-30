@@ -27,6 +27,17 @@ $( ".Author-biogExpand" ).click( function() {
 
 $(".Block-headerContentSummaryCTAsToggle" ).click( function() {
   toggleState( $( this ).parents( ".Block-header" ).next(), "is-hidden" );
+
+  /**
+   * Resizes carousel so Slick can calculate
+   * dimensions after .is-hidden is removed
+   * from container. 
+   * Need to find out why when window is resized
+   * and container hidden then opened again
+   * resize() no longer works. See:
+   * https://github.com/kenwheeler/slick/issues/1004.
+   */
+  $( this ).parents( ".Block-header" ).next().resize()
 });
 
 /* Hamburger animation

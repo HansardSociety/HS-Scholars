@@ -31,11 +31,13 @@ block siteBody
       
       //--
         - 1. Background colour (brand, canvas, contrast or default ie. null)
-        - 2. Wide or narrow width
-        - 3. Contentful fields (IMPORTANT: see panel mixin for explanation)
-        - 4. Carousel object array (Contentful fields or null)
+        - 2. Specify whether a flow panel (.Panel--flow).
+        - 3. Wide or narrow width
+        - 4. Contentful fields (IMPORTANT: see panel mixin for explanation)
+        - 5. Carousel object array (Contentful fields or null)
         --
-      +panel( null,
+      +panel( "contrast",
+              null,
               "narrow",
               $section.fields,
               "content",
@@ -50,6 +52,7 @@ block siteBody
     if $section.sys.contentType.sys.id === "panelIcons"
       
       +panel( "brand",
+              null,
               "wide",
               $section.fields,
               "content",
@@ -66,6 +69,7 @@ block siteBody
     if $section.sys.contentType.sys.id === "panelTestimonials"
 
       +panel( "contrast",
+              null,
               "wide",
               $section.fields,
               "carousel",
@@ -81,6 +85,7 @@ block siteBody
     if $section.sys.contentType.sys.id === "panelPosts"
 
       +panel( "canvas",
+              null,
               "narrow",
               $section.fields,
               "content",

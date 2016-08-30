@@ -6,6 +6,15 @@
    * when .Block-expand.is-hidden is transitioning.
    */
   overflow hidden
+  
+  &--hero
+    min-height 80vh
+    background-color copy
+
+  &-heroImg
+    position absolute
+    width 100%
+    opacity .6
     
   /* Header */
   &-header
@@ -15,6 +24,11 @@
       @extend .l-Container-content
       @extend .l-Container-content--moderate
       @extend .l-Row
+      
+      &--light
+        color canvas
+        > h2
+          color canvas
       
       > h2
         @extend .t-Title
@@ -33,10 +47,11 @@
           @extend .l-MarginTop
           @extend .t-Byline
           
-          font-weight 700
+          +above( md )
+            font-weight 700
           
         &CTAs
-          @extend .l-MarginTop
+          @extend .l-MarginTopX2
           
           &Toggle
             display inline-block

@@ -1,10 +1,42 @@
 mixin block( $fields )
-  section.Block
+  section.Block( class= $fields.heroLandscape && $fields.heroPortrait ?
+                        "Block--hero" : null )
+
+    if $fields.heroLandscape && $fields.heroPortrait
+
+      //-- Image-
+      picture.Block-heroImg
+        
+        //-- Landscape --
+        source( media="(orientation: landscape)",
+                sizes="100vw",
+                srcset= $fields.heroLandscape.fields.file.url + "?w=640 640w, " +
+                        $fields.heroLandscape.fields.file.url + "?w=854 854w, " +
+                        $fields.heroLandscape.fields.file.url + "?w=1280 1280w, " +
+                        $fields.heroLandscape.fields.file.url + "?w=1920 1920w, " +
+                        $fields.heroLandscape.fields.file.url + "?w=2560 2560w, " +
+                        $fields.heroLandscape.fields.file.url + "?w=3840 3840w",
+                alt= $fields.heroLandscape.fields.file.description )
+        
+        //-- Portrait --
+        source( media="(orientation: portrait)",
+                sizes="100vw",
+                srcset= $fields.heroPortrait.fields.file.url + "?w=360 360w, " +
+                        $fields.heroPortrait.fields.file.url + "?w=480 480w, " +
+                        $fields.heroPortrait.fields.file.url + "?w=720 720w, " +
+                        $fields.heroPortrait.fields.file.url + "?w=1080 1080w, " +
+                        $fields.heroPortrait.fields.file.url + "?w=1440 1440w",
+                alt= $fields.heroLandscape.fields.file.description )
+        
+        //-- Fallback --
+        img( srcset= $fields.heroLandscape.fields.file.url,
+             alt= $fields.heroLandscape.fields.file.description )
 
     //-- Header --
     header.Block-header
 
-      .Block-headerContent
+      .Block-headerContent( class= $fields.heroLandscape && $fields.heroPortrait ?
+                                   "Block-headerContent--light" : null )
 
         h2= $fields.title
         
@@ -32,10 +64,11 @@ mixin block( $fields )
           --
         aside.Block-headerContentAside
           
-          //-- Quote --
-          if $fields.introAside.sys.contentType.sys.id === "alumni"
+          //-- Asides --
+          if $fields.introAside
             
-            +smQuote( $fields.introAside.fields )
+            if $fields.introAside.sys.contentType.sys.id === "alumni"
+              +smQuote( $fields.introAside.fields )
 
     //--
       - Expandable content:
@@ -46,18 +79,31 @@ mixin block( $fields )
       //-- Content --
       section.Block-expandContent
         
-        +panel( null,
-                "moderate",
-                $fields,
-                "content",
-                null )
+        each $panel in $fields.panels
 
           //-- Panel content --
-          each $panel in $fields.panels
-            if $panel.sys.contentType.sys.id === "panelContent"              
-              
-              //-- Content --
+          if $panel.sys.contentType.sys.id === "panelContent"
+            +panel( null,
+                    "flow",
+                    "moderate",
+                    $fields,
+                    "content",
+                    null )
+
+              //-- Rows --
               +row( $panel.fields )
+
+          //-- Testimonials --
+          if $panel.sys.contentType.sys.id === "panelTestimonials"
+            +panel( "canvas",
+                    null,
+                    "wide",
+                    $panel.fields,
+                    "carousel",
+                    $panel.fields.alumni )
+
+              block carouselItems
+                +testimonial( $item.fields )
 
       //-- Footer --
       footer.Block-expandFooter
