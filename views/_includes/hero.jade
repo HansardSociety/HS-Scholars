@@ -1,32 +1,6 @@
 header.Hero
   
-  //-- Image-
-  picture.Hero-img
-    
-    //-- Landscape --
-    source( media="(orientation: landscape)",
-            sizes="100vw",
-            srcset= entry.heroLandscape.fields.file.url + "?w=640 640w, " +
-                    entry.heroLandscape.fields.file.url + "?w=854 854w, " +
-                    entry.heroLandscape.fields.file.url + "?w=1280 1280w, " +
-                    entry.heroLandscape.fields.file.url + "?w=1920 1920w, " +
-                    entry.heroLandscape.fields.file.url + "?w=2560 2560w, " +
-                    entry.heroLandscape.fields.file.url + "?w=3840 3840w",
-            alt= entry.heroLandscape.fields.file.description )
-    
-    //-- Portrait --
-    source( media="(orientation: portrait)",
-            sizes="100vw",
-            srcset= entry.heroPortrait.fields.file.url + "?w=360 360w, " +
-                    entry.heroPortrait.fields.file.url + "?w=480 480w, " +
-                    entry.heroPortrait.fields.file.url + "?w=720 720w, " +
-                    entry.heroPortrait.fields.file.url + "?w=1080 1080w, " +
-                    entry.heroPortrait.fields.file.url + "?w=1440 1440w",
-            alt= entry.heroLandscape.fields.file.description )
-    
-    //-- Fallback --
-    img( srcset= entry.heroLandscape.fields.file.url,
-         alt= entry.heroLandscape.fields.file.description )
+  +heroImg( "Hero-img", entry )
   
   //-- Strap --
   .Hero-strap

@@ -32,12 +32,12 @@ $(".Block-headerContentSummaryCTAsToggle" ).click( function() {
    * Resizes carousel so Slick can calculate
    * dimensions after .is-hidden is removed
    * from container. 
-   * Need to find out why when window is resized
-   * and container hidden then opened again
-   * resize() no longer works. See:
-   * https://github.com/kenwheeler/slick/issues/1004.
+   * See: https://github.com/kenwheeler/slick/issues/1004.
+   * Need to call resize and then reset slick dimensions
+   * to ensure carousel centres correctly.
    */
-  $( this ).parents( ".Block-header" ).next().resize()
+  $( this ).parents( ".Block-header" ).next().find( ".Panel-carousel" ).resize().slick( "setDimensions" );
+
 });
 
 /* Hamburger animation
@@ -88,6 +88,12 @@ $('.Panel-carousel').slick({
     }
   ]
 });
+
+/* Clipboard
+========================================================================== */
+
+new Clipboard('.js-Copy');
+
 
 /* End doc ready */
 });

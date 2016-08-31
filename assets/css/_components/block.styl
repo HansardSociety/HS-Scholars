@@ -7,6 +7,18 @@
    */
   overflow hidden
   
+  /**
+   * Increase z index of preceding block so box-shadow
+   * isn't hidden behind the subsequent block.
+   * Pull the subsequent block up -0.4rem to negate the
+   * margin-bottom of .Block-expand (see below), used
+   * to create additional space for box-shadow.
+   */
+  z-index 1
+  + .Block
+    margin-top -.4rem
+    z-index 0
+  
   &--hero
     min-height 80vh
     background-color copy
@@ -69,13 +81,17 @@
         
   /* Expand */
   &-expand
-    // background-color contrast
-    box-shadow: 0px 0px 6px default;
     background-color canvas
 
     opacity 1
     transition transform .2s ease, opacity .2s ease
+
+    /* Ensures top and bottom shadow */
+    box-shadow 0 0 9px default, 0 0 9px default
     
+    /* Additional space for box-shadow */
+    margin-bottom .4rem
+
     /**
      * Pulls expand up towards 'show more' button.
      * Relates to header's padding and size of triangle. 
@@ -83,6 +99,15 @@
     margin-top -1rem
     +above( md )
       margin-top -2rem
+      
+    &.is-hidden
+      @extend .l-Offscreen
+      
+      position relative
+      
+      opacity 0
+      
+      transform translateY( 10rem )
     
     &Content
       @extend .l-PosRel
@@ -100,7 +125,7 @@
         width 2rem 
         height 2rem
         transform rotate( 135deg )
-        box-shadow: -2px 2px 2px 0 rgba( default, .4 );        
+        box-shadow: -3px 3px 3px 0 rgba( default, .6 );        
         z-index 2
         
         +above( md )
@@ -119,12 +144,18 @@
            * 'Show more' button.
            */
           left calc( ( ( 100% - 65rem ) / 2 ) + .5rem )
-    
-    &.is-hidden
-      @extend .l-Offscreen
+          
+    &Footer
+      @extend .l-Container
       
-      position relative
-      
-      opacity 0
-      
-      transform translateY( 10rem )
+      padding-top 1rem
+      padding-bottom 1rem
+      +above( md )
+        padding-top 2rem
+        padding-bottom 2rem
+
+      border-top 1px solid muted
+            
+      &Content
+        @extend .l-Container-content
+        @extend .l-Container-content--moderate
