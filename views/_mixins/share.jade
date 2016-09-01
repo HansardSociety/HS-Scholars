@@ -8,10 +8,11 @@ mixin share( $title, $text, $anchor )
       - and anchor ID if one is provided (eg. for page blocks).
       --
     a.Share-icon.Share-icon--twitter( href= "http://twitter.com/intent/tweet?text=" +
-                                            encodeURIComponent( $text ) + "&" +
-                                            "url=" + encodeURIComponent( $siteURL ) +
+                                            encodeURIComponent( $text ) +
+                                            "&url=" + encodeURIComponent( $siteURL ) +
                                             encodeURIComponent( entry._url.replace( ".html", "" ) ) + "/" +
-                                            ( $anchor != null ? "%23" + $anchor : null ) )
+                                            ( $anchor != null ? "%23" + $anchor : null ) +
+                                            "&via=HansardScholars" )
 
     a.Share-icon.Share-icon--facebook( href= "https://www.facebook.com/sharer/sharer.php?u=" +
                                              encodeURIComponent( $siteURL ) +
@@ -24,6 +25,14 @@ mixin share( $title, $text, $anchor )
                                              ( $anchor != null ? "%23" + $anchor : null ),
                                       data-action="share/whatsapp/share" )
 
-    span.Share-icon.Share-icon--copy.js-Copy( data-clipboard-text= $siteURL +
-                                                                   entry._url.replace( ".html", "" ) + "/" +
-                                                                   ( $anchor != null ? "#" + $anchor : null ) )
+    a.Share-icon.Share-icon--email( href= "mailto:?" +
+                                          "&subject=Hansard Society Scholars" +
+                                          "&body=" +
+                                          encodeURIComponent( $siteURL ) +
+                                          encodeURIComponent( entry._url.replace( ".html", "" ) ) + "/" +
+                                          ( $anchor != null ? "%23" + $anchor : null ) )
+
+    span.Share-icon.Share-icon--copy.js-Clipboard( data-clipboard-text= $siteURL +
+                                                                        entry._url.replace( ".html", "" ) + "/" +
+                                                                        ( $anchor != null ? "#" + $anchor : null ) )
+

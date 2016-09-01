@@ -22,11 +22,24 @@ $( ".Author-biogExpand" ).click( function() {
   $( this ).hide();
 });
 
+/* Body click events
+========================================================================== */
+
+$( "body" ).click( function() {
+  $( ".Tooltip" ).hide();
+});
+
 /* Block expand
 ========================================================================== */
 
 $(".Block-headerContentSummaryCTAsToggle" ).click( function() {
   toggleState( $( this ).parents( ".Block-header" ).next(), "is-hidden" );
+
+  if ( !$( this ).parents( ".Block-header" ).next().hasClass( "is-hidden" ) ) {
+    $( this ).find( ".Btn-text" ).text( "Show less" );
+  } else {
+    $( this ).find( ".Btn-text" ).text( "Show more" );
+  }
 
   /**
    * Resizes carousel so Slick can calculate
@@ -92,8 +105,26 @@ $('.Panel-carousel').slick({
 /* Clipboard
 ========================================================================== */
 
-new Clipboard('.js-Copy');
+var clipboard = new Clipboard('.js-Clipboard');
 
+clipboard.on('success', function(e) {
+  $( e.trigger )
+    .append( "<span class='Tooltip'><p class='Tooltip-text'>Copied!</p></span>" )
+    .find( ".Tooltip" )
+    .velocity( "fadeOut",
+      {
+        delay: 800,
+        duration: 200
+      }, {
+        easing: "linear"
+      }
+    );
+});
+clipboard.on('error', function(e) {
+  
+  $( e.trigger )
+    .append( "<span class='Tooltip'><p class='Tooltip-text'>" + e.text + "</p></span>" );
+});
 
 /* End doc ready */
 });
@@ -102,8 +133,8 @@ new Clipboard('.js-Copy');
 ========================================================================== */
 
 $( window ).on( 'scroll', function () {
-    if ($(this).scrollTop() > 10) {
-        if (!$( '.Nav' ).hasClass( 'is-scrolled' )) {
+    if ( $( this ).scrollTop() > 10 ) {
+        if ( !$( '.Nav' ).hasClass( 'is-scrolled' ) ) {
             $( '.Nav' ).addClass( 'is-scrolled' );
         }
     } else {

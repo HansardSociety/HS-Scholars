@@ -21,12 +21,20 @@
   
   &--hero
     min-height 80vh
-    background-color copy
 
   &-heroImg
     position absolute
     width 100%
-    opacity .6
+    
+    &::after
+      content ""
+      display block
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-image linear-gradient( to bottom, copyOpaque 33.33%, transparent);
     
   /* Header */
   &-header
@@ -59,6 +67,7 @@
           @extend .l-MarginTop
           @extend .t-Byline
           
+          font-weight 600
           +above( md )
             font-weight 700
           
@@ -84,7 +93,7 @@
     background-color canvas
 
     opacity 1
-    transition transform .2s ease, opacity .2s ease
+    transition transform .3s ease, opacity .3s ease
 
     /* Ensures top and bottom shadow */
     box-shadow 0 0 9px default, 0 0 9px default
@@ -107,8 +116,8 @@
       
       opacity 0
       
-      transform translateY( 10rem )
-    
+      transform translateY( 20rem )
+      
     &Content
       @extend .l-PosRel
       

@@ -50,19 +50,19 @@ mixin block( $fields )
       - Expandable content:
       - Opened by button in header text above.
       --
-    .Block-expand.is-hidden
+    .Block-expand
 
       //-- Content --
       section.Block-expandContent
         
         each $panel in $fields.panels
 
-          //-- Panel content --
+          //-- Content panel --
           if $panel.sys.contentType.sys.id === "panelContent"
             +panel( null,
                     "flow",
                     "moderate",
-                    $fields,
+                    $panel,
                     "content",
                     null )
 
@@ -74,12 +74,28 @@ mixin block( $fields )
             +panel( "canvas",
                     null,
                     "wide",
-                    $panel.fields,
+                    $panel,
                     "carousel",
                     $panel.fields.alumni )
 
               block carouselItems
                 +testimonial( $item.fields )
+
+          //-- Profile panel --
+          if $panel.sys.contentType.sys.id === "panelProfiles"
+            +panel( null,
+                    "flow",
+                    "moderate",
+                    $panel,
+                    "content",
+                    null )
+              
+              //-- Introductory text for subsequent profiles --
+              +row( $panel.fields )
+              
+              //-- Profiles --
+              each $profile in $panel.fields.profiles
+                +profile( $profile.fields )
 
       //-- Footer --
       footer.Block-expandFooter

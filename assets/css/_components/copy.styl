@@ -15,11 +15,6 @@
     &:not( :last-child )
       margin-bottom 1.125em
     
-  > p:first-child
-    font-size font-sm
-    +above( md )
-      font-size font-md
-  
   > h1
   > h2
   > h3
@@ -47,3 +42,13 @@
 
     +above( md )
       font-size font-xl
+      
+/* Special copy
+========================================================================== */
+
+.Post
+  .Copy
+    > p:first-child
+      font-size font-sm
+      +above( md )
+        font-size font-md

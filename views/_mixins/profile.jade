@@ -1,0 +1,15 @@
+mixin profile( $fields )
+  .Profile
+    
+    figure
+      
+      img.Profile-img( src= $fields.photo.fields.file.url + "?w=320",
+                       alt= $fields.photo.fields.description )
+      
+      figcation.Profile-about
+        h4
+          span.Profile-aboutName= $fields.name
+          span.Profile-aboutRole= $fields.positionOrganisation
+
+    .Profile-biog.Copy
+      != markdown( $fields.biog )
