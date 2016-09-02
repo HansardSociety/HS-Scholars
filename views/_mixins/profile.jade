@@ -1,15 +1,43 @@
 mixin profile( $fields )
   .Profile
     
-    figure
-      
-      img.Profile-img( src= $fields.photo.fields.file.url + "?w=320",
-                       alt= $fields.photo.fields.description )
-      
-      figcation.Profile-about
-        h4
-          span.Profile-aboutName= $fields.name
-          span.Profile-aboutRole= $fields.positionOrganisation
+    section.Profile-about
 
-    .Profile-biog.Copy
-      != markdown( $fields.biog )
+      h4
+        span.Profile-aboutName= $fields.name + ", "
+        span.Profile-aboutRole= $fields.positionOrganisation
+
+      .Profile-aboutBiog.Copy
+        != markdown( $fields.biog )
+
+    figure.Profile-photo
+      
+      img( src= $fields.photo.fields.file.url + "?w=320",
+           alt= $fields.photo.fields.description )
+
+    //--
+      - Only build aside if profile contains
+      - contact information.
+      --
+    if $fields.email || $fields.twitter || $fields.linkedIn || $fields.tel
+
+      aside.Profile-contact
+        ul
+
+          if $fields.email
+            li
+              a.Profile-contactItem.Profile-contactItem--email( href= "mailto:" + $fields.email,
+                                                                title= $fields.email )= $fields.email
+
+          if $fields.tel
+            li
+              a.Profile-contactItem.Profile-contactItem--tel( href= "tel:" + $fields.tel.replace( " ", "" ),
+                                                              title= "Tel: " + $fields.tel )= $fields.tel
+          if $fields.twitter
+            li
+              a.Profile-contactItem.Profile-contactItem--twitter( href= $fields.twitter,
+                                                                  title= "@" + $fields.twitter.split("/").pop() + " | Twitter" )= $fields.twitter.split("/").pop()
+          if $fields.linkedIn
+            li
+              a.Profile-contactItem.Profile-contactItem--linkedIn( href= $fields.linkedIn,
+                                                                   title= $fields.name + " | LinkedIn" )= $fields.name

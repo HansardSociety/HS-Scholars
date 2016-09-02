@@ -1,0 +1,85 @@
+.Profile
+  @extend .l-Row
+  @extend .l-MarginTopX2
+  
+  padding-top 2rem
+  border-top 1px solid muted
+  
+  +above( lg )
+    flex-flow row nowrap
+  
+  &-about
+    order 3
+    
+    margin-top 1.125em
+    
+    
+    +above( lg )
+      order 2
+      margin-top 0
+      margin-left 2rem
+      max-width calc( 60% - 2rem )
+    
+    > h4
+      @extend .l-MarginBottomFlow
+      
+      color brand
+      
+    &Name
+    &Role
+      display block
+    
+    &Role
+      font-weight 600
+    
+  &-photo
+    @extend .l-BorderRadius2px
+
+    order 1
+    
+    width 6rem
+    
+    overflow hidden
+    
+    > img
+      width 100%
+  
+  &-contact
+    order 2
+    align-self flex-end
+    
+    flex 1 1
+
+    margin-left 1rem
+
+    font-size font-xs
+    
+    +above( lg )
+      @extend .l-BorderRadius2px
+      
+      order 3
+      align-self flex-start
+
+      margin-left 2rem
+      padding 1rem
+      
+      background-color muted
+    
+    &Item
+      display inline-block
+      margin-top .25em
+
+      &::before
+        margin-right .25em
+        
+        font-size 1rem
+        vertical-align baseline
+      
+      &--email::before
+        @extend .ion-ios-email:before
+      &--twitter::before
+        @extend .ion-at:before
+      &--tel::before
+        @extend .ion-android-call:before
+      &--linkedIn::before
+        @extend .ion-social-linkedin:before
