@@ -14,11 +14,13 @@ mixin panel( $bgColour, $flow, $width, $fields, $contentType, $carouselArray )
       - Include header only if the panel contains
       - a title, title icon and byline.
       --
-    if $fields.title && $fields.titleIcon && $fields.byline != null
+    if ( $fields.title && $fields.titleIcon && $fields.byline ) != null
       header.Panel-header
+
         h2.Panel-headerTitle
           span.InlineIcon( class= "InlineIcon--" + $fields.titleIcon )
           span= $fields.title
+        
         p.Panel-headerByline= $fields.byline
     
     //-- Content --

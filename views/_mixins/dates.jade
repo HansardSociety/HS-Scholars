@@ -1,0 +1,14 @@
+mixin dates( $fields )
+  dl.Dates
+    
+    dt Start
+    dd= moment( $fields.startDate ).format( 'D MMMM, YYYY' )
+    
+    dt End
+    dd= moment( $fields.endDate ).format( 'D MMMM, YYYY' )
+    
+    dt Duration
+    dd= $fields.duration
+    
+    dt Deadline
+    dd= moment( $fields.deadline ).format( 'D MMMM, YYYY' )

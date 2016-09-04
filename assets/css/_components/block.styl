@@ -7,6 +7,10 @@
    */
   overflow hidden
   
+  + .Block:not( .Block--hero )
+    > .Block-header
+      background-color contrast
+  
   /**
    * Increase z index of preceding block so box-shadow
    * isn't hidden behind the subsequent block.
@@ -20,12 +24,15 @@
     z-index 0
   
   &--hero
-    min-height 80vh
-
+    min-height 100vh
+    
   &-heroImg
     position absolute
     width 100%
     
+    /* Accommodates for .Block-expand box-shadow */
+    z-index -1
+      
     &::after
       content ""
       display block
@@ -36,9 +43,17 @@
       height 100%
       background-image linear-gradient( to bottom, copyOpaque 33.33%, transparent);
     
+    > img    
+      width 100%    
   /* Header */
   &-header
     @extend .l-Container
+    
+    /**
+     * Ensures header background colour (see above)
+     * doesn't cover .Block-expand box-shadow. 
+     */    
+    z-index -1
     
     &Content
       @extend .l-Container-content
@@ -52,6 +67,7 @@
       
       > h2
         @extend .t-Title
+        @extend .l-MarginBottomFlow
         
         width 100%
 
@@ -64,10 +80,11 @@
           order 2
         
         > p
-          @extend .l-MarginTop
           @extend .t-Byline
           
+          margin-top 0
           font-weight 600
+          
           +above( md )
             font-weight 700
           
@@ -80,13 +97,29 @@
       &Aside
         @extend .l-Row-aside
         @extend .l-BorderRadius2px
-        
-        background-color muted
-        
+
         order 2
+        flex 1
+
+        margin 0 0 2rem 0
+        
+        padding 1rem 0
+        border-top 1px solid muted
+        border-bottom 1px solid muted
+        
+        font-size font-xs
+        color grey
         
         +above( lg )
           order 3
+          
+          padding 0 0 0 2rem
+          border none
+          border-left 1px solid muted
+          
+        > h3
+          font-size font-sm
+
         
   /* Expand */
   &-expand

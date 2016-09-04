@@ -2,10 +2,12 @@
   @extend .l-FlexRowWrap
   @extend .l-PosRel
   
-  padding 1rem 1rem 1rem 5rem
-  
+  /* Accommodates absolute pos photo */
+  padding-left 4rem
+    
   > p
     font-family font-display
+    font-size 1rem
     
     &::before
       @extend .ion-quote:before
@@ -21,8 +23,8 @@
       @extend .l-BorderRadius50pc
       
       position absolute
-      top 1rem
-      left 1rem
+      top .25rem
+      left 0
       width 3rem
       
     &About

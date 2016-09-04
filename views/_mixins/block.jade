@@ -38,13 +38,27 @@ mixin block( $fields )
           - Yield block for assets/ content specified
           - in Contentful - eg. quote, icon etc.
           --
-        aside.Block-headerContentAside
-          
-          //-- Asides --
-          if $fields.introAside
+        if $fields.introAside
+
+          aside.Block-headerContentAside
             
+            //-- Small quote --            
             if $fields.introAside.sys.contentType.sys.id === "alumni"
               +smQuote( $fields.introAside.fields )
+            
+            //-- Programme dates --
+            if $fields.introAside.sys.contentType.sys.id === "dates"
+  
+              h3
+                span.InlineIcon.InlineIcon--calendar
+                span= $fields.introAsideTitle
+
+              +dates( $fields.introAside.fields )
+
+              +button( "primary",
+                       "md",
+                       "apply",
+                       "Apply now" )
 
     //--
       - Expandable content:
@@ -62,7 +76,7 @@ mixin block( $fields )
             +panel( null,
                     "flow",
                     "moderate",
-                    $panel,
+                    $panel.fields, //-- Need to pass fields to mixin in case of any nested mixins --
                     "content",
                     null )
 
@@ -74,7 +88,7 @@ mixin block( $fields )
             +panel( "canvas",
                     null,
                     "wide",
-                    $panel,
+                    $panel.fields,
                     "carousel",
                     $panel.fields.alumni )
 

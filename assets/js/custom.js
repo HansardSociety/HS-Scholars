@@ -79,6 +79,9 @@ $(".Btn" ).click( function() {
 
 $('.Panel-carousel').slick({
   infinite: true,
+  // drag: false,
+  // swipe: true,
+  focusOnSelect: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   mobileFirst: true,

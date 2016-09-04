@@ -4,6 +4,10 @@
   
   padding-right .5em
   
+
+  &--calendar::before
+    @extend .ion-calendar:before
+    
   /**
    * Class name ripped from Ionicons.
    * This is because content editors refer to the Ionicons cheatsheet,
@@ -15,3 +19,8 @@
     @extend .ion-chatbubbles:before
   &--ion-speakerphone::before
     @extend .ion-speakerphone:before
+  &--ion-android-bulb::before
+    @extend .ion-android-bulb:before
+    
+    
+    

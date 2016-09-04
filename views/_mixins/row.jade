@@ -6,10 +6,26 @@ mixin row( $fields )
       
       != markdown( $fields.body )
 
-    if $fields.asides
-      //-- Aside --
+    //-- Aside --
+    if $fields.asideIcons || $fields.asideTestimonial
       aside.Row-aside
-        each $aside in $fields.asides
+
+        if $fields.asideTestimonial
+
+          h3
+            span.InlineIcon.InlineIcon--ion-chatbubbles
+            span Our Alumni
+          p Find out what they've said
+
+          +smQuote( $fields.asideTestimonial.fields )
+
+        if $fields.asideTitle && $fields.asideTitleIcon && $fields.asideByline
+          h3
+            span.InlineIcon( class= "InlineIcon--" + $fields.asideTitleIcon )
+            span= $fields.asideTitle
+          p= $fields.asideByline
+
+        each $aside in $fields.asideIcons
           
           //-- If icon --
           if $aside.sys.contentType.sys.id === "icons"

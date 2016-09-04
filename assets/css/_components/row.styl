@@ -9,6 +9,47 @@
 
   &-aside
     @extend .l-Row-aside
-
+    
+    align-self stretch
+    
     margin-left auto
     margin-right auto
+    
+    padding-top 2rem
+    
+    color grey
+    font-size font-xs
+        
+    +above( lg )
+      border-left 1px solid muted
+      padding-left 2rem
+    
+    > h3
+    > p
+      text-align center
+
+    > h3
+      position relative
+      font-size font-sm
+      
+      padding-top 1rem
+      
+      &::before
+        @extend .l-CenterX
+        
+        top 0
+
+        content ""
+        display block
+        
+        border-top 4px solid accent
+        
+        width 4rem
+        
+      &:nth-child( 1n+2 )
+        margin-top 3em
+    
+    > p
+      margin-bottom 2rem
+      
+      font-weight 600
