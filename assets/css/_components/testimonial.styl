@@ -36,11 +36,14 @@
       font-family font-display
       
       &::before
-        @extend .ion-quote:before
+        @extend .ion-md-quote:before
         
         float left
         
-        padding-right .75rem        
+        /* Flip on y-axis */
+        transform scaleX( -1 )
+        
+        padding-left .75rem
         
         font-size 3rem
         color accent

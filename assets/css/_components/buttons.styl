@@ -23,7 +23,9 @@
     outline 0
 
   &--primary
-    background-image linear-gradient( to top, accent, lighten( accent,3% ) )
+    background-image linear-gradient( to top, accent, lighten( accent,5% ) )
+    
+    border 1px solid darken( accent,15% )
     
     > .Btn-action
     > .Btn-text
@@ -119,11 +121,12 @@
     
     /* Apply */  
     &--apply::before
-      @extend .ion-compose:before
+      @extend .ion-md-create:before
     
     /* Show more */
     &--showMore::before
-      @extend .ion-plus-round:before
+      @extend .ion-md-add:before
+
 
   &--secondary.is-on
     > .Btn-action

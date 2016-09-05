@@ -7,26 +7,28 @@ mixin row( $fields )
       != markdown( $fields.body )
 
     //-- Aside --
-    if $fields.asideIcons || $fields.asideTestimonial
+    if $fields.asideContent || $fields.asideTestimonial
       aside.Row-aside
 
         if $fields.asideTestimonial
+          
+          //-- Allows testimonial without title/ byline --
+          if $fields.asideTestimonialTitle && $fields.asideTestimonialByline
+            h3
+              span.InlineIcon.InlineIcon--ion-md-chatboxes
+              span= $fields.asideTestimonialTitle
+            p= $fields.asideTestimonialByline
 
-          h3
-            span.InlineIcon.InlineIcon--ion-chatbubbles
-            span Our Alumni
-          p Find out what they've said
-
-          +smQuote( $fields.asideTestimonial.fields )
+          .Row-asideItem
+            +smQuote( $fields.asideTestimonial.fields )
 
         if $fields.asideTitle && $fields.asideTitleIcon && $fields.asideByline
           h3
             span.InlineIcon( class= "InlineIcon--" + $fields.asideTitleIcon )
             span= $fields.asideTitle
           p= $fields.asideByline
-
-        each $aside in $fields.asideIcons
-          
-          //-- If icon --
-          if $aside.sys.contentType.sys.id === "icons"
-            +icon( $aside.fields, "secondary" )
+        
+        each $aside in $fields.asideContent
+          .Row-asideItem        
+            if $aside.sys.contentType.sys.id === "icons"
+              +icon( $aside.fields, "secondary" )

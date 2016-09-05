@@ -15,10 +15,12 @@
     margin-left auto
     margin-right auto
     
-    padding-top 2rem
-    
     color grey
     font-size font-xs
+    
+    &Item
+      &:nth-last-of-type( 1n+2 )
+        margin-bottom 2rem
         
     +above( lg )
       border-left 1px solid muted
@@ -32,6 +34,7 @@
       position relative
       font-size font-sm
       
+      margin-top 3em
       padding-top 1rem
       
       &::before
@@ -45,10 +48,11 @@
         border-top 4px solid accent
         
         width 4rem
-        
-      &:nth-child( 1n+2 )
-        margin-top 3em
-    
+      
+      +above( lg )
+        &:first-child
+          margin-top 0
+
     > p
       margin-bottom 2rem
       

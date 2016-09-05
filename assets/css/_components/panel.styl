@@ -77,6 +77,9 @@
   &-content
     @extend .l-FlexRowWrap
     
+    /**
+     * Ensures flex items centre when wrapping.
+     */
     justify-content center
     
     /* Narrow */
@@ -90,7 +93,9 @@
     /* Wide */
     &--wide
       @extend .l-Container-content--wide
-    
+      
+    &Item
+      padding 0 1rem    
       
   /* Carousel */
   &-carousel
@@ -130,11 +135,11 @@
     
     &ArrowPrev
       &::before
-        @extend .ion-arrow-right-c:before
+        @extend .ion-md-arrow-round-forward:before
         margin-right -2rem
     &ArrowNext
       &::before
-        @extend .ion-arrow-left-c:before
+        @extend .ion-md-arrow-round-back:before
         margin-left -2rem
       
   .slick-track

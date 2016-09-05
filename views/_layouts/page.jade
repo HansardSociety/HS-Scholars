@@ -13,6 +13,10 @@ extends site
 block siteBody
   
   each $section in entry.sections
+
+    if $section.sys.contentType.sys.id.indexOf( "panel" ) > -1
+
+      +panel2( $section )
     
     //--
       - Blocks
@@ -21,76 +25,3 @@ block siteBody
     if $section.sys.contentType.sys.id === "block"
 
       +block( $section.fields )
-        
-    //--
-      - Quote panel
-      ==================================================
-    
-    if $section.sys.contentType.sys.id === "panelQuote"
-
-      
-      //--
-        - 1. Background colour (brand, canvas, contrast or default ie. null)
-        - 2. Specify whether a flow panel (.Panel--flow).
-        - 3. Wide or narrow width
-        - 4. Contentful fields (IMPORTANT: see panel mixin for explanation)
-        - 5. Carousel object array (Contentful fields or null)
-        --
-      +panel( "contrast",
-              null,
-              "narrow",
-              $section.fields,
-              "content",
-              null )
-
-        +lgQuote( $section.fields.alumnus.fields )
-
-    //--
-      - Icons panel
-      ==================================================
-
-    if $section.sys.contentType.sys.id === "panelIcons"
-      
-      +panel( "brand",
-              null,
-              "wide",
-              $section.fields,
-              "content",
-              null )
-
-        each $icon in $section.fields.icons
-          +icon( $icon.fields, null )
-
-    
-    //--
-      - Testimonials carousel
-      ==================================================
-
-    if $section.sys.contentType.sys.id === "panelTestimonials"
-
-      +panel( "contrast",
-              null,
-              "wide",
-              $section.fields,
-              "carousel",
-              $section.fields.alumni )
-
-        block carouselItems
-          +testimonial( $item.fields )
-
-    //--
-      - Blog panel
-      ==================================================
-
-    if $section.sys.contentType.sys.id === "panelPosts"
-
-      +panel( "canvas",
-              null,
-              "narrow",
-              $section.fields,
-              "content",
-              null )
-
-        //-- Blog snippets --
-        each $summary in contentful.post.slice( 0,2 )
-          +summary( $summary )

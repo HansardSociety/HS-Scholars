@@ -71,45 +71,47 @@ mixin block( $fields )
         
         each $panel in $fields.panels
 
-          //-- Content panel --
-          if $panel.sys.contentType.sys.id === "panelContent"
-            +panel( null,
-                    "flow",
-                    "moderate",
-                    $panel.fields, //-- Need to pass fields to mixin in case of any nested mixins --
-                    "content",
-                    null )
+          +panel2( $panel )
 
-              //-- Rows --
-              +row( $panel.fields )
+          //- //-- Content panel --
+          //- if $panel.sys.contentType.sys.id === "panelContent"
+          //-   +panel( null,
+          //-           "flow",
+          //-           "moderate",
+          //-           $panel.fields, //-- Need to pass fields to mixin in case of any nested mixins --
+          //-           "content",
+          //-           null )
 
-          //-- Testimonials --
-          if $panel.sys.contentType.sys.id === "panelTestimonials"
-            +panel( "canvas",
-                    null,
-                    "wide",
-                    $panel.fields,
-                    "carousel",
-                    $panel.fields.alumni )
+          //-     //-- Rows --
+          //-     +row( $panel.fields )
 
-              block carouselItems
-                +testimonial( $item.fields )
+          //- //-- Testimonials --
+          //- if $panel.sys.contentType.sys.id === "panelTestimonials"
+          //-   +panel( "canvas",
+          //-           null,
+          //-           "wide",
+          //-           $panel.fields,
+          //-           "carousel",
+          //-           $panel.fields.alumni )
+
+          //-     block carouselItems
+          //-       +testimonial( $item.fields )
 
           //-- Profile panel --
-          if $panel.sys.contentType.sys.id === "panelProfiles"
-            +panel( null,
-                    "flow",
-                    "moderate",
-                    $panel,
-                    "content",
-                    null )
+          //- if $panel.sys.contentType.sys.id === "panelProfiles"
+          //-   +panel( null,
+          //-           "flow",
+          //-           "moderate",
+          //-           $panel,
+          //-           "content",
+          //-           null )
               
-              //-- Introductory text for subsequent profiles --
-              +row( $panel.fields )
+          //-     //-- Introductory text for subsequent profiles --
+          //-     +row( $panel.fields )
               
-              //-- Profiles --
-              each $profile in $panel.fields.profiles
-                +profile( $profile.fields )
+          //-     //-- Profiles --
+          //-     each $profile in $panel.fields.profiles
+          //-       +profile( $profile.fields )
 
       //-- Footer --
       footer.Block-expandFooter

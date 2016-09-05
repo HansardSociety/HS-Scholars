@@ -36,7 +36,7 @@ mixin profile( $fields )
           if $fields.twitter
             li
               a.Profile-contactItem.Profile-contactItem--twitter( href= $fields.twitter,
-                                                                  title= "@" + $fields.twitter.split("/").pop() + " | Twitter" )= $fields.twitter.split("/").pop()
+                                                                  title= "@" + $fields.twitter.split("/").pop() + " | Twitter" )= "@" + $fields.twitter.split("/").pop()
           if $fields.linkedIn
             li
               a.Profile-contactItem.Profile-contactItem--linkedIn( href= $fields.linkedIn,

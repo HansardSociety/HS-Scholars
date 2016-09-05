@@ -27,9 +27,8 @@
     min-height 100vh
     
   &-heroImg
-    position absolute
-    width 100%
-    
+    @extend .l-CenterX
+
     /* Accommodates for .Block-expand box-shadow */
     z-index -1
       
@@ -44,7 +43,9 @@
       background-image linear-gradient( to bottom, copyOpaque 33.33%, transparent);
     
     > img    
-      width 100%    
+      min-height 100vh
+
+      
   /* Header */
   &-header
     @extend .l-Container
