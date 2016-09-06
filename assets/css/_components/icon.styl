@@ -2,7 +2,6 @@
   @extend .l-MarginAuto
   
   max-width 16rem
-  // padding 1rem
   
   &--secondary
     > .Icon-text
@@ -20,6 +19,7 @@
     
     background-color rgba( muted,.5 )
     border-radius 50%
+    box-shadow shadow-copy
     
     > Img
       @extend .l-CenterXY
@@ -29,6 +29,11 @@
       
   &-text
     @extend .l-MarginTop
-    
-    font-size 1rem
+
     text-align center
+    
+    &Byline
+      font-size inherit
+
+      > button
+        margin .5em auto 0

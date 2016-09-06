@@ -77,7 +77,35 @@ $(".Btn" ).click( function() {
 /* Slick carousel
 ========================================================================== */
 
-$('.Panel-carousel').slick({
+$('.Panel-carousel--1').slick({
+  infinite: true,
+  // drag: false,
+  // swipe: true,
+  focusOnSelect: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  mobileFirst: true,
+  prevArrow: '<button type="button" class="Panel-carouselArrowPrev"></button>',
+  nextArrow: '<button type="button" class="Panel-carouselArrowNext"></button>',
+  // responsive: [
+  //   {
+  //     breakpoint: 799,
+  //     settings: {
+  //       slidesToShow: 2,
+  //       slidesToScroll: 1
+  //     }
+  //   },
+  //   {
+  //     breakpoint: 1199,
+  //     settings: {
+  //       slidesToShow: 3,
+  //       slidesToScroll: 1
+  //     }
+  //   }
+  // ]
+});
+
+$('.Panel-carousel--3').slick({
   infinite: true,
   // drag: false,
   // swipe: true,

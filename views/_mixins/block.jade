@@ -12,7 +12,8 @@ mixin block( $fields )
     header.Block-header
 
       .Block-headerContent( class= $fields.heroLandscape && $fields.heroPortrait ?
-                                   "Block-headerContent--light" : null )
+                                   "Block-headerContent--light" :
+                                   null )
 
         h2= $fields.title
         
@@ -71,50 +72,12 @@ mixin block( $fields )
         
         each $panel in $fields.panels
 
-          +panel2( $panel )
-
-          //- //-- Content panel --
-          //- if $panel.sys.contentType.sys.id === "panelContent"
-          //-   +panel( null,
-          //-           "flow",
-          //-           "moderate",
-          //-           $panel.fields, //-- Need to pass fields to mixin in case of any nested mixins --
-          //-           "content",
-          //-           null )
-
-          //-     //-- Rows --
-          //-     +row( $panel.fields )
-
-          //- //-- Testimonials --
-          //- if $panel.sys.contentType.sys.id === "panelTestimonials"
-          //-   +panel( "canvas",
-          //-           null,
-          //-           "wide",
-          //-           $panel.fields,
-          //-           "carousel",
-          //-           $panel.fields.alumni )
-
-          //-     block carouselItems
-          //-       +testimonial( $item.fields )
-
-          //-- Profile panel --
-          //- if $panel.sys.contentType.sys.id === "panelProfiles"
-          //-   +panel( null,
-          //-           "flow",
-          //-           "moderate",
-          //-           $panel,
-          //-           "content",
-          //-           null )
-              
-          //-     //-- Introductory text for subsequent profiles --
-          //-     +row( $panel.fields )
-              
-          //-     //-- Profiles --
-          //-     each $profile in $panel.fields.profiles
-          //-       +profile( $profile.fields )
+          +panel( $panel )
 
       //-- Footer --
       footer.Block-expandFooter
         .Block-expandFooterContent
 
-          +share( "Share", $fields.shareText, $fields.slug )
+          +share( "Share",
+                  $fields.shareText,
+                  $fields.slug )

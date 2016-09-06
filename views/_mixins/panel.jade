@@ -5,14 +5,14 @@
   - JSON data into the mixin, since mixins are declared
   - in config.jade, ie. before Contentful's entry fields are declared.
   --
-mixin panel2( $section )
+mixin panel( $section )
   
   .Panel( 
           class= $section.fields.bgColour ?
                   ( $section.fields.bgColour === "Light" ?
                     "Panel--canvas" :
                     "Panel--brand" ) :
-                  null
+                  "Panel--base"
                  
           class= $section.sys.contentType.sys.id === "panelContent" ?
                  "Panel--flow" :
@@ -33,11 +33,11 @@ mixin panel2( $section )
         
         p.Panel-headerByline= $section.fields.byline
     
-    //- //-- Blog feed --
-    //- if $section.sys.contentType.sys.id === "panelPosts"
-    //-   .Panel-content.Panel-content--narrow
-    //-     each $post in $section.fields.posts
-    //-       +summary( $post.fields )
+    //-- Blog feed --
+    if $section.sys.contentType.sys.id === "panelPosts"
+      .Panel-content.Panel-content--narrow
+        each $post in $section.fields.posts
+          +summary( $post.fields )
 
     //-- Content --
     if $section.sys.contentType.sys.id === "panelContent"
@@ -55,7 +55,8 @@ mixin panel2( $section )
     if $section.sys.contentType.sys.id === "panelProfiles"
       .Panel-content.Panel-content--moderate
         
-        +row( $section.fields )
+        if $section.fields.body
+          +row( $section.fields )
         
         each $profile in $section.fields.profiles
           +profile( $profile.fields )
@@ -67,14 +68,14 @@ mixin panel2( $section )
 
     //-- Testimonials --
     if $section.sys.contentType.sys.id === "panelTestimonials"
-      .Panel-carousel
+      .Panel-carousel.Panel-carousel--3
         each $testimonial in $section.fields.alumni
           .Panel-carouselItem
             +testimonial( $testimonial.fields )
 
-    //-- Call-to-action --
-    if $section.fields.cta && $section.fields.ctaURL
+    //- //-- Call-to-action --
+    //- if $section.fields.cta && $section.fields.ctaURL
 
-      //-- Link to blog --
-      a.More( href= "/" + $section.fields.ctaURL,
-              title= _str.capitalize( $section.fields.ctaURL ).replace( "-", " " ) )= $section.fields.cta
+    //-   //-- Link to blog --
+    //-   a.More( href= "/" + $section.fields.ctaURL,
+    //-           title= _str.capitalize( $section.fields.ctaURL ).replace( "-", " " ) )= $section.fields.cta

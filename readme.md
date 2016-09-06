@@ -19,6 +19,12 @@ Hansard Society Scholars website, powered by Roots and Contentful.
 * SEO By Gregor Črešnar from the Noun Project
 * Network Connections By Myart from the Noun Project
 * Weighing Scale By Matt Caisley from the Noun Project
+* Wales By Luke Anthony Firth from the Noun Project
+* Scotland By Adam Wilson from the Noun Project
+* Input By Ben Ehmke from the Noun Project
+* Upload By Claudio Gomboli from the Noun Project
+* Like By ✦ Shmidt Sergey ✦ from the Noun Project
+* Stopwatch By naim from the Noun Project
 * ['Taking photos on Lambeth Bridge'](https://www.flickr.com/photos/lo_ise/4730973273/sizes/o/) by lo_ise
 * [Bandiera dell'Unione (EU Flag)](https://www.flickr.com/photos/squarcina/2087217652/sizes/l) by Giampaolo Squarcina
 * [Graduates throwing mortarboards](https://unsplash.com/@baim?photo=pYWuOMhtc6k) by Baim Hanif

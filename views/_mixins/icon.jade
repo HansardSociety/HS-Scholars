@@ -5,5 +5,5 @@ mixin icon( $fields, $priority, $group )
       img( src= $fields.image.fields.file.url
            alt= $fields.image.fields.description )
     .Icon-text
-      h3.Icon-textTitle= $fields.title
-      p.Icon-textByline= $fields.byline
+      h3= $fields.title
+      p.Icon-textByline!= $fields.byline.replace( "{% apply-btn-lg %}", $html_ApplyBtnMd )

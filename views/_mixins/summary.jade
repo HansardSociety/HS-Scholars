@@ -1,5 +1,5 @@
 mixin summary( $fields )
-  a( href= $fields._url ).Summary
+  a( href= "/blog/" + $fields.slug ).Summary
     article.Summary-content
       section.Summary-contentBody
         h1= $fields.title

@@ -2,6 +2,7 @@
   @extend .l-Container
   
   position relative
+  
   /**
    * Flex ensures carousel centred as auto
    * margin not applied due to left/right -1rem
@@ -12,7 +13,7 @@
   @extend .l-FlexRowWrap
   
   justify-content center
-      
+  
   &--brand
     background-color brand
     color canvas
@@ -20,9 +21,12 @@
     .Panel-headerTitle
       color inherit
   
+  &--base
+    background-color canvas
+    & + .Panel--base
+      background-color contrast 
   &--canvas
     background-color canvas
-    
   &--contrast
     background-color contrast
   &--flow
@@ -95,7 +99,11 @@
       @extend .l-Container-content--wide
       
     &Item
-      padding 0 1rem    
+      padding 1rem 0
+      
+      +above( lg )
+        padding 0 1rem
+        flex 1   
       
   /* Carousel */
   &-carousel
