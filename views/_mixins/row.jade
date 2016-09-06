@@ -1,5 +1,7 @@
 mixin row( $fields )
-  .Row
+  .Row( class= $fields.reverseStack === true ?
+               "Row--reverseStack" :
+               null )
     
     //-- Main --
     section.Row-main.Copy
@@ -28,7 +30,8 @@ mixin row( $fields )
             span= $fields.asideTitle
           p= $fields.asideByline
         
-        each $aside in $fields.asideContent
-          .Row-asideItem        
-            if $aside.sys.contentType.sys.id === "icons"
-              +icon( $aside.fields, "secondary" )
+        if $fields.asideContent
+          each $aside in $fields.asideContent
+            .Row-asideItem        
+              if $aside.sys.contentType.sys.id === "icons"
+                +icon( $aside.fields, "secondary" )

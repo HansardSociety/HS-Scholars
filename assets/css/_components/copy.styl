@@ -13,15 +13,20 @@
   > h6
   > ul
   > blockquote
-    &:not( :last-child )
-      margin-bottom 1.125em
+    &:nth-last-child( 1n+2 )
+      margin-bottom 1em
     
   > h1
   > h2
   > h3
   > h4
   > h5
+  > h6
     color brand
+    
+    &:nth-child( 1n+2 )
+      margin-top 1.5em
+    
     
   > h2
     font-size font-lg
@@ -47,6 +52,89 @@
 
     +above( md )
       font-size font-xl
+      
+  /* Lists
+  ========================================================================== */
+  
+  /* Core */
+  ul
+  ol
+    display table
+    margin-top 1em
+    padding-left 1rem
+
+    > li
+      display table-row
+      
+      &::before
+        display table-cell
+        padding-right 1rem
+        font-weight bold
+        
+  /* Unordered */    
+  > ul
+    counter-reset: root-ul-counter
+    
+    > li
+      &::before
+        content counter( root-ul-counter, disc )
+        counter-increment root-ul-counter
+      > ul
+        counter-reset: level-one-ul-counter
+        > li
+          &::before
+            content counter( level-one-ul-counter, square )
+            counter-increment level-one-ul-counter
+          > ul
+            counter-reset: level-two-ul-counter
+            > li
+              &::before
+                content counter( level-two-ul-counter, circle )
+                counter-increment level-two-ul-counter
+      > ol
+        counter-reset: level-one-ol-counter
+        > li
+          &::before
+            content counter( level-one-ol-counter, decimal ) "."
+            counter-increment level-one-ol-counter
+          > ol
+            counter-reset: level-two-ol-counter
+            > li
+              &::before
+                content counter( level-two-ol-counter, lower-roman ) "."
+                counter-increment level-two-ol-counter
+                
+  /* Ordered */    
+  > ol
+    counter-reset: root-ul-counter
+    > li
+      &::before
+        content counter( root-ul-counter, decimal ) "."
+        counter-increment root-ul-counter
+      > ol
+        counter-reset: level-one-ul-counter
+        > li
+          &::before
+            content counter( level-one-ul-counter, lower-roman ) "."
+            counter-increment level-one-ul-counter
+          > ol
+            counter-reset: level-two-ul-counter
+            > li
+              &::before
+                content counter( level-two-ul-counter, lower-latin ) "."
+                counter-increment level-two-ul-counter
+      > ol
+        counter-reset: level-one-ol-counter
+        > li
+          &::before
+            content counter( level-one-ol-counter, decimal )
+            counter-increment level-one-ol-counter
+          > ol
+            counter-reset: level-two-ol-counter
+            > li
+              &::before
+                content counter( level-two-ol-counter, lower-roman )
+                counter-increment level-two-ol-counter
       
 /* Special copy
 ========================================================================== */

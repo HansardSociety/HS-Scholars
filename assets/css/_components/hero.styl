@@ -1,10 +1,3 @@
-/* Shared
-========================================================================== */
-
-
-/* Main
-========================================================================== */
-
 .Hero
   position relative
   
@@ -13,18 +6,26 @@
   
   overflow hidden
   
-  background-color copy
-    
   /* Image */
   &-img
+    &::after
+      content ""
+      display block
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-color #000
+      animation fadein 2s
+      opacity .4
+      
     > img
       /* Centre image */
       transform translateX( calc( 50vw + -50% ) )
       
       min-height 100%
-      
-      opacity .45
-        
+              
   /* Strap */ 
   &-strap
     @extend .l-CenterXY
