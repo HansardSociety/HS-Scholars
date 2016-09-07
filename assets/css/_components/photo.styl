@@ -1,0 +1,71 @@
+/* Shared
+========================================================================== */
+
+.Photo-img
+.Photo-img > img
+  max-width inherit
+  max-height inherit
+  // display block
+
+/* Main
+========================================================================== */
+
+.Photo
+  > figure
+    @extend .l-FlexRowNowrap
+    @extend .l-BorderRadius2px
+    
+    align-items center
+    background-color copy
+    overflow hidden
+    position relative
+         
+    /**
+     * Need to set explicit width and height values
+     * so Slick carousel can calculate the size.
+     * Width is used as a base when photo isn't used
+     * in within a carousel.
+     */
+    width 100%
+    height 100%
+    max-width calc( 100vw - 2rem )
+    max-height calc( 100vh - 8rem )
+      
+  &-caption
+    position absolute
+    top 0
+    left 0
+
+    width 100%
+    max-width 30rem
+
+    padding 1rem
+    border-top-left-radius 2px
+
+    background-color copyOpaque
+    color canvas
+
+    font-size font-xs
+    
+    overflow hidden
+    
+    height 6rem
+    
+    &.is-hidden
+      height 4rem
+      > p
+        transform translateY( -10rem )
+        transition all .5s ease
+    
+    > p
+      transition all .5s ease
+      transform translateY( 0 )
+      margin-bottom .5em
+
+    &Description
+    &Meta
+      display block
+
+    &Meta
+      font-variant small-caps
+      text-transform lowercase

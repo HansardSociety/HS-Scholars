@@ -32,7 +32,7 @@ $( "body" ).click( function() {
 /* Block expand
 ========================================================================== */
 
-$(".Block-headerContentSummaryCTAsToggle" ).click( function() {
+$( ".Block-headerContentSummaryCTAsToggle" ).click( function() {
   toggleState( $( this ).parents( ".Block-header" ).next(), "is-hidden" );
 
   if ( !$( this ).parents( ".Block-header" ).next().hasClass( "is-hidden" ) ) {
@@ -49,8 +49,16 @@ $(".Block-headerContentSummaryCTAsToggle" ).click( function() {
    * Need to call resize and then reset slick dimensions
    * to ensure carousel centres correctly.
    */
-  $( this ).parents( ".Block-header" ).next().find( ".Panel-carousel" ).resize().slick( "setDimensions" );
+  $( this ).parents( ".Block-header" ).next().find( ".Panel-carousel" ).resize().slick( 'setDimensions' );
 
+});
+
+/* Caption expand
+========================================================================== */
+
+$( ".Photo-captionOpen" ).click( function(){
+
+  toggleState( $( this ).parent( ".Photo-caption" ), "is-hidden" );
 });
 
 /* Hamburger animation
@@ -77,38 +85,22 @@ $(".Btn" ).click( function() {
 /* Slick carousel
 ========================================================================== */
 
-$('.Panel-carousel--1').slick({
+/* Gallery */
+$('.Panel-carousel--gallery').slick({
   infinite: true,
-  // drag: false,
-  // swipe: true,
   focusOnSelect: true,
-  slidesToShow: 1,
+  adaptiveHeight: true,
   slidesToScroll: 1,
   mobileFirst: true,
   prevArrow: '<button type="button" class="Panel-carouselArrowPrev"></button>',
   nextArrow: '<button type="button" class="Panel-carouselArrowNext"></button>',
-  // responsive: [
-  //   {
-  //     breakpoint: 799,
-  //     settings: {
-  //       slidesToShow: 2,
-  //       slidesToScroll: 1
-  //     }
-  //   },
-  //   {
-  //     breakpoint: 1199,
-  //     settings: {
-  //       slidesToShow: 3,
-  //       slidesToScroll: 1
-  //     }
-  //   }
-  // ]
+  centerMode: true,
+  variableWidth: true
 });
 
+/* Three boxes */
 $('.Panel-carousel--3').slick({
   infinite: true,
-  // drag: false,
-  // swipe: true,
   focusOnSelect: true,
   slidesToShow: 1,
   slidesToScroll: 1,

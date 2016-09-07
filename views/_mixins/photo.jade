@@ -1,0 +1,31 @@
+mixin photo( $fields )
+  .Photo
+    figure
+      
+      //- img( data-lazy= $fields.photo.fields.file.url,
+      //-      alt= $fields.photo.fields.description )
+
+      picture.Photo-img
+
+        source( sizes="100vh",
+                srcset= $fields.photo.fields.file.url + "?h=360 306h, " +
+                        $fields.photo.fields.file.url + "?h=480 480h, " +
+                        $fields.photo.fields.file.url + "?h=720 720h, " +
+                        $fields.photo.fields.file.url + "?h=1080 1080h, " +
+                        $fields.photo.fields.file.url + "?h=1440 1440h, " +
+                        $fields.photo.fields.file.url + "?h=2160 2160h",
+                alt= $fields.photo.fields.file.description )
+        
+        //-- Fallback --
+        img( srcset= $fields.photo.fields.file.url,
+             alt= $fields.photo.fields.file.description )
+      
+      figcaption.Photo-caption.is-hidden
+        p
+          span.Photo-captionDescription= $fields.caption + " "
+          span.Photo-captionMeta= $fields.location
+
+        span.Photo-captionOpen
+          +button( "secondary", "sm", "showMore", "Caption" )
+
+
