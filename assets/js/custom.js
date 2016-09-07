@@ -25,8 +25,11 @@ $( ".Author-biogExpand" ).click( function() {
 /* Body click events
 ========================================================================== */
 
-$( "body" ).click( function() {
+$( "body" ).click( function( e ){
   $( ".Tooltip" ).hide();
+  if ( $( this ) != e.target ){
+    $( ".Photo-captionOpen" ).addClass(  "is-hidden" );
+  }
 });
 
 /* Block expand
