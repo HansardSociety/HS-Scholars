@@ -20,6 +20,8 @@ Hansard Society Scholars website, powered by Roots and Contentful.
 * Network Connections By Myart from the Noun Project
 * Weighing Scale By Matt Caisley from the Noun Project
 * Wales By Luke Anthony Firth from the Noun Project
+* Tickets By Arthur Lacôte from the Noun Project
+* Podium By Icon Fair from the Noun Project
 * Scotland By Adam Wilson from the Noun Project
 * Input By Ben Ehmke from the Noun Project
 * Upload By Claudio Gomboli from the Noun Project
