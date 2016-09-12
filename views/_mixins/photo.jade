@@ -2,23 +2,27 @@ mixin photo( $fields )
   .Photo
     figure
       
-      //- img( data-lazy= $fields.photo.fields.file.url,
-      //-      alt= $fields.photo.fields.description )
-
       picture.Photo-img
 
         source( sizes="100vh",
-                srcset= $fields.photo.fields.file.url + "?h=360 306h, " +
-                        $fields.photo.fields.file.url + "?h=480 480h, " +
-                        $fields.photo.fields.file.url + "?h=720 720h, " +
-                        $fields.photo.fields.file.url + "?h=1080 1080h, " +
-                        $fields.photo.fields.file.url + "?h=1440 1440h, " +
-                        $fields.photo.fields.file.url + "?h=2160 2160h",
+                data-srcset= $fields.photo.fields.file.url + "?h=360 306h, " +
+                             $fields.photo.fields.file.url + "?h=480 480h, " +
+                             $fields.photo.fields.file.url + "?h=720 720h, " +
+                             $fields.photo.fields.file.url + "?h=1080 1080h, " +
+                             $fields.photo.fields.file.url + "?h=1440 1440h, " +
+                             $fields.photo.fields.file.url + "?h=2160 2160h",
                 alt= $fields.photo.fields.file.description )
         
-        //-- Fallback --
-        img( srcset= $fields.photo.fields.file.url,
-             alt= $fields.photo.fields.file.description )
+        //--
+          - Must provide fallback for LazySizes plugin:
+          - "lazyload" class must be declared here.
+          - Plugin breaks without alt defined.
+          - Low quality placeholder defined in "src"
+          - to force sizing.
+          --
+        img.lazyload( data-srcset= $fields.photo.fields.file.url,
+                      src= $fields.photo.fields.file.url + "?h=2160&q=3",
+                      alt= $fields.photo.fields.description )
       
       figcaption.Photo-caption.is-hidden
         p

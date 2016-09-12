@@ -24,7 +24,7 @@
   &--base
     background-color canvas
     & + .Panel--base
-      background-color contrast 
+      border-top 2px solid muted
   &--canvas
     background-color canvas
   &--contrast
@@ -131,20 +131,20 @@
        * Need to set units as SLick doesn't play well
        * with percentages.
        */
-      max-height 100vh
       max-width 100vw
       
       cursor pointer
       
     &--gallery
-      // height calc( 100vh - 8rem )
+      > .Panel-carouselItem
+        max-height 100vh
 
     /* Slick */
     &ArrowPrev
     &ArrowNext
       @extend .l-CenterX
 
-      top -2rem
+      top -1rem
       cursor pointer
       
       &::before

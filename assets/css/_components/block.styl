@@ -9,7 +9,7 @@
   
   &:not( .Block--hero ) + .Block:not( .Block--hero )
     > .Block-header
-      background-color contrast
+      border-top 2px solid muted
   
   /**
    * Pull subsequent blocks up -0.4rem to negate the
@@ -17,7 +17,7 @@
    * to create additional space for box-shadow, and
    * negate z-index
    */
-  + .Block
+  & + .Block
     margin-top -.4rem
     
   &--hero
@@ -110,16 +110,14 @@
                     
       &Aside
         @extend .l-Row-aside
-        @extend .l-BorderRadius2px
 
         order 2
         flex 1
 
         margin 0 0 2rem 0
         
-        padding 1rem 0
-        border-top 1px solid muted
-        border-bottom 1px solid muted
+        padding 1rem
+        background-color contrast
         
         font-size font-xs
         color grey
@@ -129,8 +127,8 @@
           
           margin 0
           padding 0 0 0 2rem
-          border none
-          border-left 1px solid muted
+          border-left 2px solid muted
+          background-color transparent
           
         > h3
           font-size font-sm
@@ -220,7 +218,7 @@
         padding-top 2rem
         padding-bottom 2rem
 
-      border-top 1px solid muted
+      border-top 2px solid muted
             
       &Content
         @extend .l-Container-content

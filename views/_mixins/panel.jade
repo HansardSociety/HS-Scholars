@@ -52,7 +52,7 @@ mixin panel( $section )
           .Panel-contentItem
             +icon( $icon.fields, null, "yGutter" )
 
-    //-- Testimonials --
+    //-- Gallery --
     if $section.sys.contentType.sys.id === "panelPhotos"
       .Panel-carousel.Panel-carousel--gallery
         each $photo in $section.fields.photos

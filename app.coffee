@@ -58,6 +58,7 @@ module.exports =
         'assets/js/velocity.ui.js'
         'assets/js/slick.js'
         'assets/js/picturefill.js'
+        'assets/js/lazysizes.js'
         'assets/js/clipboard.js'
         'assets/js/custom.js'
       ]
