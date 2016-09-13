@@ -9,16 +9,16 @@
   
   &:not( .Block--hero ) + .Block:not( .Block--hero )
     > .Block-header
-      border-top 2px solid muted
+      border-top 1px solid muted
   
   /**
-   * Pull subsequent blocks up -0.4rem to negate the
-   * margin-bottom of .Block-expand (see below), used
-   * to create additional space for box-shadow, and
-   * negate z-index
+   * Pull subsequent blocks up -0.75rem to negate the
+   * margin-bottom of .Block-expand (see below) (and
+   * border-top), used to create additional space for
+   * box-shadow, and negate z-index.
    */
   & + .Block
-    margin-top -.4rem
+    margin-top -.75rem
     
   &--hero
     min-height 100vh
@@ -127,11 +127,15 @@
           
           margin 0
           padding 0 0 0 2rem
-          border-left 2px solid muted
+          border-left 1px solid muted
           background-color transparent
           
         > h3
           font-size font-sm
+          margin-bottom .5em
+          
+        &CTA
+          margin-top .5rem
 
         
   /* Expand */
@@ -218,7 +222,7 @@
         padding-top 2rem
         padding-bottom 2rem
 
-      border-top 2px solid muted
+      border-top 1px solid muted
             
       &Content
         @extend .l-Container-content

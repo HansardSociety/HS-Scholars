@@ -1,9 +1,9 @@
-mixin icon( $fields, $priority, $group )
-  .Icon( class= $priority != null ? "Icon--" + $priority : null,
-         class= $group != null ? "Icon--" + $group : null )
+mixin icon( $fields, $priority )
+  .Icon( class= $priority != null ? "Icon--" + $priority : null )
     .Icon-img
       img( src= $fields.image.fields.file.url
            alt= $fields.image.fields.description )
+
     .Icon-text
       h3= $fields.title
       p.Icon-textByline!= $fields.byline.replace( "{% apply-btn-lg %}", $html_ApplyBtnMd )

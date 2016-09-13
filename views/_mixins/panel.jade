@@ -45,12 +45,17 @@ mixin panel( $section )
       .Panel-content.Panel-content--moderate
         +row( $section.fields )
 
+    //-- Dates --
+    if $section.sys.contentType.sys.id === "panelDates"
+      .Panel-content.Panel-content--moderate
+        +datesTable( $section.fields )
+
     //-- Icons --
     if $section.sys.contentType.sys.id === "panelIcons"
       .Panel-content.Panel-content--wide
         each $icon in $section.fields.icons
           .Panel-contentItem
-            +icon( $icon.fields, null, "yGutter" )
+            +icon( $icon.fields, null )
 
     //-- Gallery --
     if $section.sys.contentType.sys.id === "panelPhotos"

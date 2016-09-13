@@ -47,7 +47,7 @@ module.exports =
     css_pipeline
       files: [
         './assets/css/main.*'
-        './assets/css/_vendors/slick.css'
+        './assets/css/_vendors/slick.styl'
       ]
       postcss: true
 
@@ -56,9 +56,9 @@ module.exports =
         'assets/js/jquery.js'
         'assets/js/velocity.js'
         'assets/js/velocity.ui.js'
-        'assets/js/slick.js'
         'assets/js/picturefill.js'
         'assets/js/lazysizes.js'
+        'assets/js/slick.js'
         'assets/js/clipboard.js'
         'assets/js/custom.js'
       ]

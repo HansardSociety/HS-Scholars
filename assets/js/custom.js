@@ -103,8 +103,8 @@ $('.Panel-carousel--gallery').slick({
 
 /* Three boxes */
 $('.Panel-carousel--3').slick({
-  infinite: true,
-  focusOnSelect: true,
+  // infinite: true,
+  // focusOnSelect: true,
   slidesToShow: 1,
   mobileFirst: true,
   prevArrow: '<button type="button" class="Panel-carouselArrowPrev"></button>',

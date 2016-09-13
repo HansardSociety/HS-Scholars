@@ -1,0 +1,56 @@
+mixin datesTable( $fields )
+  .Table
+    table.Table-content
+      
+      colgroup
+        col.Table-contentColumn
+
+        each $year in $fields.years
+          col.Table-contentColumn
+
+      thead.Table-contentHead
+        tr
+          th
+            .Table-contentHeadCell Semester
+
+          each $year in $fields.years
+            th
+              .Table-contentHeadCell= $year
+
+      tbody.Table-contentBody
+
+        //-- Spring --
+        tr
+          th
+            .Table-contentBodyCell Spring
+
+          each $date in $fields.dates
+            
+            if $date.fields.title.indexOf( "Spring" ) > -1
+              td
+                .Table-contentBodyCell
+                  +dates( $date.fields )
+        
+        //-- Summer --
+        tr
+          th
+            .Table-contentBodyCell Summer
+
+          each $date in $fields.dates
+            
+            if $date.fields.title.indexOf( "Summer" ) > -1
+              td
+                .Table-contentBodyCell
+                  +dates( $date.fields )
+        
+        //-- Autumn --
+        tr
+          th
+            .Table-contentBodyCell Autumn
+
+          each $date in $fields.dates
+            
+            if $date.fields.title.indexOf( "Autumn" ) > -1
+              td
+                .Table-contentBodyCell
+                  +dates( $date.fields )

@@ -19,7 +19,7 @@ mixin block( $fields )
         
         //-- Header text --
         .Block-headerContentSummary
-          p= $fields.introText
+          p= $fields.introText.replace(/\.$/, "") + "…"
 
           .Block-headerContentSummaryCTAs
 
@@ -56,16 +56,17 @@ mixin block( $fields )
 
               +dates( $fields.introAside.fields )
 
-              +button( "primary",
-                       "sm",
-                       "apply",
-                       "Apply now" )
+              .Block-headerContentAsideCTA
+                +button( "primary",
+                         "sm",
+                         "apply",
+                         "Apply now" )
 
     //--
       - Expandable content:
       - Opened by button in header text above.
       --
-    .Block-expand.is-hidden
+    .Block-expand
 
       //-- Content --
       section.Block-expandContent
