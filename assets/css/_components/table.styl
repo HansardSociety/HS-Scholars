@@ -1,10 +1,13 @@
 /* Shared
 ========================================================================== */
 
-.Table-contentHead
-.Table-contentBody
+.Table-head
+.Table-body
   &Cell
-    padding 1rem 2rem
+    padding 1rem
+    
+    +above( md )
+      padding 1rem 2rem
         
 /* Main
 ========================================================================== */
@@ -13,26 +16,26 @@
   max-width 100%
   overflow-x auto
     
-  &-content
-    border-spacing 0
-    border-collapse collapse
-    
-    background-color contrast
-    
-    table-layout fixed
+  border-spacing 0
+  border-collapse collapse
+  
+  background-color contrast
+  
+  table-layout fixed
 
-    &Column
+  &-column
+    &:nth-of-type( 1n+2 )
+      border-left 1px solid brand
+  
+  &-head
+    > tr
+      border-bottom 2px solid muted
+      
+  &-body
+    &Cell
+      // width 20rem
+      white-space nowrap
+
+    > tr
       &:nth-of-type( 1n+2 )
-        border-left 1px solid brand
-    
-    &Head
-      > tr
-        border-bottom 2px solid muted
-        
-    &Body
-      &Cell
-        width 20rem
-
-      > tr
-        &:nth-of-type( 1n+2 )
-          border-top 1px solid muted
+        border-top 1px solid muted

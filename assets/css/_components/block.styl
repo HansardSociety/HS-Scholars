@@ -24,6 +24,13 @@
     min-height 100vh
     
     /**
+     * Fixes hero image height jump on mobiles
+     * when the address bar disappears on
+     * a downward scroll.
+     */
+    transition all 9999s ease
+    
+    /**
      * Override default backround for hero images.
      */
     > .Block-header
@@ -151,21 +158,21 @@
     transition transform .3s ease, opacity .3s ease
 
     /* Ensures top and bottom shadow */
-    box-shadow 0 0 9px default, 0 0 9px default
+    box-shadow 0 0 20px rgba( 0,0,0,.2 ), 0 0 20px rgba( 0,0,0,.2 )
     
     /* Additional space for box-shadow */
-    margin-bottom .4rem
+    margin-bottom .7rem
     
     /**
      * Pulls expand up towards 'show more' button.
      * Relates to header's padding and size of triangle. 
      */
-    margin-top -1rem
+    margin-top -2rem
     
     z-index 1
 
     +above( md )
-      margin-top -2rem
+      margin-top -3rem
       
     &.is-hidden
       @extend .l-Offscreen
@@ -192,7 +199,7 @@
         width 2rem 
         height 2rem
         transform rotate( 135deg )
-        box-shadow: -3px 3px 3px 0 rgba( default, .6 );        
+        box-shadow: -5px 5px 5px 0 rgba( 0,0,0,.125 );        
         z-index 2
         
         +above( md )
@@ -202,7 +209,7 @@
           
           /**
            * Calculation ensures triangle is always
-           * below 'Show more' mutton on larger screens.
+           * below 'Show more' button on larger screens.
            * "(100% - 65rem) / 2": deduct moderate content
            * width from viewport width (taken as a percentage,
            * as vw doesn't seem to play well) and divide by 2 to
@@ -217,11 +224,12 @@
       
       padding-top 1rem
       padding-bottom 1rem
+
+      border-top 1px solid muted
+
       +above( md )
         padding-top 2rem
         padding-bottom 2rem
-
-      border-top 1px solid muted
             
       &Content
         @extend .l-Container-content

@@ -1,56 +1,56 @@
 mixin datesTable( $fields )
-  .Table
-    table.Table-content
+  .OFx
+    table.Table
       
       colgroup
-        col.Table-contentColumn
+        col.Table-column
 
         each $year in $fields.years
-          col.Table-contentColumn
+          col.Table-column
 
-      thead.Table-contentHead
+      thead.Table-head
         tr
           th
-            .Table-contentHeadCell Semester
+            .Table-headCell Semester
 
           each $year in $fields.years
             th
-              .Table-contentHeadCell= $year
+              .Table-headCell= $year
 
-      tbody.Table-contentBody
+      tbody.Table-body
 
         //-- Spring --
         tr
           th
-            .Table-contentBodyCell Spring
+            .Table-bodyCell Spring
 
           each $date in $fields.dates
             
             if $date.fields.title.indexOf( "Spring" ) > -1
               td
-                .Table-contentBodyCell
+                .Table-bodyCell
                   +dates( $date.fields )
         
         //-- Summer --
         tr
           th
-            .Table-contentBodyCell Summer
+            .Table-bodyCell Summer
 
           each $date in $fields.dates
             
             if $date.fields.title.indexOf( "Summer" ) > -1
               td
-                .Table-contentBodyCell
+                .Table-bodyCell
                   +dates( $date.fields )
         
         //-- Autumn --
         tr
           th
-            .Table-contentBodyCell Autumn
+            .Table-bodyCell Autumn
 
           each $date in $fields.dates
             
             if $date.fields.title.indexOf( "Autumn" ) > -1
               td
-                .Table-contentBodyCell
+                .Table-bodyCell
                   +dates( $date.fields )

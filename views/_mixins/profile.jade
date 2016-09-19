@@ -22,22 +22,22 @@ mixin profile( $fields )
     if $fields.email || $fields.twitter || $fields.linkedIn || $fields.tel
 
       aside.Profile-contact
-        ul
+        ul.Profile-contactList
 
           if $fields.email
             li
-              a.Profile-contactItem.Profile-contactItem--email( href= "mailto:" + $fields.email,
+              a.Profile-contactListItem.Profile-contactListItem--email( href= "mailto:" + $fields.email,
                                                                 title= $fields.email )= $fields.email
 
           if $fields.tel
             li
-              a.Profile-contactItem.Profile-contactItem--tel( href= "tel:" + $fields.tel.replace( " ", "" ),
+              a.Profile-contactListItem.Profile-contactListItem--tel( href= "tel:" + $fields.tel.replace( " ", "" ),
                                                               title= "Tel: " + $fields.tel )= $fields.tel
           if $fields.twitter
             li
-              a.Profile-contactItem.Profile-contactItem--twitter( href= $fields.twitter,
+              a.Profile-contactListItem.Profile-contactListItem--twitter( href= $fields.twitter,
                                                                   title= "@" + $fields.twitter.split("/").pop() + " | Twitter" )= "@" + $fields.twitter.split("/").pop()
           if $fields.linkedIn
             li
-              a.Profile-contactItem.Profile-contactItem--linkedIn( href= $fields.linkedIn,
+              a.Profile-contactListItem.Profile-contactListItem--linkedIn( href= $fields.linkedIn,
                                                                    title= $fields.name + " | LinkedIn" )= $fields.name
