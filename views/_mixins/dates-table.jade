@@ -22,35 +22,35 @@ mixin datesTable( $fields )
         //-- Spring --
         tr
           th
-            .Table-bodyCell Spring
+            .Table-bodyCell.Table-bodyCell--header Spring
 
           each $date in $fields.dates
             
             if $date.fields.title.indexOf( "Spring" ) > -1
               td
-                .Table-bodyCell
+                .Table-bodyCell.Table-bodyCell--main
                   +dates( $date.fields )
         
         //-- Summer --
         tr
           th
-            .Table-bodyCell Summer
+            .Table-bodyCell.Table-bodyCell--header Summer
 
           each $date in $fields.dates
             
             if $date.fields.title.indexOf( "Summer" ) > -1
               td
-                .Table-bodyCell
+                .Table-bodyCell.Table-bodyCell--main
                   +dates( $date.fields )
         
         //-- Autumn --
         tr
           th
-            .Table-bodyCell Autumn
+            .Table-bodyCell.Table-bodyCell--header Autumn
 
           each $date in $fields.dates
             
             if $date.fields.title.indexOf( "Autumn" ) > -1
               td
-                .Table-bodyCell
+                .Table-bodyCell.Table-bodyCell--main
                   +dates( $date.fields )

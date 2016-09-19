@@ -14,6 +14,12 @@
 
 .Table
   max-width 100%
+  display block
+
+  /**
+   * Without overflow, background colours
+   * only appear within viewport.
+   */
   overflow-x auto
     
   border-spacing 0
@@ -22,19 +28,25 @@
   background-color contrast
   
   table-layout fixed
-
+  
   &-column
     &:nth-of-type( 1n+2 )
       border-left 1px solid brand
   
+  &-head
+  &-bodyCell--header
+    color brand
+
   &-head
     > tr
       border-bottom 2px solid muted
       
   &-body
     &Cell
-      // width 20rem
       white-space nowrap
+    
+      &--main
+        min-width 16rem
 
     > tr
       &:nth-of-type( 1n+2 )
