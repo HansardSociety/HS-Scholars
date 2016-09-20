@@ -23,38 +23,41 @@
   
   &--base
     background-color canvas
+    
     & + .Panel--base
-      border-top 1px solid muted
+      background-color contrast
+  
   &--canvas
     background-color canvas
+  
   &--contrast
     background-color contrast
+  
   &--flow
     background-color canvas
     
-    &:nth-of-type( odd ):not( :first-of-type )
-    &:nth-of-type( even )
+    &:nth-child( 1n+2 )
+      padding-top 4rem
+
       &::before
-        @extend .l-CenterX
+      &::after
         content ""
-        top -1px
+        position absolute
+        width 50%
+        height 1rem
+        background-color inherit
+        top -1rem
         
-        border-left 1rem solid transparent
-        border-right 1rem solid transparent
-        
-        width 0 
-        height 0 
-    
-    &:nth-of-type( odd ):not( :first-of-type )
       &::before
-        border-top 1rem solid contrast
+        transform skew( -45deg ) translateX( .5rem )
+        right 0
+      &::after
+        transform skew( 45deg ) translateX( -.5rem )
+        left 0
 
     &:nth-of-type( even )
       background-color contrast
-      
-      &::before
-        border-top 1rem solid canvas
-    
+          
   /* Header */
   &-header
     margin-bottom 4rem
@@ -86,11 +89,8 @@
      */
     justify-content center
     
-    /**
-     * Allows overflowing content, eg. tables.
-     */
-    overflow-x auto
-    
+    width 100%
+
     /* Narrow */
     &--narrow
       @extend .l-Container-content--narrow
@@ -104,10 +104,9 @@
       @extend .l-Container-content--wide
       
     &Item
-      padding 1rem 0
+      padding 0 1rem 2rem
       
       +above( lg )
-        padding 0 1rem
         flex 1
       
   /* Carousel */

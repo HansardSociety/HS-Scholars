@@ -16,8 +16,13 @@ block siteBody
 
     if $section.sys.contentType.sys.id.indexOf( "panel" ) > -1
 
-      +panel( $section )
-    
+      +panel( $section,
+              $section.fields.bgColour ?
+                  ( $section.fields.bgColour === "Light" ?
+                    "canvas" :
+                    "brand" ) :
+                  ( $section.sys.contentType.sys.id !== "panelContent" ?
+                    "base" : null ) )
     //--
       - Blocks
       ==================================================

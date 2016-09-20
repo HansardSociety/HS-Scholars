@@ -5,20 +5,9 @@
   - JSON data into the mixin, since mixins are declared
   - in config.jade, ie. before Contentful's entry fields are declared.
   --
-mixin panel( $section )
+mixin panel( $section, $bgc )
   
-  .Panel( 
-          class= $section.fields.bgColour ?
-                  ( $section.fields.bgColour === "Light" ?
-                    "Panel--canvas" :
-                    "Panel--brand" ) :
-                  ( $section.sys.contentType.sys.id !== "panelContent" ?
-                    "Panel--base" : null )
-                 
-          class= $section.sys.contentType.sys.id === "panelContent" ?
-                 "Panel--flow" :
-                 null
-        )
+  .Panel( class= "Panel--" + $bgc )
 
     //--
       - Header:
