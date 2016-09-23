@@ -43,7 +43,7 @@
     @extend .l-CenterXY
     
     width calc( 100% - 2rem )
-    max-width 28rem
+    max-width 35rem
     
     border-radius 2px
 
@@ -72,8 +72,9 @@
           font-size font-xl
           
       &Byline
-        font-size font-sm
-        font-weight 700
+        @extend .t-Byline
+        
+        font-weight 600
           
       &Meta
         margin-top 1.5rem
@@ -87,7 +88,7 @@
         &Date
           font-size font-xs
           text-transform uppercase
-          opacity .5
+          opacity .66
           letter-spacing 0.125em
           
   &-arrow
