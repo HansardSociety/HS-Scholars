@@ -42,9 +42,6 @@
     width 101vw
     height 101vh
     
-    /* Accommodates for .Block-expand box-shadow */
-    // z-index -1
-      
     &::after
       content ""
       display block
@@ -60,14 +57,12 @@
         background-image linear-gradient( to bottom, rgba( #000,.66 ), transparent)
 
     > img    
+      width 100%
+      height auto
 
-      @media ( aspect-ratio: 4/3 ), ( aspect-ratio: 3/2 )
+      @media ( min-aspect-ratio: 4/3 ), ( min-aspect-ratio: 3/2 ), ( min-aspect-ratio: 5/4 )
         height 100%
         width auto
-
-      @media ( aspect-ratio: 16/10 ), ( aspect-ratio: 16/9 )
-        width 100%
-        height auto
       
   /* Header */
   &-header
