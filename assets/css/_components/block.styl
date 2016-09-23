@@ -52,15 +52,22 @@
       height 100%
       
       +portrait()
-        background-image linear-gradient( to bottom, rgba( #000,.66 ) 50%, transparent)
+        background-image linear-gradient(
+                          to bottom, rgba( #000,.66 ) 50%, transparent
+                         )
       +landscape()
-        background-image linear-gradient( to bottom, rgba( #000,.66 ), transparent)
+        background-image linear-gradient(
+                          to bottom, rgba( #000,.66 ), transparent
+                         )
 
     > img    
       width 100%
       height auto
 
-      @media ( min-aspect-ratio: 4/3 ), ( min-aspect-ratio: 3/2 ), ( min-aspect-ratio: 5/4 )
+      @media ( min-aspect-ratio: 4/3 ),
+             ( min-aspect-ratio: 3/2 ),
+             ( min-aspect-ratio: 5/4 )
+        
         height 100%
         width auto
       
