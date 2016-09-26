@@ -12,4 +12,15 @@ nav.Nav
 
   //-- Off canvas --
   .Nav-offCanvas
-  
+
+    ul.Nav-offCanvasMenu
+    
+      each $page in contentful.navigation[0].pages
+        li
+          .Nav-offCanvasMenuCat.is-closed
+            a( href= $siteURL + "/" + $page.fields.slug )= $page.fields.title
+            span.Nav-offCanvasMenuCatToggle
+          ul.Nav-offCanvasMenuSubCats
+            each $section in $page.fields.sections
+              li= $section.fields.title
+    

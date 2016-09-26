@@ -73,10 +73,12 @@ module.exports =
       content_types:
 
         # Core
-        global:
-          id: 'global'
         contentVars:
           id: 'contentVars'
+        global:
+          id: 'global'
+        navigation:
+          id: 'navigation'
 
         # Pages
         page:
@@ -101,7 +103,6 @@ module.exports =
   # PostCSS
   postcss:
     use: [
-      # normalize(),
       autoprefixer({ browsers: ['last 2 versions'] }),
       mqpacker()
     ]

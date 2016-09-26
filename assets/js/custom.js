@@ -85,6 +85,13 @@ $(".Btn" ).click( function() {
   toggleState( $( this ), "is-on" );
 });
 
+/* Nav menu accordion
+========================================================================== */
+
+$( ".Nav-offCanvasMenuCat" ).click( function(){
+  toggleState( $( this ), "is-closed" );
+});
+
 /* Slick carousel
 ========================================================================== */
 

@@ -10,10 +10,6 @@
 /* Main
 ========================================================================== */
 
-// html.is-noScroll
-//   overflow hidden
-//   margin-right 5rem
-
 .Nav
   
   left 0
@@ -151,3 +147,39 @@
     
     &-inner
       min-height 125%
+      
+    &Menu
+      // margin-top 2rem
+      
+      > li
+        border-bottom 1px solid rgba( #FFF,.2 )
+      
+      &Cat
+        @extend .l-FlexRowNowrap
+
+        &.is-closed
+          
+          & + .Nav-offCanvasMenuSubCats
+            @extend .l-Offscreen
+            
+          & > .Nav-offCanvasMenuCatToggle
+            &::after
+              @extend .ion-md-arrow-dropright:before
+        
+        > a
+        &Toggle
+          padding .5rem 1rem
+
+        > a
+          width 85%
+
+        &Toggle
+          position relative
+          width 15%
+          border-left 1px solid rgba( #FFF,.2 )
+          
+          &::after
+            @extend .ion-md-arrow-dropup:before
+            @extend .l-CenterX
+            
+            font-size font-md
