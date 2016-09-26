@@ -22,5 +22,8 @@ nav.Nav
             span.Nav-offCanvasMenuCatToggle
           ul.Nav-offCanvasMenuSubCats
             each $section in $page.fields.sections
-              li= $section.fields.title
+              li
+                a.Nav-offCanvasMenuSubCatsLink( href= $siteURL + "/" +
+                   $page.fields.slug + "/" + "#" +
+                   $section.fields.slug )= $section.fields.title
     

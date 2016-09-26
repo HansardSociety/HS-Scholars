@@ -149,10 +149,11 @@
       min-height 125%
       
     &Menu
-      // margin-top 2rem
-      
       > li
         border-bottom 1px solid rgba( #FFF,.2 )
+        
+        &:first-child
+          border-top 1px solid rgba( #FFF,.2 )
       
       &Cat
         @extend .l-FlexRowNowrap
@@ -172,6 +173,8 @@
 
         > a
           width 85%
+          font-size font-md
+          text-decoration underline
 
         &Toggle
           position relative
@@ -180,6 +183,21 @@
           
           &::after
             @extend .ion-md-arrow-dropup:before
-            @extend .l-CenterX
+            @extend .l-CenterXY
             
             font-size font-md
+            
+      &SubCats
+        border-top 1px solid rgba( #FFF,.2 )
+        
+        &Link
+          display block
+          padding .25rem 1rem
+          text-decoration underline
+
+          &:first-child
+            padding-top .5rem
+          &:last-child
+            padding-bottom .5rem
+          
+
