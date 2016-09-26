@@ -1,9 +1,18 @@
 mixin icon( $fields, $priority )
   .Icon( class= $priority != null ? "Icon--" + $priority : null )
-    .Icon-img
-      img( src= $fields.image.fields.file.url
-           alt= $fields.image.fields.description )
+    
+    if $fields.image
+      .Icon-img
+        img( src= $fields.image.fields.file.url
+             alt= $fields.image.fields.description )
+
+    if $fields.fontIcon
+      .Icon-font( class= "Icon-font--ion-" + $fields.fontIcon )
 
     .Icon-text
-      h3= $fields.title
-      p.Icon-textByline!= $fields.byline.replace( "{% apply-btn-lg %}", $html_ApplyBtnMd )
+      
+      if $fields.title
+        h3= $fields.title
+
+      if $fields.byline
+        p.Icon-textByline!= $fields.byline.replace( "{% apply-btn-lg %}", $html_ApplyBtnMd )

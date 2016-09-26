@@ -1,7 +1,7 @@
 .Icon
   @extend .l-MarginAuto
   
-  min-width 16rem
+  // min-width 16rem
   max-width 16rem
   
   &--secondary
@@ -20,8 +20,16 @@
     box-shadow shadow-copy
 
   &-font
-    
-    // span
+    width 4rem
+    height 4rem
+
+    &::before
+      @extend .l-CenterXY
+      
+      font-size font-md
+
+    /* See "_partials/font-icons.styl" */
+    @import "../_partials/font-icons"
   
   &-img
     width 7.5rem
