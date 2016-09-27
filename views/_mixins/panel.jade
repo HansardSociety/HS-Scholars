@@ -74,10 +74,3 @@ mixin panel( $section, $bgc )
         each $testimonial in $section.fields.alumni
           .Panel-carouselItem
             +testimonial( $testimonial.fields )
-
-    //- //-- Call-to-action --
-    //- if $section.fields.cta && $section.fields.ctaURL
-
-    //-   //-- Link to blog --
-    //-   a.More( href= "/" + $section.fields.ctaURL,
-    //-           title= _str.capitalize( $section.fields.ctaURL ).replace( "-", " " ) )= $section.fields.cta

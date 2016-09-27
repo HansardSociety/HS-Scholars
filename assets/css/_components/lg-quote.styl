@@ -2,7 +2,7 @@
   text-align center
   
   &-text
-    margin-top 7rem
+    margin-top 5rem
 
     color default
     
@@ -15,11 +15,12 @@
     &::before
       @extend .ion-md-quote:before
       
+      display block
+
       /* Flip on y-axis */
       transform scaleX( -1 )
       
       color accent
-      padding-left .5em
 
   &-footer
     +below( md )

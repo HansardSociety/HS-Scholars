@@ -9,7 +9,7 @@
           
           .OffCanvas-cat.is-closed
             
-            a( href= $siteURL + "/" +
+            a( href= "/" +
                      $page.fields.slug )= $page.fields.title
             
             span
@@ -18,9 +18,10 @@
             
             each $section in $page.fields.sections
               li
-
-                a.OffCanvas-item( href= $siteURL + "/" +
-                                  $page.fields.slug + "/" + "#" +
+                
+                //-- =TODO: re-add $siteURL --
+                a.OffCanvas-item( href= "/" +
+                                  $page.fields.slug + "#" +
                                   $section.fields.slug )= $section.fields.title
 
     .OffCanvas-section
