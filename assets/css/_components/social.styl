@@ -1,4 +1,4 @@
-.Share
+.Social
   @extend .l-PosRel
   @extend .l-FlexRowWrap
   
@@ -20,7 +20,6 @@
     width 2rem
     height 2rem
     
-    color accent
     border 2px solid accent
     border-radius 50%
     
@@ -34,15 +33,21 @@
     
     &::before
       @extend .l-CenterXY
+      
+      color accent
 
-    &--email::before
-      @extend .ion-ios-mail:before
-    &--twitter::before
-      @extend .ion-logo-twitter:before
-    &--facebook::before
-      @extend .ion-logo-facebook:before
     &--copy::before
       @extend .ion-md-copy:before
+    &--email::before
+      @extend .ion-ios-mail:before
+    &--facebook::before
+      @extend .ion-logo-facebook:before
+    &--linkedin::before
+      @extend .ion-logo-linkedin:before
+    &--twitter::before
+      @extend .ion-logo-twitter:before
+    &--instagram::before
+      @extend .ion-logo-instagram:before
     &--whatsapp
       +above( md )
         display none

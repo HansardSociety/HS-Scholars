@@ -11,19 +11,4 @@ nav.Nav
     .Nav-hbText Menu
 
   //-- Off canvas --
-  .Nav-offCanvas
-
-    ul.Nav-offCanvasMenu
-    
-      each $page in contentful.navigation[0].pages
-        li
-          .Nav-offCanvasMenuCat.is-closed
-            a( href= $siteURL + "/" + $page.fields.slug )= $page.fields.title
-            span.Nav-offCanvasMenuCatToggle
-          ul.Nav-offCanvasMenuSubCats
-            each $section in $page.fields.sections
-              li
-                a.Nav-offCanvasMenuSubCatsLink( href= $siteURL + "/" +
-                   $page.fields.slug + "/" + "#" +
-                   $section.fields.slug )= $section.fields.title
-    
+  include ./offcanvas

@@ -1,0 +1,47 @@
+mixin social( $title, $text, $anchor )
+  .Social
+    .Social-title= $title
+    
+    //-- Social follow --
+    if $title === "Follow"
+      
+      each $profile in contentful.global[0].social
+        a.Social-icon( class="Social-icon--" + $profile.fields.channel.toLowerCase(),
+                       title="Follow us on " + $profile.fields.channel )
+
+    //-- Social share --
+    if $title === "Share"
+
+      //--
+        - Social text and entry URL, but only append with
+        - nd anchor ID if one is provided (eg. for page blocks).
+        --
+      a.Social-icon.Social-icon--twitter( href= "http://twitter.com/intent/tweet?text=" +
+                                                encodeURIComponent( $text ) +
+                                                "&url=" + encodeURIComponent( $siteURL ) +
+                                                encodeURIComponent( entry._url.replace( ".html", "" ) ) + "/" +
+                                                ( $anchor != null ? "%23" + $anchor : null ) +
+                                                "&via=HansardScholars" )
+
+      a.Social-icon.Social-icon--facebook( href= "https://www.facebook.com/Socialr/Socialr.php?u=" +
+                                                 encodeURIComponent( $siteURL ) +
+                                                 encodeURIComponent( entry._url.replace( ".html", "" ) ) + "/" +
+                                                 ( $anchor != null ? "%23" + $anchor : null ) )
+
+      a.Social-icon.Social-icon--whatsapp( href= "whatsapp://send?text=" +
+                                                 encodeURIComponent( $siteURL ) +
+                                                 encodeURIComponent( entry._url.replace( ".html", "" ) ) + "/" +
+                                                 ( $anchor != null ? "%23" + $anchor : null ),
+                                           data-action="Social/whatsapp/Social" )
+
+      a.Social-icon.Social-icon--email( href= "mailto:?" +
+                                              "&subject=Hansard Society Scholars" +
+                                              "&body=" +
+                                              encodeURIComponent( $siteURL ) +
+                                              encodeURIComponent( entry._url.replace( ".html", "" ) ) + "/" +
+                                              ( $anchor != null ? "%23" + $anchor : null ) )
+
+      span.Social-icon.Social-icon--copy.js-Clipboard( data-clipboard-text= $siteURL +
+                                                                            entry._url.replace( ".html", "" ) + "/" +
+                                                                            ( $anchor != null ? "#" + $anchor : null ) )
+

@@ -52,7 +52,8 @@ $( ".Block-headerContentSummaryCTAsToggle" ).click( function() {
    * Need to call resize and then reset slick dimensions
    * to ensure carousel centres correctly.
    */
-  $( this ).parents( ".Block-header" ).next().find( ".Panel-carousel" ).resize().slick( 'setDimensions' );
+  $( this ).parents( ".Block-header" ).next().find( ".Panel-carousel" )
+    .resize().slick( 'setDimensions' );
 
 });
 
@@ -68,13 +69,13 @@ $( ".Photo-captionOpen" ).click( function(){
 ========================================================================== */
 
 $(".Nav-hb" ).click( function() {
-  toggleState( ".Nav-offCanvas", "is-active" );
+  toggleState( ".OffCanvas", "is-active" );
 
   /* HB animation */
   $( this ).toggleClass( "is-active" );
   
   /* Add class to disable scroll */
-  $( "html" ).toggleClass( "is-noScroll" );
+  $( "body" ).toggleClass( "is-noScroll" );
 });
 
 /* Button actions
@@ -88,7 +89,7 @@ $(".Btn" ).click( function() {
 /* Nav menu accordion
 ========================================================================== */
 
-$( ".Nav-offCanvasMenuCat" ).click( function(){
+$( ".OffCanvas-cat" ).click( function(){
   toggleState( $( this ), "is-closed" );
 });
 
