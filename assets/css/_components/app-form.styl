@@ -1,0 +1,26 @@
+.AppForm
+  z-index 99999999
+  display none
+  position fixed
+  width 95%
+  height 95%
+  left 2.5%
+  top 2.5%
+  
+  &.is-open
+    display block
+    
+  &-close
+    position absolute
+    top 0
+    right -1px
+    width 2rem
+    height 2rem
+    background-color copy
+    color canvas
+    cursor pointer
+    border-bottom-left-radius 2px
+    
+    &::after
+      @extend .ion-md-close:before
+      @extend .l-CenterXY

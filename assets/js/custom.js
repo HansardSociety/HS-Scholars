@@ -32,6 +32,20 @@ $( "body" ).click( function( e ){
   }
 });
 
+/* Launch application form
+========================================================================== */
+
+$( ".Btn-action--apply" ).parents( ".Btn" ).click( function() {
+  
+  // toggleState( ".Author-biog", "is-closed" );
+  $( ".AppForm" ).addClass( "is-open" );
+  $( "body" ).addClass( "is-noScroll" );
+});
+
+$( ".AppForm-close" ).click( function() {
+  $( ".AppForm" ).removeClass( "is-open" );
+});
+
 /* Block expand
 ========================================================================== */
 
