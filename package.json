@@ -21,6 +21,7 @@
     "picturefill": "*",
     "postcss": "^5.1.2",
     "postcss-normalize": "^0.3.0",
+    "roots": "^5.0.0",
     "roots-contentful": "0.0.9",
     "rupture": "0.6.x",
     "slick-carousel": "*",
