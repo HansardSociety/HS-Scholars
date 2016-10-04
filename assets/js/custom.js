@@ -44,6 +44,7 @@ $( ".Btn-action--apply" ).parents( ".Btn" ).click( function() {
 
 $( ".AppForm-close" ).click( function() {
   $( ".AppForm" ).removeClass( "is-open" );
+  $( "body" ).removeClass( "is-noScroll" );
 });
 
 /* Block expand
