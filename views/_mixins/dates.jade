@@ -12,3 +12,7 @@ mixin dates( $fields )
     
     dt Deadline
     dd= moment( $fields.deadline ).format( 'D MMMM, YYYY' )
+    
+    if _.contains( entry.url, "admissions" )
+      dt Fees
+      dd= $fields.fees
