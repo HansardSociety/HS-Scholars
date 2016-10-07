@@ -33,4 +33,4 @@ mixin datesTable( $fields )
               if $date.fields.title.indexOf( $semester ) > -1
                 td
                   .Table-bodyCell.Table-bodyCell--main
-                    +dates( $date.fields )
+                    +dates( $date.fields, true )
