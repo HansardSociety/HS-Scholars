@@ -1,4 +1,4 @@
-mixin dates( $fields )
+mixin dates( $fields, $fees )
   dl.Dates
     
     dt Start
@@ -13,6 +13,6 @@ mixin dates( $fields )
     dt Deadline
     dd= moment( $fields.deadline ).format( 'D MMMM, YYYY' )
     
-    if _.contains( entry.url, "admissions" )
+    if $fees != null
       dt Fees
       dd= $fields.fees

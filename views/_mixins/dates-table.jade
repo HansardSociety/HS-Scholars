@@ -1,4 +1,7 @@
+- var $semesters = [ "Spring", "Summer", "Autumn" ]
+
 mixin datesTable( $fields )
+
   .OFx
     table.Table
       
@@ -19,38 +22,15 @@ mixin datesTable( $fields )
 
       tbody.Table-body
 
-        //-- Spring --
-        tr
-          th
-            .Table-bodyCell.Table-bodyCell--header Spring
+        each $semester in $semesters       
 
-          each $date in $fields.dates
-            
-            if $date.fields.title.indexOf( "Spring" ) > -1
-              td
-                .Table-bodyCell.Table-bodyCell--main
-                  +dates( $date.fields )
-        
-        //-- Summer --
-        tr
-          th
-            .Table-bodyCell.Table-bodyCell--header Summer
+          tr
+            th
+              .Table-bodyCell.Table-bodyCell--header= $semester
 
-          each $date in $fields.dates
-            
-            if $date.fields.title.indexOf( "Summer" ) > -1
-              td
-                .Table-bodyCell.Table-bodyCell--main
-                  +dates( $date.fields )
-        
-        //-- Autumn --
-        tr
-          th
-            .Table-bodyCell.Table-bodyCell--header Autumn
-
-          each $date in $fields.dates
-            
-            if $date.fields.title.indexOf( "Autumn" ) > -1
-              td
-                .Table-bodyCell.Table-bodyCell--main
-                  +dates( $date.fields )
+            each $date in $fields.dates
+              
+              if $date.fields.title.indexOf( $semester ) > -1
+                td
+                  .Table-bodyCell.Table-bodyCell--main
+                    +dates( $date.fields )

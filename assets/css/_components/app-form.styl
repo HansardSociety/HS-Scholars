@@ -1,14 +1,17 @@
 .AppForm
   z-index 99999999
-  display none
   position fixed
   width 95%
   height 95%
   left 2.5%
   top 2.5%
+  box-shadow shadow-copy
+  transform translateY( 120vh )
+  transition transform .4s ease
+  background-color canvas
   
   &.is-open
-    display block
+    transform translateY( 0 )
     
   &-close
     position absolute
