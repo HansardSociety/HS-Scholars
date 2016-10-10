@@ -104,8 +104,8 @@ $(".Btn" ).click( function() {
 /* Nav menu accordion
 ========================================================================== */
 
-$( ".OffCanvas-cat" ).click( function(){
-  toggleState( $( this ), "is-closed" );
+$( ".OffCanvas-cat > span" ).click( function(){
+  toggleState( $( this ).parent( ".OffCanvas-cat" ), "is-closed" );
 });
 
 /* Slick carousel
