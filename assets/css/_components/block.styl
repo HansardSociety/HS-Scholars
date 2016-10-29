@@ -21,14 +21,6 @@
     margin-top -.75rem
     
   &--hero
-    min-height 100vh
-    
-    /**
-     * Fixes hero image height jump on mobiles
-     * when the address bar disappears on
-     * a downward scroll.
-     */
-    transition all 9999s ease
     
     /**
      * Override default backround for hero images.
@@ -42,16 +34,41 @@
      * approx height. Prevents container size jump
      * on Android Chrome caused by address bar.
      */
-    @media ( min-aspect-ratio: 9/16 ) and ( orientation: portrait )
+    
+    /**
+     * Portrait:
+     *
+     * This has been used in-stead of defining separate aspect-ratios
+     * (eg. landscape below) because Android seems to calculate this 
+     * as the browser viewport (which changes as the address bar disappears),
+     * not the device screen, as opposed to iOS. It therefore makes more
+     * sense to define a portrait device generally than calculate the
+     * changing min-aspect-ratio on Android.    
+     *
+     * This is based on 16/9 aspect-ratio, which has the 'widest'
+     * aspect-ratio, a lower overall ratio, and therefore
+     * results in a higher value when dividing (ie. 16 / 9 = 1.778).
+     * The higher value ensures the min-height (when multiplied by 100)
+     * will always at least fill the height of the viewport, and only spill
+     * over slightly on higher ratios, eg. an iPad.
+     */
+    @media ( orientation: portrait )
       min-height calc( ( 100vw * 1.778 ) + 64px )
-    @media ( min-aspect-ratio: 10/16 ) and ( orientation: portrait )
-      min-height calc( ( 100vw * 1.6 ) + 64px )
+
+    
+    /**
+     * Landscape:
+     * General lanscape fallback used for 4/3 etc screens. Calculation
+     * based on 16/10 aspect-ration, though in landscape the division
+     * is reversed, eg. 10 / 16 = .625, which is higher than 9 / 16.
+     */
+    @media ( orientation: landscape )
+      min-height calc( ( 100vw * .625 ) + 64px )
+    @media ( min-aspect-ratio: 16/9 ) and ( orientation: landscape )
+      min-height calc( ( 100vw * .5625 ) + 64px )
 
   &-heroImg
     @extend .l-CenterX
-    
-    width 100%
-    height 100%
     
     &::after
       content ""
@@ -63,15 +80,20 @@
       height 100%
       background-color rgba( #000,.66 )
 
-    > img    
-      height 100%
-      width auto
+    > img
       
-      @media ( min-aspect-ratio: 9/16 ) and ( orientation: portrait )
-        max-height calc( ( 100vw * 1.778 ) + 64px )
-      @media ( min-aspect-ratio: 10/16 ) and ( orientation: portrait )
-        max-height calc( ( 100vw * 1.6 ) + 64px )
+      /* Aspect-ratio vh hack (reflects above) */
+        
+      /* Portrait */
+      @media ( orientation: portrait )
+        height calc( ( 100vw * 1.778 ) + 64px )
       
+      /* Landscape */
+      @media ( orientation: landscape )
+        height calc( ( 100vw * .625 ) + 64px )
+      @media ( min-aspect-ratio: 16/9 ) and ( orientation: landscape )
+        height calc( ( 100vw * .5625 ) + 64px )
+                    
   /* Header */
   &-header
     @extend .l-Container
