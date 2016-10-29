@@ -36,6 +36,17 @@
     > .Block-header
       background-color transparent
     
+    /**
+     * View height hack:
+     * Height of aspect ratio * 100 gives
+     * approx height. Prevents container size jump
+     * on Android Chrome caused by address bar.
+     */
+    @media ( min-aspect-ratio: 9/16 ) and ( orientation: portrait )
+      min-height calc( ( 100vw * 1.778 ) + 64px )
+    @media ( min-aspect-ratio: 10/16 ) and ( orientation: portrait )
+      min-height calc( ( 100vw * 1.6 ) + 64px )
+
   &-heroImg
     @extend .l-CenterX
     
@@ -50,23 +61,16 @@
       left 0
       width 100%
       height 100%
-      
-      +portrait()
-        background-image linear-gradient(
-                          to bottom, rgba( #000,.66 ) 50%, transparent
-                         )
-      +landscape()
-        background-image linear-gradient(
-                          to bottom, rgba( #000,.66 ), transparent
-                         )
+      background-color rgba( #000,.66 )
 
     > img    
       height 100%
       width auto
-
-      @media ( min-aspect-ratio: 16/9 ), ( min-aspect-ratio: 16/10 )
-        width 100%
-        height auto
+      
+      @media ( min-aspect-ratio: 9/16 ) and ( orientation: portrait )
+        max-height calc( ( 100vw * 1.778 ) + 64px )
+      @media ( min-aspect-ratio: 10/16 ) and ( orientation: portrait )
+        max-height calc( ( 100vw * 1.6 ) + 64px )
       
   /* Header */
   &-header
