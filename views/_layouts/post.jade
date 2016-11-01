@@ -33,7 +33,7 @@ block siteBody
         h2.Post-contentFooterTitle More
 
         //-- Blog snippets --
-        each $snippet in contentful.post.slice( 0,2 )
+        each $snippet in contentful.post.reverse().slice( 0,2 )
           
           //--
             - Only display post snippets that aren't
