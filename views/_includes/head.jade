@@ -1,10 +1,14 @@
 head
+
+  //- Google Analytics
+  | !{ contentful.global[0].metaGoogleAnalytics }
+
   meta( charset='utf8' )
   meta( http-equiv='X-UA-Compatible', content='IE=edge, chrome=1' )
   meta( name="description", content="Live, work and study in the heart of London, at the centre of British politics." )
   meta( name="author", content= "Hansard Society Scholars" )
   meta( name="viewport" content="width=device-width, initial-scale=1" )
-  
+
   title= entry.slug.indexOf( "index" ) > -1 ? "Hansard Society Scholars" : "Hansard Society Scholars | " + entry.title
 
   //-- Styles --

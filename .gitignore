@@ -1,6 +1,10 @@
-.DS_Store
-node_modules
-public
-hs-scholars.sublime-workspace
+# Folders
+node_modules/
+public/
 gitrepos/**
 !gitrepos/.gitrepos
+
+# Files
+.DS_Store
+hs-scholars.sublime-workspace
+package-lock.json

@@ -1,6 +1,10 @@
 {
   "name": "hansard-society-scholars",
   "description": "Hansard Society Scholars website, built with Roots",
+  "scripts": {
+    "start": "roots watch",
+    "build": "roots compile"
+  },
   "dependencies": {
     "autoprefixer": "^6.4.0",
     "clipboard": "^1.5.12",
