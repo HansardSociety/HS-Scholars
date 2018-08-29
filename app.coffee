@@ -1,23 +1,26 @@
 # Modules
 # ======================================================================
 
-autoprefixer      = require 'autoprefixer'
-contentful        = require 'contentful'
-css_pipeline      = require 'css-pipeline'
-js_pipeline       = require 'js-pipeline'
-marked            = require 'marked'
-moment            = require 'moment'
-roots_contentful  = require 'roots-contentful'
-rupture           = require 'rupture'
-_                 = require 'underscore'
-_str              = require 'underscore.string'
+autoprefixer = require 'autoprefixer'
+contentful = require 'contentful'
+css_pipeline = require 'css-pipeline'
+js_pipeline = require 'js-pipeline'
+marked = require 'marked'
+moment = require 'moment'
+roots_contentful = require 'roots-contentful'
+rupture = require 'rupture'
+_ = require 'underscore'
+_str = require 'underscore.string'
 
-S                 = require 'string'
+S = require 'string'
+
+dotenv = require 'dotenv'
+dotenv.config()
 
 # PostCSS
-postcss           = require 'postcss'
-mqpacker          = require 'css-mqpacker'
-normalize         = require 'postcss-normalize'
+postcss = require 'postcss'
+mqpacker = require 'css-mqpacker'
+normalize = require 'postcss-normalize'
 
 # Roots extensions
 # ======================================================================
@@ -25,22 +28,24 @@ normalize         = require 'postcss-normalize'
 module.exports =
   open_browser: false
 
-  ignores: [  'README.md'
-              'LICENSE.md'
-              '_*/**'
-              '**/_*'
-              '**/_*/**'
-              'assets/data'
-              'assets/data/**.json'
-              '.gitignore'
-              'ship.*conf'
-              'gitrepos'
-              'gitrepos/**'
-              '.gitrepos'
-              '.todo'
-              '*.sublime-project'
-              'readme.*'
-              'license.*'  ]
+  ignores: [
+    'README.md'
+    'LICENSE.md'
+    '_*/**'
+    '**/_*'
+    '**/_*/**'
+    'assets/data'
+    'assets/data/**.json'
+    '.gitignore'
+    'ship.*conf'
+    'gitrepos'
+    'gitrepos/**'
+    '.gitrepos'
+    '.todo'
+    '*.sublime-project'
+    'readme.*'
+    'license.*'
+  ]
 
   extensions: [
 
@@ -67,9 +72,9 @@ module.exports =
     # Roots Contentful
     # - See https://github.com/carrot/roots-contentful/
     roots_contentful
-      access_token: '6c404dda6824966de73ce325c809fe882a7b72d9bca7788fc11909ad06600936'
-      space_id: '1h0bn91992u7'
-      
+      access_token: if process.env.CONTENTFUL_ENV == "production" then process.env.CFUL_LIVE_KEY else process.env.CFUL_PREVIEW_KEY
+      space_id: process.env.CFUL_SPACE_ID
+
       content_types:
 
         # Core
@@ -109,7 +114,7 @@ module.exports =
 
 # HTML
 # ======================================================================
-  
+
   # Jade
   jade:
     pretty: false
@@ -138,7 +143,7 @@ module.exports =
         smartLists: true,
         smartypants: false
       });
-    
+
     moment: moment
     _: _
     _str: _str
