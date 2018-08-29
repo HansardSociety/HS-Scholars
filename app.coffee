@@ -45,6 +45,8 @@ module.exports =
     '*.sublime-project'
     'readme.*'
     'license.*'
+    '.editorconfig'
+    'package-lock.json'
   ]
 
   extensions: [
