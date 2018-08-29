@@ -8,43 +8,40 @@
   - Allows default variable to be appended locally in different views.
   - EG.
     block append site_title
-      var title = "Projects - My Cool Project";    
+      var title = "Projects - My Cool Project";
   --
 block site_config
-  
+
   //-- Config --
   include ../_config/config
 
 doctype html
 html
-  
+
   //-- Head --
   include ../_includes/head
-    
+
   body
-    
-    //-- Google Analytics --
-    include ../_includes/ga
 
     main.SW
-      
-      //-- Navbar --        
+
+      //-- Navbar --
       include ../_includes/nav
 
       article
-        
+
         //--
           - Conditionals for page header-types:
           - Hero header or title header
           - Condition is taken from local page variable.
           - See eg. 'project.jade'
           --
-        
+
         include ../_includes/hero
 
         //-- Page content --
         block siteBody
-      
+
       //-- Application form (iframe) --
       include ../_includes/app-form
 
