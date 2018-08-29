@@ -8,3 +8,4 @@ gitrepos/**
 .DS_Store
 hs-scholars.sublime-workspace
 package-lock.json
+.env
