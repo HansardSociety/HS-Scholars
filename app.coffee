@@ -1,6 +1,3 @@
-# Modules
-# ======================================================================
-
 autoprefixer = require 'autoprefixer'
 contentful = require 'contentful'
 css_pipeline = require 'css-pipeline'
@@ -21,6 +18,12 @@ dotenv.config()
 postcss = require 'postcss'
 mqpacker = require 'css-mqpacker'
 normalize = require 'postcss-normalize'
+
+# Vars
+isDev = process.env.NODE_ENV == "development"
+isProd = process.env.NODE_ENV == "production"
+isPreview = process.env.NODE_ENV == "preview"
+
 
 # Roots extensions
 # ======================================================================
@@ -73,8 +76,9 @@ module.exports =
     # Roots Contentful
     # - See https://github.com/carrot/roots-contentful/
     roots_contentful
-      access_token: if process.env.CONTENTFUL_ENV == "production" then process.env.CFUL_LIVE_KEY else process.env.CFUL_PREVIEW_KEY
+      access_token: if isProd then process.env.CFUL_LIVE_KEY else process.env.CFUL_PREVIEW_KEY
       space_id: process.env.CFUL_SPACE_ID
+      preview: if isProd then false else true
 
       content_types:
 
