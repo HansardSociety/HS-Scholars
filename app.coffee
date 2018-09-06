@@ -29,24 +29,23 @@ module.exports =
   open_browser: false
 
   ignores: [
-    'README.md'
-    'LICENSE.md'
     '_*/**'
     '**/_*'
     '**/_*/**'
-    'assets/data'
-    'assets/data/**.json'
+    '*.sublime-project'
+    '.editorconfig'
+    '.env'
     '.gitignore'
-    'ship.*conf'
-    'gitrepos'
-    'gitrepos/**'
     '.gitrepos'
     '.todo'
-    '*.sublime-project'
-    'readme.*'
+    'assets/data'
+    'assets/data/**.json'
+    'gitrepos'
+    'gitrepos/**'
     'license.*'
-    '.editorconfig'
     'package-lock.json'
+    'readme.*'
+    'ship.*conf'
   ]
 
   extensions: [

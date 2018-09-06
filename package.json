@@ -2,9 +2,10 @@
   "name": "hansard-society-scholars",
   "description": "Hansard Society Scholars website, built with Roots",
   "scripts": {
-    "start": "CONTENTFUL_ENV=develop roots watch",
-    "build": "CONTENTFUL_ENV=production roots compile",
-    "preview": "CONTENTFUL_ENV=develop roots compile"
+    "clean": "rimraf ./public/**",
+    "start": "npm run clean && CONTENTFUL_ENV=develop roots watch",
+    "build": "npm run clean && CONTENTFUL_ENV=production roots compile",
+    "preview": "npm run clean && CONTENTFUL_ENV=develop roots compile"
   },
   "dependencies": {
     "autoprefixer": "^6.4.0",
@@ -37,6 +38,7 @@
     "velocity-animate": "^1.2.3"
   },
   "devDependencies": {
-    "dotenv": "^6.0.0"
+    "dotenv": "^6.0.0",
+    "rimraf": "^2.6.2"
   }
 }
