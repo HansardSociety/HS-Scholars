@@ -1,53 +1,58 @@
 .Icon
   @extend .l-MarginAuto
-  
+
   // min-width 16rem
   max-width 16rem
-  
+
   &--secondary
     > .Icon-text
       font-size font-xs
-  
-  &-font
-  &-img
-    @extend .l-MarginAuto
-    
-    position relative
-    padding 1rem
-    
-    background-color rgba( muted,.5 )
-    border-radius 50%
-    box-shadow shadow-copy
 
-  &-font
-    width 4rem
-    height 4rem
+// Shared
+.Icon-font
+.Icon-img
+  @extend .l-MarginAuto
 
-    &::before
-      @extend .l-CenterXY
-      
-      font-size font-md
+  position relative
+  padding 1rem
 
-    /* See "_partials/font-icons.styl" */
-    @import "../_partials/font-icons"
-  
-  &-img
-    width 7.5rem
-    height 7.5rem
-    
-    > img
-      @extend .l-CenterXY
-      
-      width 100%
-      padding 2rem
-      
-  &-text
-    @extend .l-MarginTop
+  background-color rgba( muted,.5 )
+  border-radius 50%
+  box-shadow shadow-copy
 
-    text-align center
-    
-    &Byline
-      font-size inherit
+// Font
+.Icon-font
+  width 4rem
+  height 4rem
 
-      > button
-        margin .5em auto 0
+  // See "_partials/font-icons.styl"
+  @import "../_partials/font-icons"
+
+  &::before
+    @extend .l-CenterXY
+
+    font-size font-md
+
+// Image
+.Icon-img
+  width 7.5rem
+  height 7.5rem
+
+  > img
+    @extend .l-CenterXY
+
+    width 100%
+    padding 2rem
+
+// Text
+.Icon-text
+  @extend .l-MarginTop
+
+  text-align center
+
+// Text byline
+.Icon-textByline
+  font-size inherit
+
+  > button
+    margin .5em auto 0

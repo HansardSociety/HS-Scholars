@@ -1,6 +1,3 @@
-# Modules
-# ======================================================================
-
 autoprefixer = require 'autoprefixer'
 contentful = require 'contentful'
 css_pipeline = require 'css-pipeline'
@@ -22,6 +19,12 @@ postcss = require 'postcss'
 mqpacker = require 'css-mqpacker'
 normalize = require 'postcss-normalize'
 
+# Vars
+isDev = process.env.NODE_ENV == "development"
+isProd = process.env.NODE_ENV == "production"
+isPreview = process.env.NODE_ENV == "preview"
+
+
 # Roots extensions
 # ======================================================================
 
@@ -29,24 +32,23 @@ module.exports =
   open_browser: false
 
   ignores: [
-    'README.md'
-    'LICENSE.md'
     '_*/**'
     '**/_*'
     '**/_*/**'
-    'assets/data'
-    'assets/data/**.json'
+    '*.sublime-project'
+    '.editorconfig'
+    '.env'
     '.gitignore'
-    'ship.*conf'
-    'gitrepos'
-    'gitrepos/**'
     '.gitrepos'
     '.todo'
-    '*.sublime-project'
-    'readme.*'
+    'assets/data'
+    'assets/data/**.json'
+    'gitrepos'
+    'gitrepos/**'
     'license.*'
-    '.editorconfig'
     'package-lock.json'
+    'readme.*'
+    'ship.*conf'
   ]
 
   extensions: [
@@ -74,8 +76,9 @@ module.exports =
     # Roots Contentful
     # - See https://github.com/carrot/roots-contentful/
     roots_contentful
-      access_token: if process.env.CONTENTFUL_ENV == "production" then process.env.CFUL_LIVE_KEY else process.env.CFUL_PREVIEW_KEY
+      access_token: if isProd then process.env.CFUL_LIVE_KEY else process.env.CFUL_PREVIEW_KEY
       space_id: process.env.CFUL_SPACE_ID
+      preview: if isProd then false else true
 
       content_types:
 
@@ -126,7 +129,7 @@ module.exports =
 
   # Coffeescript
   'coffee-script':
-    sourcemap: true
+    sourcemap: if isProd then false else true
 
   # Local server settings (gh.com/caret/charge)
   server:
