@@ -1,6 +1,7 @@
 # Folders
 node_modules/
-public/
+public/**
+!public/.keep
 gitrepos/**
 !gitrepos/.gitrepos
 
