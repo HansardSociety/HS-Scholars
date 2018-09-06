@@ -16,7 +16,7 @@ mixin block( $fields )
                                    null )
 
         h2= $fields.title
-        
+
         //-- Header text --
         .Block-headerContentSummary
           p= $fields.introText.replace(/\.$/, "") + "…"
@@ -33,7 +33,7 @@ mixin block( $fields )
                        "md",
                        "showMore",
                        "Show more" )
-        
+
         //--
           - Header aside:
           - Yield block for assets/ content specified
@@ -42,14 +42,14 @@ mixin block( $fields )
         if $fields.introAside
 
           aside.Block-headerContentAside
-            
-            //-- Small quote --            
+
+            //-- Small quote --
             if $fields.introAside.sys.contentType.sys.id === "alumni"
               +smQuote( $fields.introAside.fields )
-            
+
             //-- Programme dates --
             if $fields.introAside.sys.contentType.sys.id === "dates"
-  
+
               h3
                 span.InlineIcon.InlineIcon--calendar
                 span= $fields.introAsideTitle
@@ -62,6 +62,10 @@ mixin block( $fields )
                          "apply",
                          "Apply now" )
 
+            //-- Icon --
+            if $fields.introAside.sys.contentType.sys.id === "icons"
+              +icon( $fields.introAside.fields, null )
+
     //--
       - Expandable content:
       - Opened by button in header text above.
@@ -70,7 +74,7 @@ mixin block( $fields )
 
       //-- Content --
       section.Block-expandContent
-        
+
         each $panel in $fields.panels
 
           +panel( $panel, "flow" )
