@@ -129,7 +129,7 @@ module.exports =
 
   # Coffeescript
   'coffee-script':
-    sourcemap: true
+    sourcemap: if isProd then false else true
 
   # Local server settings (gh.com/caret/charge)
   server:
