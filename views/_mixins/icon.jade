@@ -1,6 +1,6 @@
 mixin icon( $fields, $priority )
   .Icon( class= $priority != null ? "Icon--" + $priority : null )
-    
+
     if $fields.image
       .Icon-img
         img( src= $fields.image.fields.file.url
@@ -10,7 +10,7 @@ mixin icon( $fields, $priority )
       .Icon-font( class= "Icon-font--ion-" + $fields.fontIcon )
 
     .Icon-text
-      
+
       if $fields.title
         h3= $fields.title
 
