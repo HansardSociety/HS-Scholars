@@ -1,12 +1,13 @@
 mixin social( $title, $text, $anchor )
   .Social
     .Social-title= $title
-    
+
     //-- Social follow --
     if $title === "Follow"
-      
+
       each $profile in contentful.global[0].social
         a.Social-icon( class="Social-icon--" + $profile.fields.channel.toLowerCase(),
+                       href= $profile.fields.url
                        title="Follow us on " + $profile.fields.channel )
 
     //-- Social share --
