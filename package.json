@@ -4,8 +4,10 @@
   "scripts": {
     "clean": "rimraf ./public/**",
     "start": "NODE_ENV=development npm run clean && roots watch",
-    "prod": "NODE_ENV=production npm run clean && roots compile",
-    "preview": "NODE_ENV=preview npm run clean && roots compile"
+    "prod": "NODE_ENV=production roots compile",
+    "prod:clean": "NODE_ENV=production npm run clean && roots compile",
+    "preview": "NODE_ENV=preview roots compile",
+    "preview:clean": "NODE_ENV=preview npm run clean && roots compile"
   },
   "dependencies": {
     "autoprefixer": "^6.4.0",
