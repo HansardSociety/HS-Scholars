@@ -76,9 +76,12 @@ module.exports =
     # Roots Contentful
     # - See https://github.com/carrot/roots-contentful/
     roots_contentful
-      access_token: if isProd then process.env.CFUL_LIVE_KEY else process.env.CFUL_PREVIEW_KEY
-      space_id: process.env.CFUL_SPACE_ID
-      preview: if isProd then false else true
+      # access_token: if isProd then process.env.CFUL_LIVE_KEY else process.env.CFUL_PREVIEW_KEY
+      # space_id: process.env.CFUL_SPACE_ID
+      # preview: if isProd then false else true
+      access_token: "6c404dda6824966de73ce325c809fe882a7b72d9bca7788fc11909ad06600936"
+      space_id: "1h0bn91992u7"
+      # preview: if isProd then false else true
 
       content_types:
 
